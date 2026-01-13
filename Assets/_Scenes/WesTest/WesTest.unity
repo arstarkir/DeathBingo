@@ -539,10 +539,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
   - {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}
   - {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
-  instructions:
-  - {fileID: 11400000, guid: 37fb414bac49ae643b83f2075befc281, type: 2}
-  - {fileID: 11400000, guid: e80a6a10cace19b4fa7341ca03444bba, type: 2}
-  sequenceLength: 5
+  - {fileID: 11400000, guid: 1250b3fbe568426428115e6ebb3b8628, type: 2}
+  instructions: []
+  sequenceLength: 10
   randomizedAttacks: []
   curAttackId: 0
 --- !u!1 &730954277
