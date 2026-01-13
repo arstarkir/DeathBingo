@@ -3,7 +3,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BasicAttack", menuName = "SO/BasicAttack")]
 public class AttackSO : ScriptableObject
 {
+    public enum AttackType // enum for kind of attack, determines what it can overlap with
+    {
+        Primary, // can't be interrupted by another primary
+        Modifier,
+    }
+
     public GameObject attackPref;
+    public AttackType attackType;
     [HideInInspector] public GameObject temp;
 
     public virtual void StartAttack(GameObject attackHolder)
@@ -14,13 +21,16 @@ public class AttackSO : ScriptableObject
 
     public virtual void EndAttack()
     {
-        if(temp != null)
+        if (temp != null)
             Destroy(temp);
-        if (EnemyAttackSelection.instance != null)
+        if (attackType == AttackType.Primary)
         {
-            EnemyAttackSelection.instance.isInAttack = false;
-            return;
+            if (EnemyAttackSelection.instance != null)
+            {
+                EnemyAttackSelection.instance.isInAttack = false;
+                return;
+            }
+            TestEnemyAttackSequencing.instance.isInAttack = false;
         }
-        TestEnemyAttackSequencing.instance.isInAttack = false;
     }
 }

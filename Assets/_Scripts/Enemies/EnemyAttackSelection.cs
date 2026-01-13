@@ -31,7 +31,6 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     IEnumerator StartDelay(float time)
     {
         yield return new WaitForSeconds(time);
-        isInAttack = true;
         StartCoroutine(Spawning());
     }
 
@@ -40,11 +39,21 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     {
         while (curAttackId < randomizedAttacks.Count)
         {
+            if (randomizedAttacks[curAttackId].attackType == AttackSO.AttackType.Primary)
+            {
+                if (isInAttack)
+                {
+                    yield return new WaitUntil(() => !isInAttack);
+                }
+                isInAttack = true;
+            }
+            else if (curAttackId > 0)
+            {
+                yield return new WaitForSeconds(attackDelay);
+            }
             curAttack = Instantiate(randomizedAttacks[curAttackId]);
             curAttack.StartAttack(attackHolder);
             curAttackId++;
-            isInAttack = true;
-            yield return new WaitForSeconds(attackDelay);
         }
         this.enabled = false;
     }
