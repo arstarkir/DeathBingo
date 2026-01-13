@@ -16,6 +16,11 @@ public class AttackSO : ScriptableObject
     {
         if(temp != null)
             Destroy(temp);
+        if (EnemyAttackSelection.instance != null)
+        {
+            EnemyAttackSelection.instance.isInAttack = false;
+            return;
+        }
         TestEnemyAttackSequencing.instance.isInAttack = false;
     }
 }

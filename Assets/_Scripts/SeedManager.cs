@@ -1,0 +1,92 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class SeedManager : Singleton<SeedManager>
+{
+    public int currentSeed { get; private set; }   // number for current seed
+    public System.Random rng { get; private set; } // rng value determined by seed (aka what is actually used)
+
+    // get a new random seed (from 0 to max int)
+    public void GenerateSeed()
+    {
+        currentSeed = UnityEngine.Random.Range(0, int.MaxValue);
+        rng = new System.Random(currentSeed);
+    }
+
+    // setter for current seed
+    public void SetSeed(int seed)
+    {
+        currentSeed = seed;
+        rng = new System.Random(currentSeed);
+    }
+
+    // send in a list of attacks, the num of attacks to pick, and a list of any attack instructions.  Get back a list of randomized attacks
+    public List<AttackSO> RandomizeAttacks(List<AttackSO> attacks, int length, List<AttackInstructions> instructions)
+    {
+        List<AttackSO> newList = new List<AttackSO>();
+        AttackInstructions previousInstruction = null;
+
+        for (int i = 0; i < length; i++)
+        {
+            AttackInstructions currentInstruction;
+
+            if ((previousInstruction != null) && (previousInstruction.required.Count) > 0) // if there are required attacks from the last one
+            {
+                int index = rng.Next(previousInstruction.required.Count);
+                AttackSO nextAttack = previousInstruction.required[index];
+
+                currentInstruction = instructions.FirstOrDefault(r => r.attack == nextAttack); // this is probably a lazy/ineffecient way of doing this, will likely be changed
+                if (currentInstruction == null) // if there are no instructions, you just assume any attack can follow and nothing is required
+                {
+                    currentInstruction = ScriptableObject.CreateInstance<AttackInstructions>();
+                    currentInstruction.attack = nextAttack;
+                    currentInstruction.banned = new List<AttackSO>();
+                    currentInstruction.required = new List<AttackSO>();
+                }
+            }
+            else // there are no required attacks
+            {
+                AttackSO newAttack;
+                if (previousInstruction != null && previousInstruction.banned.Count > 0) // if stuff is banned
+                {
+                    List<AttackSO> valid = new List<AttackSO>();
+                    foreach (var attack in attacks)
+                    {
+                        if (previousInstruction.banned.Contains(attack))
+                        {
+                            continue;
+                        }
+                        valid.Add(attack);
+                    }
+
+                    if (valid.Count == 0) // if everything is banned (doubt this would ever be the case) allow anything
+                    {
+                        valid = new List<AttackSO>(attacks);
+                    }
+
+                    int index = rng.Next(valid.Count);
+                    newAttack = valid[index];
+                }
+                else // if nothing is banned
+                {
+                    int index = rng.Next(attacks.Count);
+                    newAttack = attacks[index];
+                }
+
+                currentInstruction = instructions.FirstOrDefault(r => r.attack == newAttack); // again, using this lazy method to find the attacks instructions and making a blank one if there is none
+                if (currentInstruction == null)
+                {
+                    currentInstruction = ScriptableObject.CreateInstance<AttackInstructions>();
+                    currentInstruction.attack = newAttack;
+                    currentInstruction.banned = new List<AttackSO>();
+                    currentInstruction.required = new List<AttackSO>();
+                }
+            }
+            newList.Add(currentInstruction.attack);
+            previousInstruction = currentInstruction;
+        }
+        return newList;
+    }
+}
