@@ -481,7 +481,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578303695}
-  - component: {fileID: 578303696}
   - component: {fileID: 578303698}
   - component: {fileID: 578303697}
   m_Layer: 0
@@ -508,27 +507,6 @@ Transform:
   - {fileID: 1059363631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &578303696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578303694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ebedd9376b300c4491eb02c7b8e7764, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestEnemyAttackSequencing
-  startDelay: 5
-  attackHolder: {fileID: 328428734}
-  isInAttack: 0
-  attacks:
-  - {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
-  - {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
-  - {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
-  - {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}
-  curAttackId: 0
 --- !u!114 &578303697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,8 +531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bb079a7ec08bc47b89401593de8662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackSelection
-  seedManager: {fileID: 578303697}
   startDelay: 5
+  attackDelay: 3
   attackHolder: {fileID: 328428734}
   isInAttack: 0
   attacks:

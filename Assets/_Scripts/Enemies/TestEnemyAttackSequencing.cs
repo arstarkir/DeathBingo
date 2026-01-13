@@ -29,10 +29,7 @@ public class TestEnemyAttackSequencing : Singleton<TestEnemyAttackSequencing>
         if (isInAttack)
             return;
         if(curAttackId >= attacks.Count)
-        {
             this.enabled = false;
-            return;
-        }
         curAttack = Instantiate(attacks[curAttackId]);
         curAttack.StartAttack(attackHolder);
         curAttackId++;

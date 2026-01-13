@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
 {
     public float startDelay = 5; // amount of time to wait before starting spawning
+    public float attackDelay = 3; // time between attacks (arbitrary for now)
     [SerializeField] GameObject attackHolder; // object in scene that has the enemies/attacks
-    public bool isInAttack = false; // true if in the middle of an attack
+    public bool isInAttack = false; // true if any attack is out
 
     public List<AttackSO> attacks = new List<AttackSO>(); // list of attacks that can be used
     public List<AttackInstructions> instructions = new List<AttackInstructions>(); // list of instructions applied when choosing attacks
@@ -19,10 +20,10 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     // create list of random attacks and wait to start attacking
     void Start()
     {
-        SeedManager.instance.GenerateSeed(); // This is here for now, but assuming we want to use it elsewhere, it should probably be moved eventually so it doesn't end up getting regenerated!
+        SeedManager.instance.GenerateSeed(); // This is here for now, but assuming we want to use rng elsewhere, it should probably be moved eventually so it doesn't end up getting regenerated!
         randomizedAttacks = SeedManager.instance.RandomizeAttacks(attacks, sequenceLength, instructions);
 
-        isInAttack = true;
+        isInAttack = false;
         StartCoroutine(StartDelay(startDelay));
     }
 
@@ -30,22 +31,21 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     IEnumerator StartDelay(float time)
     {
         yield return new WaitForSeconds(time);
-        isInAttack = false;
+        isInAttack = true;
+        StartCoroutine(Spawning());
     }
 
-    // spawn an attack if not attacking
-    private void Update()
+    // spawning an attack
+    IEnumerator Spawning()
     {
-        if (isInAttack)
-            return;
-        if (curAttackId >= randomizedAttacks.Count)
+        while (curAttackId < randomizedAttacks.Count)
         {
-            this.enabled = false;
-            return;
+            curAttack = Instantiate(randomizedAttacks[curAttackId]);
+            curAttack.StartAttack(attackHolder);
+            curAttackId++;
+            isInAttack = true;
+            yield return new WaitForSeconds(attackDelay);
         }
-        curAttack = Instantiate(randomizedAttacks[curAttackId]);
-        curAttack.StartAttack(attackHolder);
-        curAttackId++;
-        isInAttack = true;
+        this.enabled = false;
     }
 }
