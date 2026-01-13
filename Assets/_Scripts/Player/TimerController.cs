@@ -19,32 +19,27 @@ public class TimerController : Singleton<TimerController>
         UpdateTimer();
     }
 
-    public int GetTime()
+    public string GetTime()
     {
-        return Convert.ToInt32(time);
+        TimeSpan ts = TimeSpan.FromSeconds(Convert.ToInt32(time));
+        return $"{timerTag}{string.Format("{0:0}:{1:00}", ts.Minutes, ts.Seconds)}</link>";
     }
 
     void UpdateTimer() // I know that this is a very strange way of doing it but I have to because of the TextEffect thing
     {
-        TimeSpan ts = TimeSpan.FromSeconds(GetTime());
-        string final = $"{timerTag}{string.Format("{0:0}:{1:00}", ts.Minutes, ts.Seconds)}</link>";
-
         if (timerTag == "")
         {
             timerTag = calmTimerTag;
-            final = $"{timerTag}{string.Format("{0:0}:{1:00}", ts.Minutes, ts.Seconds)}</link>";
-            timer.text = final;
+            timer.text = GetTime();
             timer.GetComponent<TextEffect>().Refresh();
         }
         if (timerTag != fastTimerTag && time < fastTimerAnimationStartTime)
         {
             timerTag = fastTimerTag;
-            final = $"{timerTag}{string.Format("{0:0}:{1:00}", ts.Minutes, ts.Seconds)}</link>";
-            timer.text = final;
+            timer.text = GetTime();
             timer.GetComponent<TextEffect>().Refresh();
         }
 
-        if (timer.text != final)
-            timer.text = final;
+        timer.text = GetTime();
     }
 }

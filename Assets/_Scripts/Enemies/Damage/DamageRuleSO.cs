@@ -1,9 +1,17 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "DamageRule", menuName = "SO/DamageRule")]
 public class DamageRuleSO : ScriptableObject
 {
+    public string ruleName;
+    public string hoverDescription;
+    public DamageSource trigger;
+
     public virtual bool CheckRule(DamageSource source)
     {
-        return false;
+        if (trigger != source && trigger != DamageSource.Ignore)
+            return false;
+
+        return true;
     }
 }

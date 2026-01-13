@@ -29,7 +29,7 @@ public class Health : Singleton<Health>
             damagePoolTimer = StartCoroutine(DamageDealtPool());
         }
         damageSourcePool.Add(damageSource);
-        RuleCheck();
+        BingoController.instance.RuleCheck(damageSourcePool);
 
         return health;
     }
@@ -49,13 +49,5 @@ public class Health : Singleton<Health>
         yield return new WaitForSeconds(damagePoolTime);
         damageSourcePool.Clear();
         damagePoolTimer = null;
-    }
-
-    public void RuleCheck() // Might change it to be sent to the Bingo Bored Controller
-    {
-        foreach(DamageSource source in damageSourcePool)
-        {
-            // Check rules here
-        }
     }
 }
