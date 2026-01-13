@@ -4,7 +4,7 @@ using UnityEngine;
 public class AttackSO : ScriptableObject
 {
     public GameObject attackPref;
-    GameObject temp;
+    [HideInInspector] public GameObject temp;
 
     public virtual void StartAttack(GameObject attackHolder)
     {

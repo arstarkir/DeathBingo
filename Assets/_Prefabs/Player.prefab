@@ -440,7 +440,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ea9ced47c8ac1744eaf9d2b5e53c0ec7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -719,7 +719,7 @@ MonoBehaviour:
   health: 3
   hpPref: {fileID: 2919924181480005558, guid: 33461f14a86cffa418a6d9302a25b394, type: 3}
   hpHolder: {fileID: 7182164296061869201}
-  damagePullTime: 1
+  damagePoolTime: 1
 --- !u!114 &5614582137758895609
 MonoBehaviour:
   m_ObjectHideFlags: 0

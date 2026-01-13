@@ -13,6 +13,7 @@ public class CharacterController : MonoBehaviour
     Rigidbody rb;
 
     public bool isInteractable = true;
+    [HideInInspector] public Vector3 pushVelocity;
 
     private void Start()
     {
@@ -27,9 +28,11 @@ public class CharacterController : MonoBehaviour
         PlayerMove();
     }
 
-    void PlayerMove() // This is a very temp thing (feel free to change it)
+
+    void PlayerMove()
     {
-        rb.linearVelocity = (new Vector3(inputVec.x, 0, inputVec.y) * (isSprinting ? sprintSpeed : speed));
+        Vector3 moveVel = new Vector3(inputVec.x, 0, inputVec.y) * (isSprinting ? sprintSpeed : speed);
+        rb.linearVelocity = moveVel + pushVelocity;
     }
 
     #region Input System Callbacks
