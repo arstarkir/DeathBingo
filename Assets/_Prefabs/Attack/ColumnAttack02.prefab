@@ -1027,13 +1027,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6749277893947342585}
   - component: {fileID: 7979227009351947827}
+  - component: {fileID: 8015384195750460783}
   m_Layer: 0
-  m_Name: ColumnAttackHolder
+  m_Name: ColumnAttack02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6749277893947342585
 Transform:
   m_ObjectHideFlags: 0
@@ -1063,7 +1064,7 @@ Animator:
   m_GameObject: {fileID: 7788882881612801072}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ebe5a4e0428f81d4484b06346ff7c192, type: 2}
+  m_Controller: {fileID: 9100000, guid: 693a92071ab41a945b6701b563a4d38e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1075,6 +1076,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8015384195750460783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788882881612801072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd7b030e37966243b02c54350ce3ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationAttack
 --- !u!1 &8737409080489399207
 GameObject:
   m_ObjectHideFlags: 0
