@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
         OnHealthChange();
     }
 
-    public int ChangeHealth(int changeAmount)
+    public int ChangeHealth(int changeAmount, Damage damage)
     {
         health += changeAmount;
         OnHealthChange();
