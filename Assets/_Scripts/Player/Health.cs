@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : Singleton<Health>
@@ -10,10 +9,10 @@ public class Health : Singleton<Health>
     [SerializeField] GameObject hpHolder;
     List<GameObject> curHealth = new List<GameObject>();
     Coroutine damagePoolTimer = null;
-    List<Damage> damagePool = new List<Damage>();
+    List<DamageSource> damageSourcePool = new List<DamageSource>();
 
     [Tooltip("Player will be damaged only once in that time frame. But other damages will go to the rules")]
-    public float damagePullTime = 1;
+    public float damagePoolTime = 1;
 
     public override void Awake() 
     {
@@ -21,7 +20,7 @@ public class Health : Singleton<Health>
         OnHealthChange();
     }
 
-    public int ChangeHealth(int changeAmount, Damage damage)
+    public int ChangeHealth(int changeAmount, DamageSource damageSource)
     {
         if (damagePoolTimer == null)
         {
@@ -29,7 +28,7 @@ public class Health : Singleton<Health>
             OnHealthChange();
             damagePoolTimer = StartCoroutine(DamageDealtPool());
         }
-        damagePool.Add(damage);
+        damageSourcePool.Add(damageSource);
         RuleCheck();
 
         return health;
@@ -47,14 +46,14 @@ public class Health : Singleton<Health>
 
     IEnumerator DamageDealtPool()
     {
-        yield return new WaitForSeconds(damagePullTime);
-        damagePool.Clear();
+        yield return new WaitForSeconds(damagePoolTime);
+        damageSourcePool.Clear();
         damagePoolTimer = null;
     }
 
     public void RuleCheck() // Might change it to be sent to the Bingo Bored Controller
     {
-        foreach(Damage damage in damagePool)
+        foreach(DamageSource source in damageSourcePool)
         {
             // Check rules here
         }

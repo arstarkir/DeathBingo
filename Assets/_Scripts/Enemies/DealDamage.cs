@@ -3,14 +3,14 @@ using UnityEngine;
 public class DealDamage : MonoBehaviour
 {
     public bool destroyOnDealDmg = false;
-    public Damage damage;
+    public DamageSource damageSource;
 
     private void OnTriggerEnter(Collider other)
     {   
         if (!other.transform.root.gameObject.CompareTag("Player"))
             return;
 
-        Health.instance.ChangeHealth(-1, damage);
+        Health.instance.ChangeHealth(-1, damageSource);
 
         if (destroyOnDealDmg)
             Destroy(gameObject);

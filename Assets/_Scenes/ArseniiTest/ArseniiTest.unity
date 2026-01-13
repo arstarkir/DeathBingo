@@ -859,9 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DealDamage
   destroyOnDealDmg: 1
-  damage:
-    damageSource: 3
-    damageRules: []
+  damageSource: 0
 --- !u!1 &1819446071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,7 +1122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6749277893947342585, guid: 8ad8de3912ce47447b1ec1aaeca4b76d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6749277893947342585, guid: 8ad8de3912ce47447b1ec1aaeca4b76d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1161,6 +1159,10 @@ PrefabInstance:
     - target: {fileID: 7788882881612801072, guid: 8ad8de3912ce47447b1ec1aaeca4b76d, type: 3}
       propertyPath: m_Name
       value: ColumnAttackHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788882881612801072, guid: 8ad8de3912ce47447b1ec1aaeca4b76d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

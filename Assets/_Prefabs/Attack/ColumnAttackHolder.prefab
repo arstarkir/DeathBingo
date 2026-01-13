@@ -72,9 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DealDamage
   destroyOnDealDmg: 0
-  damage:
-    damageSource: 2
-    damageRules: []
+  damageSource: 2
 --- !u!1 &964817450003814347
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,9 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DealDamage
   destroyOnDealDmg: 0
-  damage:
-    damageSource: 2
-    damageRules: []
+  damageSource: 2
 --- !u!1 &2982480044457834307
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,9 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DealDamage
   destroyOnDealDmg: 0
-  damage:
-    damageSource: 2
-    damageRules: []
+  damageSource: 2
 --- !u!1 &6292864498498431805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6749277893947342585
 Transform:
   m_ObjectHideFlags: 0
@@ -1317,6 +1311,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6749277893947342585}
     m_Modifications:
+    - target: {fileID: 4108702314325788431, guid: 6231224834bd360429693747edf96b86, type: 3}
+      propertyPath: damageSource
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4643741417046749405, guid: 6231224834bd360429693747edf96b86, type: 3}
       propertyPath: m_Name
       value: Column

@@ -186,9 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DealDamage
   destroyOnDealDmg: 0
-  damage:
-    damageSource: 2
-    damageRules: []
+  damageSource: 2
 --- !u!1 &4805286632595129015
 GameObject:
   m_ObjectHideFlags: 0
