@@ -1,10 +1,11 @@
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public struct Damage
 {
     public DamageSource damageSource;
-    public DamageRuleSO damageRule;
+    public List<DamageRuleSO> damageRules;
 }
 
 public enum DamageSource
