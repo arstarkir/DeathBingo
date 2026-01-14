@@ -15,10 +15,8 @@ MonoBehaviour:
   attackPref: {fileID: 1150689547978239207, guid: 4ee83c5052141fe46b38ef15ee7ba261, type: 3}
   attackType: 0
   temp: {fileID: 0}
-  isAnimation: 1
-  isTimed: 0
+  attackStyles: 1
   duration: 5
-  isRandom: 0
   toSpawn: {fileID: 0}
   attackAmount: 3
   delay: 0.2

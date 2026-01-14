@@ -18,7 +18,7 @@ public class AttackSO : ScriptableObject
     public AttackStyles attackStyles;
 
     // For Time
-    public float duration = 5;
+    public float duration = 5;  
 
     //For Random
     public GameObject toSpawn;

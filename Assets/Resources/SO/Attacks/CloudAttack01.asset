@@ -15,7 +15,7 @@ MonoBehaviour:
   attackPref: {fileID: 7788882881612801072, guid: 7e53f3ac61f1e104aa7052d550dcddfa, type: 3}
   attackType: 1
   temp: {fileID: 0}
-  attackStyles: 0
+  attackStyles: 1
   duration: 5
   toSpawn: {fileID: 0}
   attackAmount: 3
