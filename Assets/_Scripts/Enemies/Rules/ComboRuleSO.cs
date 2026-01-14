@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ComboRule", menuName = "SO/ComboRule")]
+[CreateAssetMenu(fileName = "ComboRule", menuName = "Rule/ComboRule")]
 public class ComboRuleSO : DamageRuleSO
 {
     public List<DamageRuleSO> rules = new List<DamageRuleSO>();

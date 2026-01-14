@@ -566,8 +566,8 @@ MonoBehaviour:
   attackHolder: {fileID: 328428734}
   isInAttack: 0
   attacks:
-  - {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
   - {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
+  - {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
   - {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}
   - {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
   - {fileID: 11400000, guid: 1250b3fbe568426428115e6ebb3b8628, type: 2}
@@ -1122,6 +1122,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BingoCardCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 9177324406890474437, guid: 3f295c89f6caa7b4c8f2b2d046ddd0de, type: 3}
+      propertyPath: activeRules.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177324406890474437, guid: 3f295c89f6caa7b4c8f2b2d046ddd0de, type: 3}
+      propertyPath: 'activeRules.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ae27f3d8d0a08b44ea8d2b485de7c732, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BasicAttack", menuName = "SO/BasicAttack")]
+[CreateAssetMenu(fileName = "AnimationAttack", menuName = "Attack/AnimationAttack")]
 public class AttackSO : ScriptableObject
 {
     public enum AttackType // enum for kind of attack, determines what it can overlap with

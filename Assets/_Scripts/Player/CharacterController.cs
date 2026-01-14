@@ -1,14 +1,12 @@
-using System.Globalization;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : Singleton<CharacterController>
 {
     public float speed = 5;
     public float sprintSpeed = 7.5f;
 
-    Vector2 inputVec;
+    [HideInInspector] public Vector2 inputVec;
     bool isSprinting = false;
     Rigidbody rb;
 
@@ -28,7 +26,6 @@ public class CharacterController : MonoBehaviour
         PlayerMove();
     }
 
-
     void PlayerMove()
     {
         Vector3 moveVel = new Vector3(inputVec.x, 0, inputVec.y) * (isSprinting ? sprintSpeed : speed);
@@ -38,6 +35,8 @@ public class CharacterController : MonoBehaviour
     #region Input System Callbacks
     public void OnMove(InputAction.CallbackContext ctx)
     {
+        if (!isInteractable)
+            return;
         inputVec = ctx.ReadValue<Vector2>();
     }
 

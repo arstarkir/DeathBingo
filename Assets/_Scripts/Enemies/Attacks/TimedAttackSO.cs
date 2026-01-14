@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TimedAttack", menuName = "SO/TimedAttack")]
+[CreateAssetMenu(fileName = "TimedAttack", menuName = "Attack/TimedAttack")]
 public class TimedAttackSO : AttackSO
 {
     public float duration = 3;

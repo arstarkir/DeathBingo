@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DamageRule", menuName = "SO/DamageRule")]
+[CreateAssetMenu(fileName = "DamageRule", menuName = "Rule/DamageRule")]
 public class DamageRuleSO : ScriptableObject
 {
     public string ruleName;

@@ -1,17 +1,17 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TimerRule", menuName = "Rule/TimerRule")]
-public class TimerRuleSO : DamageRuleSO
+[CreateAssetMenu(fileName = "PlayerMoving", menuName = "Rule/PlayerMoving")]
+public class PlayerMovingRuleSO : DamageRuleSO
 {
-    public string mustContain = "1";
+    public Vector2 moveVector = new Vector2(0,1);
 
     public override bool CheckRule(DamageSource source)
     {
         if (trigger != source && trigger != DamageSource.Ignore)
             return false;
 
-        if (TimerController.instance.GetTime().Contains(mustContain))
+        if (CharacterController.instance.inputVec == moveVector)
             return true;
 
         return false;
