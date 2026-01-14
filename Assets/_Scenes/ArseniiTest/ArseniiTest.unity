@@ -570,7 +570,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
   - {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}
   - {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
-  - {fileID: 11400000, guid: 1250b3fbe568426428115e6ebb3b8628, type: 2}
+  - {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
   instructions: []
   sequenceLength: 10
   randomizedAttacks: []

@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -14,14 +15,12 @@ public class AttackSO : ScriptableObject
     public AttackType attackType;
     [HideInInspector] public GameObject temp;
 
-    public bool isAnimation = false;
+    public AttackStyles attackStyles;
 
     // For Time
-    public bool isTimed = false;
     public float duration = 5;
 
     //For Random
-    public bool isRandom = false;
     public GameObject toSpawn;
     public float attackAmount = 3;
     public float delay = 0.2f;
@@ -31,11 +30,9 @@ public class AttackSO : ScriptableObject
         if(temp == null)
             temp = Instantiate(attackPref, attackHolder.transform);
 
-        if(isAnimation)
-            temp.AddComponent<AnimationAttack>();
-        if(isRandom)
+        if(attackStyles.HasFlag(AttackStyles.Randomed))
             temp.AddComponent<RandomAttack>();
-        if (isTimed)
+        if (attackStyles.HasFlag(AttackStyles.Timed))
             temp.AddComponent<TimedAttack>();
 
         temp.GetComponents<IAttackHandler>().ToList().ForEach(attackHandler => attackHandler.attackSO = this);
@@ -55,4 +52,14 @@ public class AttackSO : ScriptableObject
             TestEnemyAttackSequencing.instance.isInAttack = false;
         }
     }
+}
+
+[Flags]
+public enum AttackStyles
+{
+    None = 0,
+    Animation = 1 << 0,
+    Timed = 1 << 1,
+    Randomed = 1 << 2,
+    All = Animation | Timed | Randomed,
 }
