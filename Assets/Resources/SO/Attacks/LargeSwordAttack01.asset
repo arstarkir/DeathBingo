@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
-  m_Name: CloudAttack01
+  m_Name: LargeSwordAttack01
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
-  attackPref: {fileID: 2756631408812021891, guid: b320489b6c68aed42bae24d3902000cd, type: 3}
-  attackType: 1
+  attackPref: {fileID: 7724423961060388451, guid: 3a879b33ce078ae47850ad027c67b87f, type: 3}
+  attackType: 0
   temp: {fileID: 0}
-  attackStyles: 5
-  duration: 0
-  toSpawn: {fileID: 6227547596297077131, guid: 08266ae04de919d4494cbcdc944432c1, type: 3}
-  attackAmount: 5
-  delay: 2
+  attackStyles: 1
+  duration: 2
+  toSpawn: {fileID: 0}
+  attackAmount: 1
+  delay: 0.2
