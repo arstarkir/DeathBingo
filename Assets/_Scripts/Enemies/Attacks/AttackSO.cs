@@ -1,6 +1,7 @@
+using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AnimationAttack", menuName = "Attack/AnimationAttack")]
+[CreateAssetMenu(fileName = "Attack", menuName = "Attack")]
 public class AttackSO : ScriptableObject
 {
     public enum AttackType // enum for kind of attack, determines what it can overlap with
@@ -13,10 +14,31 @@ public class AttackSO : ScriptableObject
     public AttackType attackType;
     [HideInInspector] public GameObject temp;
 
+    public bool isAnimation = false;
+
+    // For Time
+    public bool isTimed = false;
+    public float duration = 5;
+
+    //For Random
+    public bool isRandom = false;
+    public GameObject toSpawn;
+    public float attackAmount = 3;
+    public float delay = 0.2f;
+
     public virtual void StartAttack(GameObject attackHolder)
     {
-        temp = Instantiate(attackPref, attackHolder.transform);
-        temp.GetComponent<IAttackHandler>().attackSO = this;
+        if(temp == null)
+            temp = Instantiate(attackPref, attackHolder.transform);
+
+        if(isAnimation)
+            temp.AddComponent<AnimationAttack>();
+        if(isRandom)
+            temp.AddComponent<RandomAttack>();
+        if (isTimed)
+            temp.AddComponent<TimedAttack>();
+
+        temp.GetComponents<IAttackHandler>().ToList().ForEach(attackHandler => attackHandler.attackSO = this);
     }
 
     public virtual void EndAttack()
