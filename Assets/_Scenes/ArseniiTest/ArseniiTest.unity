@@ -566,8 +566,8 @@ MonoBehaviour:
   attackHolder: {fileID: 328428734}
   isInAttack: 0
   attacks:
-  - {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
   - {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
+  - {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
   - {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}
   - {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
   - {fileID: 11400000, guid: 1250b3fbe568426428115e6ebb3b8628, type: 2}
@@ -1376,11 +1376,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7113142260304568134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4144f59b371348f45acc8bb09725881e, type: 3}
+  m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GiveEffectTest
-  effect: {fileID: 11400000, guid: 254f5686822e9a541b9fc9d2ed726161, type: 2}
-  destroyOnGive: 1
+  effect: {fileID: 11400000, guid: 0d00399cbc2e8c74b8161a7ce5bc08da, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

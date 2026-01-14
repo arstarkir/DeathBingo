@@ -28,7 +28,7 @@ public class EffectTimer
     public bool IsThisEffectTimer(EffectSO effect, Entity entity)
     {
         // Returns true if the timer's effect matches the provided effect and entity
-        if (effectHendler != null && effectHendler.effectSO == effect)
+        if (effectHendler != null && effectHendler.effectSO.effectName == effect.effectName)
             return true;
 
         return false;

@@ -11,4 +11,10 @@ public class EffectListSO : ScriptableObject
         int id = effects.FindIndex(a => a.effectName == effect.effectName);
         return id;
     }
+
+    public int GetEffectIdByName(string effectName)
+    {
+        int id = effects.FindIndex(a => a.effectName == effectName);
+        return id;
+    }
 }

@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite: {fileID: -1571012651542167539, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
   effectUse: 0
   effectDurationTime: 3
-  isTimeStacked: 1
+  isTimeStacked: 0
   thisEntity: {fileID: 0}
   effectVFX: {fileID: 2814003115909412302, guid: a1516794c64807840a65645bb0aed576, type: 3}
   curVFX: {fileID: 0}

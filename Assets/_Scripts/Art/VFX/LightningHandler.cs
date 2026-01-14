@@ -33,10 +33,10 @@ public class LightningHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         if(trigger != null)
-            trigger.GetComponent<DealDamage>().enabled = true;
+            trigger.GetComponent<DealEffect>().enabled = true;
         yield return new WaitForSeconds(dmgTimeWindow);
         if (trigger != null)
-            trigger.GetComponent<DealDamage>().enabled = false;
+            trigger.GetComponent<DealEffect>().enabled = false;
         Destroy(gameObject);
     }
 }
