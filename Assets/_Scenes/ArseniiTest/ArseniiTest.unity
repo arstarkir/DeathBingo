@@ -575,7 +575,7 @@ MonoBehaviour:
   sequenceLength: 10
   randomizedAttacks: []
   curAttackId: 0
-  doFirst: 1
+  doFirst: 0
 --- !u!1 &730954277
 GameObject:
   m_ObjectHideFlags: 0

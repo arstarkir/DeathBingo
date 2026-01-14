@@ -11,6 +11,7 @@ public class StunEffectSO : EffectSO
     public override void OnEffectStart()
     {
         CharacterController.instance.isInteractable = false;
+        CharacterController.instance.inputVec = Vector2.zero;
         base.OnEffectStart();
     }
 

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LightningRandomAttack01
   m_EditorClassIdentifier: Assembly-CSharp::RandomAttackSO
   attackPref: {fileID: 9218929475415879512, guid: 1c8a4349de59eca4ca0068dec3fc25ba, type: 3}
-  attackType: 0
+  attackType: 1
   temp: {fileID: 0}
   toSpawn: {fileID: 9024178787575428942, guid: 4cf34f2d3dd7e8749a088453b5d796e1, type: 3}
-  attackAmount: 15
+  attackAmount: 5
   delay: 1
