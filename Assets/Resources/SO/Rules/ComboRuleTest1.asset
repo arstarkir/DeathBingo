@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83290ad5c2c8dad4fb5212f1db96965e, type: 3}
   m_Name: ComboRuleTest1
   m_EditorClassIdentifier: Assembly-CSharp::ComboRuleSO
-  ruleName: Combo Rule Test
+  ruleName: Column + Timer Has 1
   hoverDescription: Combo Rule Test
   trigger: 0
   rules:
