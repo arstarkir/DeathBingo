@@ -34327,7 +34327,7 @@ GameObject:
   - component: {fileID: 3700278341036795993}
   - component: {fileID: 9141089327963319895}
   - component: {fileID: 1070460504793741450}
-  - component: {fileID: 1595225064776050933}
+  - component: {fileID: 3000644022995881242}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -34428,18 +34428,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1595225064776050933
+--- !u!114 &3000644022995881242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6765522627531128447}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 090f41a74f10b98459b12379831cded5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DealEffect
+  m_EditorClassIdentifier: Assembly-CSharp::DealDamage
+  destroyOnDealDmg: 0
+  damageSource: 4
 --- !u!1 &6929666751193209912
 GameObject:
   m_ObjectHideFlags: 0

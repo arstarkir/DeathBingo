@@ -16,11 +16,17 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     [SerializeField] private List<AttackSO> randomizedAttacks; // list of randomized attacks
     AttackSO curAttack; // current attack
     [SerializeField] int curAttackId; // id of current attack
+    [SerializeField] bool doFirst = false;
 
     // create list of random attacks and wait to start attacking
     void Start()
     {
         SeedManager.instance.GenerateSeed(); // This is here for now, but assuming we want to use rng elsewhere, it should probably be moved eventually so it doesn't end up getting regenerated!
+        if(doFirst)
+        {
+            StartCoroutine(StartDelay(startDelay));
+            return;
+        }
         randomizedAttacks = SeedManager.instance.RandomizeAttacks(attacks, sequenceLength, instructions);
 
         isInAttack = false;
@@ -37,6 +43,13 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     // spawning an attack
     IEnumerator Spawning()
     {
+        if(doFirst)
+        {
+            curAttack = Instantiate(attacks[curAttackId]);
+            curAttack.StartAttack(attackHolder);
+            yield return new();
+        }
+
         while (curAttackId < randomizedAttacks.Count)
         {
             if (randomizedAttacks[curAttackId].attackType == AttackSO.AttackType.Primary)

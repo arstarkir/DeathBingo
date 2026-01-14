@@ -4,5 +4,6 @@ public enum DamageSource
     Spike,
     Column,
     Fire,
+    Lightning,
     Other
 }
