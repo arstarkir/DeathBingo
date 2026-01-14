@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914d0073b2d32a94ba0fff2c53582d80, type: 3}
+  m_Name: StunEffect
+  m_EditorClassIdentifier: Assembly-CSharp::StunEffectSO
+  effectName: Stun
+  effectDescription: Stun
+  sprite: {fileID: -1571012651542167539, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
+  effectUse: 0
+  effectDurationTime: 3
+  isTimeStacked: 1
+  thisEntity: {fileID: 0}
+  effectVFX: {fileID: 2814003115909412302, guid: a1516794c64807840a65645bb0aed576, type: 3}
+  curVFX: {fileID: 0}

@@ -7,7 +7,6 @@ using UnityEngine;
 /// <summary>
 /// Manages all active effects and their timers
 /// Handles the lifecycle of effect handlers and updates them over time
-/// ALL ON SERVER SIDE
 /// </summary>
 public class EffectsManager : Singleton<EffectsManager>
 {
@@ -63,9 +62,10 @@ public class EffectsManager : Singleton<EffectsManager>
         // Removes all timers that were fully removed
         timersToRemove.RemoveAll(timer => !activeTimers.Contains(timer));
 
-
         // Adds all marked timers to the active timers list
-        activeTimers.AddRange(timersToAdd);
+        if (timersToAdd.Count > 0)
+            activeTimers.AddRange(timersToAdd);
+
         timersToAdd.Clear();
 
         // Update all active effect timers
@@ -98,7 +98,7 @@ public class EffectsManager : Singleton<EffectsManager>
         temp.effectSO = effect;
         temp.effectId = effectsList.GetEffectId(effect);
         // Create a new effect timer and add it to the active timers list
-        if (!temp.effectSO.isTimeStacked)
+        if (!temp.effectSO.isTimeStacked || IsActiveEffectOnEntity(effect,entity))
         {
             EffectTimer effectTimer = new EffectTimer(time, (action != null ? () => { action.Invoke(); DestroyEffectHendler(temp); } : () => DestroyEffectHendler(temp)), temp);
             timersToAdd.Add(effectTimer);

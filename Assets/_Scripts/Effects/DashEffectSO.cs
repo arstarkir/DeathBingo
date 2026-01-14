@@ -1,7 +1,7 @@
 using UnityEngine;
 
 //[CreateAssetMenu(fileName = "Dash", menuName = "Effects/Dash")]
-public class DashSO : EffectSO
+public class DashEffectSO : EffectSO
 {
     public float strength = 100f;
 
