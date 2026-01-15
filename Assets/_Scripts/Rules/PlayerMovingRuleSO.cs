@@ -10,7 +10,7 @@ public class PlayerMovingRuleSO : DamageRuleSO
         if (trigger != source.Item1 && trigger != DamageSource.Ignore)
             return false;
 
-        if (attackSO != null && source.Item2 != null && source.Item2.attackSO.name == attackSO.name)
+        if (attackSO != null && (source.Item2 == null || source.Item2.attackSO.attackPref.name != attackSO.attackPref.name))
             return false;
 
         if (CharacterController.instance.inputVec == moveVector)

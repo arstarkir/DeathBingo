@@ -135,6 +135,18 @@ public class EffectsManager : Singleton<EffectsManager>
         }
     }
 
+    public void TryRemoveFirstEffectOfKindFromEntity(EffectSO effect, Entity entity)
+    {
+        foreach (EffectTimer timer in activeTimers)
+        {
+            if (timer.IsThisEffectTimer(effect, entity))
+            {
+                timersToRemove.Add(timer);
+                return;
+            }
+        }
+    }
+
     public void RemoveAllEffectOfUseFromEntity(EffectUse use, Entity entity)
     {
         foreach (EffectTimer timer in activeTimers)

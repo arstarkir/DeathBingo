@@ -6,12 +6,15 @@ public class DealEffect : MonoBehaviour
     public EffectSO effect;
     public bool destroyOnDealDmg = false;
     public bool tryRemoveOnExit = false;
+    Entity entity;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player") || !this.enabled)
             return;
-        GiveEffect(other.transform.root.GetComponent<Entity>());
+
+        entity = other.transform.root.GetComponent<Entity>();
+        GiveEffect();
     }
 
     private void OnTriggerStay(Collider other)
@@ -22,7 +25,8 @@ public class DealEffect : MonoBehaviour
         if (!other.CompareTag("Player") || !this.enabled)
             return;
 
-        GiveEffect(other.transform.root.GetComponent<Entity>());
+        entity = other.transform.root.GetComponent<Entity>();
+        GiveEffect();
     }
 
     private void OnTriggerExit(Collider other)
@@ -30,16 +34,16 @@ public class DealEffect : MonoBehaviour
         if (!other.CompareTag("Player") || !this.enabled)
             return;
 
-        Entity entity = other.GetComponent<Entity>();
+        entity = other.transform.root.GetComponent<Entity>();
 
         if(tryRemoveOnExit)
         {
             if(EffectsManager.instance.IsActiveEffectOnEntity(effect, entity))
-                EffectsManager.instance.RemoveAllEffectOfKindFromEntity(effect, entity);
+                EffectsManager.instance.TryRemoveFirstEffectOfKindFromEntity(effect, entity);
         }
     }
 
-    public void GiveEffect(Entity entity)
+    public void GiveEffect()
     {
         EffectHandler handler = EffectsManager.instance.AddEffectToEntityForTime(effect, entity, effect.effectDurationTime, gameObject);
 
@@ -53,5 +57,14 @@ public class DealEffect : MonoBehaviour
 
         if (destroyOnDealDmg)
             Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        if (tryRemoveOnExit && entity != null)
+        {
+            if (EffectsManager.instance.IsActiveEffectOnEntity(effect, entity))
+                EffectsManager.instance.TryRemoveFirstEffectOfKindFromEntity(effect, entity);
+        }
     }
 }

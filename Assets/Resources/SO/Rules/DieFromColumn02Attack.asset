@@ -15,4 +15,4 @@ MonoBehaviour:
   ruleName: Die From ColumnSpin
   hoverDescription: Die From Column02Attack
   trigger: 0
-  attackSO: {fileID: 0}
+  attackSO: {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}
