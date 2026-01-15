@@ -7,7 +7,10 @@ public class CharacterController : Singleton<CharacterController>
     public float sprintSpeed = 7.5f;
     public float jumpVelocity = 8f; // default jump speed
     public float playerGravity = -8f; // default gravity speed (only for player, also unitys gravity is turned off)
-    public bool grounded; // true if touching the ground
+    bool grounded; // true if touching the ground
+    [SerializeField] float groundDistance = 1.1f; // grace distance for grounded state (how close you have to be to be "grounded")
+    // ground distance is high because I'm factoring in player height
+    [SerializeField] LayerMask groundLayer; // which layer makes the player grounded
 
     [HideInInspector] public Vector2 inputVec;
     bool isSprinting = false;
@@ -38,19 +41,14 @@ public class CharacterController : Singleton<CharacterController>
 
     private void FixedUpdate()
     {
+        GroundCheck();
         rb.AddForce(0, playerGravity, 0, ForceMode.Acceleration);
     }
 
-    private void OnCollisionStay(Collision collision)
+    // raycast for ground layer down
+    void GroundCheck()
     {
-        if (collision.gameObject.CompareTag("Ground"))
-            grounded = true;
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-            grounded = false;
+        grounded = Physics.Raycast(transform.position, Vector3.down, groundDistance, groundLayer);
     }
 
     #region Input System Callbacks
@@ -66,8 +64,9 @@ public class CharacterController : Singleton<CharacterController>
         isSprinting = !isSprinting;
     }
 
-    public void OnJump()
+    public void OnJump(InputAction.CallbackContext ctx)
     {
+        if (!(!ctx.performed && ctx.started)) return; // this line makes it so you only jump on button press and not release, funky new unity input stuff
         if (!grounded) return;
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
         grounded = false;

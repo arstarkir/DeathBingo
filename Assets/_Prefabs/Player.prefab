@@ -575,10 +575,13 @@ MonoBehaviour:
   sprintSpeed: 7.5
   jumpVelocity: 22
   playerGravity: -55
-  grounded: 0
+  groundDistance: 1.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   inputVec: {x: 0, y: 0}
   isInteractable: 1
-  pushVelocity: {x: 0, y: 0, z: 0}
+  influenceVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &5405227267545705261
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +682,7 @@ MonoBehaviour:
       - m_Target: {fileID: 6853700522202594097}
         m_TargetAssemblyTypeName: CharacterController, Assembly-CSharp
         m_MethodName: OnJump
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

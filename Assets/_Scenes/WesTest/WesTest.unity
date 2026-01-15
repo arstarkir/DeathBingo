@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 96366633}
   - component: {fileID: 96366632}
   - component: {fileID: 96366631}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 532978341}
   - component: {fileID: 532978340}
   - component: {fileID: 532978339}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 578303695}
   - component: {fileID: 578303698}
   - component: {fileID: 578303697}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Field
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 730954281}
   - component: {fileID: 730954280}
   - component: {fileID: 730954279}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 748835399}
   - component: {fileID: 748835398}
   - component: {fileID: 748835397}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1059363631}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -979,7 +979,7 @@ GameObject:
   - component: {fileID: 2087259560}
   - component: {fileID: 2087259559}
   - component: {fileID: 2087259558}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
