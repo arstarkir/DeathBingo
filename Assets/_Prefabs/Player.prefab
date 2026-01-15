@@ -805,6 +805,9 @@ MonoBehaviour:
   health: 3
   hpPref: {fileID: 2919924181480005558, guid: 33461f14a86cffa418a6d9302a25b394, type: 3}
   hpHolder: {fileID: 7182164296061869201}
+  respawnTimer: 3
+  playerCollider: {fileID: 3920898419923573394}
+  invincibilityTime: 3
   damagePoolTime: 1
 --- !u!114 &5614582137758895609
 MonoBehaviour:
@@ -869,7 +872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.000005722046, y: 50}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: -100.00002, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2667013640219568789
