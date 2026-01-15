@@ -9,7 +9,7 @@ public class Health : Singleton<Health>
     [SerializeField] GameObject hpHolder;
     List<GameObject> curHealth = new List<GameObject>();
     Coroutine damagePoolTimer = null;
-    List<DamageSource> damageSourcePool = new List<DamageSource>();
+    List<(DamageSource, IAttackHandler)> damageInfoPool = new List<(DamageSource, IAttackHandler)>();
 
     [Tooltip("Player will be damaged only once in that time frame. But other damages will go to the rules")]
     public float damagePoolTime = 1;
@@ -20,7 +20,7 @@ public class Health : Singleton<Health>
         OnHealthChange();
     }
 
-    public int ChangeHealth(int changeAmount, DamageSource damageSource)
+    public int ChangeHealth(int changeAmount, DamageSource damageSource, IAttackHandler handler = null)
     {
         if (damagePoolTimer == null)
         {
@@ -28,8 +28,8 @@ public class Health : Singleton<Health>
             OnHealthChange();
             damagePoolTimer = StartCoroutine(DamageDealtPool());
         }
-        damageSourcePool.Add(damageSource);
-        BingoController.instance.RuleCheck(damageSourcePool);
+        damageInfoPool.Add((damageSource, handler));
+        BingoController.instance.RuleCheck(damageInfoPool);
 
         return health;
     }
@@ -47,7 +47,7 @@ public class Health : Singleton<Health>
     IEnumerator DamageDealtPool()
     {
         yield return new WaitForSeconds(damagePoolTime);
-        damageSourcePool.Clear();
+        damageInfoPool.Clear();
         damagePoolTimer = null;
     }
 }

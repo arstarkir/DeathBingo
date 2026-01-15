@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class DealEffect : MonoBehaviour
@@ -48,7 +49,7 @@ public class DealEffect : MonoBehaviour
         // This HAS to be changed (it's late rn)
         if (effect.effectName.Contains("Stun") && EffectsManager.instance.
             IsActiveEffectOnEntity(EffectsManager.instance.effectsList.effects[0], entity))
-            Health.instance.ChangeHealth(-1, DamageSource.Lightning);
+            Health.instance.ChangeHealth(-1, DamageSource.Lightning, transform.root.GetComponentsInChildren<IAttackHandler>().First());
 
         if (destroyOnDealDmg)
             Destroy(gameObject);
