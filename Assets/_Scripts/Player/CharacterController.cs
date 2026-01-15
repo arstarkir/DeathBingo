@@ -14,7 +14,7 @@ public class CharacterController : Singleton<CharacterController>
     Rigidbody rb;
 
     public bool isInteractable = true;
-    [HideInInspector] public Vector3 pushVelocity;
+    [HideInInspector] public Vector3 influenceVelocity;
 
     private void Start()
     {
@@ -32,7 +32,8 @@ public class CharacterController : Singleton<CharacterController>
     void PlayerMove()
     {
         Vector3 moveVel = new Vector3(inputVec.x, 0, inputVec.y) * (isSprinting ? sprintSpeed : speed);
-        rb.linearVelocity = moveVel + pushVelocity + new Vector3(0,rb.linearVelocity[1],0);
+        rb.linearVelocity = moveVel + influenceVelocity + new Vector3(0,rb.linearVelocity[1],0);
+        influenceVelocity = Vector3.zero;
     }
 
     private void FixedUpdate()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1543831862507571836}
   - component: {fileID: 596541522441326361}
   - component: {fileID: 5884544834294351994}
-  - component: {fileID: 5924202429940263392}
+  - component: {fileID: 8006551534023572174}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -114,7 +114,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5924202429940263392
+--- !u!114 &8006551534023572174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,11 +123,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2984674192752490368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd78cd36fd4e194898c617ee8d7c037, type: 3}
+  m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Push
-  localDir: {x: 1, y: 0, z: 0}
-  force: 3
+  m_EditorClassIdentifier: Assembly-CSharp::DealEffect
+  effect: {fileID: 11400000, guid: 643e1967f148c8f48993e86c2b8f0bf1, type: 2}
+  destroyOnDealDmg: 0
+  tryRemoveOnExit: 1
 --- !u!1 &3050152969483118893
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DealDamage
   destroyOnDealDmg: 0
-  damageSource: 4
+  damageSource: 5
 --- !u!1001 &8330174756372050431
 PrefabInstance:
   m_ObjectHideFlags: 0

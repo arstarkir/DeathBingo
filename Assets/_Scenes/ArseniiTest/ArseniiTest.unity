@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 578303697}
   m_Layer: 0
   m_Name: Field
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -566,14 +566,14 @@ MonoBehaviour:
   attackHolder: {fileID: 328428734}
   isInAttack: 0
   attacks:
+  - {fileID: 11400000, guid: 108a1e5050cb21547974fb914dd808d2, type: 2}
+  - {fileID: 11400000, guid: 29689803147f07145a5e6575dc8329dd, type: 2}
   - {fileID: 11400000, guid: e43372f9e8a73df43a89e11095cfee4f, type: 2}
   - {fileID: 11400000, guid: c3c6ab732dfb6a8428c20e6fbe8d815e, type: 2}
   - {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
-  - {fileID: 11400000, guid: 29689803147f07145a5e6575dc8329dd, type: 2}
   - {fileID: 11400000, guid: aa639d8af31036e46b31eaa72a109fa7, type: 2}
   - {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}
   - {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
-  - {fileID: 11400000, guid: 108a1e5050cb21547974fb914dd808d2, type: 2}
   instructions: []
   sequenceLength: 10
   randomizedAttacks: []
@@ -1039,8 +1039,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.2821646, y: 0.4999999, z: -1.227736}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1208,6 +1208,10 @@ PrefabInstance:
     - target: {fileID: 5405227267545705261, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853700522202594097, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: grounded
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1386,8 +1390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GiveEffectTest
-  effect: {fileID: 11400000, guid: 0d00399cbc2e8c74b8161a7ce5bc08da, type: 2}
+  effect: {fileID: 11400000, guid: 0730fe28386bd89408119132ad421145, type: 2}
   destroyOnDealDmg: 0
+  tryRemoveOnExit: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
