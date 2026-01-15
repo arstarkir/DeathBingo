@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class CharacterController : Singleton<CharacterController>
 {
@@ -10,6 +11,12 @@ public class CharacterController : Singleton<CharacterController>
     bool grounded; // true if touching the ground
     [SerializeField] float groundDistance = 1.1f; // grace distance for grounded state (how close you have to be to be "grounded")
     // ground distance is high because I'm factoring in player height
+    public float rollSpeed = 20f; // speed during a dodge roll
+    public float rollDuration = 0.15f; // how long they player should move fast while rolling
+    public float rollCooldown = 1f; // how long the player has to wait after a roll
+    bool rolling; // true when rolling
+    bool cooldown; // true if in cooldown
+    Vector3 rollDir; // direciton of roll (so you can't change direction mid-roll)
     [SerializeField] LayerMask groundLayer; // which layer makes the player grounded
 
     [HideInInspector] public Vector2 inputVec;
@@ -35,6 +42,10 @@ public class CharacterController : Singleton<CharacterController>
     void PlayerMove()
     {
         Vector3 moveVel = new Vector3(inputVec.x, 0, inputVec.y) * (isSprinting ? sprintSpeed : speed);
+        if (rolling)
+        {
+            moveVel = new Vector3(rollDir.x * rollSpeed, 0, rollDir.z * rollSpeed);
+        }
         rb.linearVelocity = moveVel + influenceVelocity + new Vector3(0,rb.linearVelocity[1],0);
         influenceVelocity = Vector3.zero;
     }
@@ -49,6 +60,22 @@ public class CharacterController : Singleton<CharacterController>
     void GroundCheck()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, groundDistance, groundLayer);
+    }
+
+    // rolling state (fast dash move)
+    IEnumerator Rolling()
+    {
+        rolling = true;
+        float timer = rollDuration;
+        while (timer > 0)
+        {
+            timer -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        rolling = false;
+        cooldown = true;
+        yield return new WaitForSeconds(rollCooldown);
+        cooldown = false;
     }
 
     #region Input System Callbacks
@@ -70,6 +97,23 @@ public class CharacterController : Singleton<CharacterController>
         if (!grounded) return;
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
         grounded = false;
+    }
+
+    public void OnRoll(InputAction.CallbackContext ctx)
+    {
+        if (!(!ctx.performed && ctx.started)) return;
+        if (!grounded || rolling || cooldown) return;
+
+        if (inputVec.sqrMagnitude > 0.01f) // if the player is moving dash goes in that direction
+        {
+            rollDir = new Vector3(inputVec.x, 0, inputVec.y).normalized;
+
+        }
+        else // if they aren't, it's just whatever direction they are facing (which I don't actually think changes at all as of writing)
+        {
+            rollDir = transform.forward;
+        }
+        StartCoroutine(Rolling());
     }
     #endregion
 }
