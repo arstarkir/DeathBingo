@@ -13,7 +13,7 @@ public class DealEffect : MonoBehaviour
         if (!other.CompareTag("Player") || !this.enabled)
             return;
 
-        entity = other.transform.root.GetComponent<Entity>();
+        entity = other.transform.root.GetComponentInChildren<Entity>();
         GiveEffect();
     }
 
@@ -25,7 +25,7 @@ public class DealEffect : MonoBehaviour
         if (!other.CompareTag("Player") || !this.enabled)
             return;
 
-        entity = other.transform.root.GetComponent<Entity>();
+        entity = other.transform.root.GetComponentInChildren<Entity>();
         GiveEffect();
     }
 
@@ -34,7 +34,7 @@ public class DealEffect : MonoBehaviour
         if (!other.CompareTag("Player") || !this.enabled)
             return;
 
-        entity = other.transform.root.GetComponent<Entity>();
+        entity = other.transform.root.GetComponentInChildren<Entity>();
 
         if(tryRemoveOnExit)
         {
