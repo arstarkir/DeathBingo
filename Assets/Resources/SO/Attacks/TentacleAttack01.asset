@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
-  m_Name: ColumnBasicAttack02
+  m_Name: TentacleAttack01
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
-  attackPref: {fileID: 7788882881612801072, guid: 660f8ee8b519ffe4dbecd8af0e9d40e9, type: 3}
+  attackPref: {fileID: 0}
   attackType: 0
   temp: {fileID: 0}
-  attackStyles: 1
-  duration: 15
+  attackStyles: 0
+  duration: 5
   toSpawn: {fileID: 0}
   attackAmount: 3
   delay: 0.2

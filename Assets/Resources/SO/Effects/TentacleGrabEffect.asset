@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1b76fc109686b4d8c968bdc7581d72, type: 3}
+  m_Name: TentacleGrabEffect
+  m_EditorClassIdentifier: Assembly-CSharp::InfluenceEffectSO
+  effectName: TentacleGrabEffect
+  effectDescription: TentacleGrabEffect
+  sprite: {fileID: 0}
+  effectUse: 0
+  effectDurationTime: Infinity
+  isTimeStacked: 0
+  isResetStacked: 1
+  thisEntity: {fileID: 0}
+  effectVFX: {fileID: 0}
+  curVFX: {fileID: 0}
+  strength: 50
+  dir: {x: 0, y: 0, z: 0}
+  fromObject: 1
+  curObj: {fileID: 0}
