@@ -28,5 +28,10 @@ public class AttackSOEditor : Editor
         {
             attack.playerPosDelay = EditorGUILayout.FloatField("Player Pos Delay", attack.playerPosDelay);
         }
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(attack);
+        }
     }
 }
