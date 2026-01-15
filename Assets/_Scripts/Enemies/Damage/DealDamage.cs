@@ -8,7 +8,7 @@ public class DealDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {   
-        if (!other.transform.root.gameObject.CompareTag("Player"))
+        if (!other.gameObject.CompareTag("Player"))
             return;
 
         Health.instance.ChangeHealth(-1, damageSource, transform.root.GetComponentsInChildren<IAttackHandler>().First());
