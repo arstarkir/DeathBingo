@@ -34441,6 +34441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GiveEffectTest
   effect: {fileID: 11400000, guid: 254f5686822e9a541b9fc9d2ed726161, type: 2}
+  destroyOnDealDmg: 1
 --- !u!1 &6929666751193209912
 GameObject:
   m_ObjectHideFlags: 0

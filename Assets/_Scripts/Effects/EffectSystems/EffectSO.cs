@@ -17,6 +17,7 @@ public class EffectSO : ScriptableObject
     public EffectUse effectUse = EffectUse.Standard;
     public float effectDurationTime = Mathf.Infinity;
     public bool isTimeStacked;
+    public bool isResetStacked;
     [HideInInspector] public Entity thisEntity;
     public GameObject effectVFX;
     [HideInInspector] public GameObject curVFX;

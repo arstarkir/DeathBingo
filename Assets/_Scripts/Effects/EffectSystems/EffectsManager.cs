@@ -86,7 +86,6 @@ public class EffectsManager : Singleton<EffectsManager>
     /// <param name="time">The duration the effect will last</param>
     public EffectHandler AddEffectToEntityForTime(EffectSO effect, Entity entity, float time, GameObject caster = null, Action? action = null)
     {
-        //Debug.Log("EffectsManager IsServer: " + IsServer);
         if (time < 0)
             time = float.MaxValue - 100;
 
@@ -97,8 +96,9 @@ public class EffectsManager : Singleton<EffectsManager>
         EffectHandler temp = entity.gameObject.AddComponent<EffectHandler>();
         temp.effectSO = effect;
         temp.effectId = effectsList.GetEffectId(effect);
+
         // Create a new effect timer and add it to the active timers list
-        if (!temp.effectSO.isTimeStacked || IsActiveEffectOnEntity(effect,entity))
+        if (!temp.effectSO.isTimeStacked || !IsActiveEffectOnEntity(effect,entity))
         {
             EffectTimer effectTimer = new EffectTimer(time, (action != null ? () => { action.Invoke(); DestroyEffectHendler(temp); } : () => DestroyEffectHendler(temp)), temp);
             timersToAdd.Add(effectTimer);
@@ -106,8 +106,15 @@ public class EffectsManager : Singleton<EffectsManager>
         else
         {
             foreach (EffectTimer timer in activeTimers)
+            {
                 if (timer.IsThisEffectTimer(effect, entity))
-                    timer.duration += effect.effectDurationTime;
+                {
+                    if (temp.effectSO.isTimeStacked)
+                        timer.duration += effect.effectDurationTime;
+                    if (temp.effectSO.isResetStacked)
+                        timer.duration = effect.effectDurationTime;
+                }
+            }
         }
 
         return temp;
