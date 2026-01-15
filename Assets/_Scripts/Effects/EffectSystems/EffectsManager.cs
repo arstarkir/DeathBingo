@@ -176,6 +176,19 @@ public class EffectsManager : Singleton<EffectsManager>
         return false;
     }
 
+    public int GetActiveEffectOnEntityAmount(EffectSO effect, Entity entity)
+    {
+        int amount = 0;
+
+        foreach (EffectTimer timer in activeTimers)
+        {
+            if (timer.IsThisEffectTimer(effect, entity))
+                amount++;
+        }
+
+        return amount;
+    }
+
     /// <summary>
     /// Removes the effect handler from the entity
     /// </summary>
