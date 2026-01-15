@@ -25,6 +25,9 @@ public class AttackSO : ScriptableObject
     public float attackAmount = 3;
     public float delay = 0.2f;
 
+    //For ToPlayer
+    public float playerPosDelay = 0.2f;
+
     public virtual void StartAttack(GameObject attackHolder)
     {
         if(temp == null)
@@ -34,6 +37,8 @@ public class AttackSO : ScriptableObject
             temp.AddComponent<RandomAttack>();
         if (attackStyles.HasFlag(AttackStyles.Timed))
             temp.AddComponent<TimedAttack>();
+        if (attackStyles.HasFlag(AttackStyles.ToPlayer))
+            temp.AddComponent<ToPlayerAttack>();
 
         temp.GetComponents<IAttackHandler>().ToList().ForEach(attackHandler => attackHandler.attackSO = this);
     }
@@ -61,5 +66,6 @@ public enum AttackStyles
     Animation = 1 << 0,
     Timed = 1 << 1,
     Randomed = 1 << 2,
-    All = Animation | Timed | Randomed,
+    ToPlayer = 1 << 3,
+    All = Animation | Timed | Randomed | ToPlayer,
 }
