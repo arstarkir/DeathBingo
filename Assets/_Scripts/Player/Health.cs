@@ -12,9 +12,9 @@ public class Health : Singleton<Health>
     Coroutine damagePoolTimer = null;
     List<(DamageSource, IAttackHandler)> damageInfoPool = new List<(DamageSource, IAttackHandler)>();
 
-    public float respawnTimer = 3f; // seconds before respawn on death
+    [SerializeField] float respawnTimer = 3f; // seconds before respawn on death
     [SerializeField] GameObject playerCollider; // collider to disable while dead
-    public float invincibilityTime = 3f;   // seconds of invincibiilty on respawn
+    [SerializeField] float invincibilityTime = 3f;   // seconds of invincibiilty on respawn
 
     [Tooltip("Player will be damaged only once in that time frame. But other damages will go to the rules")]
     public float damagePoolTime = 1;
