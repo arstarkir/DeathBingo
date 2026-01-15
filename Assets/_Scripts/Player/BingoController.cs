@@ -22,13 +22,13 @@ public class BingoController : Singleton<BingoController>
         }
     }
 
-    public void RuleCheck(List<DamageSource> damageSources)
+    public void RuleCheck(List<(DamageSource, IAttackHandler)> damageInfo)
     {
-        foreach (DamageSource source in damageSources) // this will be a max of 3 so it should be fine
+        foreach ((DamageSource, IAttackHandler) info in damageInfo) // this will be a max of 3 so it should be fine
         {
             foreach(DamageRuleSO rule in activeRules)
             {
-                if(rule.CheckRule(source))
+                if(rule.CheckRule(info))
                     finishedRules.Add(rule);
             }
         }

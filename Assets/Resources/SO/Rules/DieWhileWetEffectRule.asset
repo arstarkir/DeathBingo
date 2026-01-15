@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03a53644649d424eb4d33e21c3c76ad, type: 3}
   m_Name: DieWhileWetEffectRule
   m_EditorClassIdentifier: Assembly-CSharp::EffectRuleSO
-  ruleName: 
-  hoverDescription: 
+  ruleName: Die While Wet
+  hoverDescription: Die While Wet
   trigger: 0
-  effect: {fileID: 0}
+  attackSO: {fileID: 0}
+  effect: {fileID: 11400000, guid: 0d00399cbc2e8c74b8161a7ce5bc08da, type: 2}
   effectAmount: -1

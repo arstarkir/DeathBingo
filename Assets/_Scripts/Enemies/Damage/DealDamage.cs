@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class DealDamage : MonoBehaviour
@@ -10,7 +11,7 @@ public class DealDamage : MonoBehaviour
         if (!other.transform.root.gameObject.CompareTag("Player"))
             return;
 
-        Health.instance.ChangeHealth(-1, damageSource);
+        Health.instance.ChangeHealth(-1, damageSource, transform.root.GetComponentsInChildren<IAttackHandler>().First());
 
         if (destroyOnDealDmg)
             Destroy(gameObject);

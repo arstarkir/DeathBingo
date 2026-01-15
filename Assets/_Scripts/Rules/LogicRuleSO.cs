@@ -10,9 +10,12 @@ public class LogicRuleSO : DamageRuleSO
     public List<DamageRuleSO> rules = new List<DamageRuleSO>();
     public int andAmount = 5;
 
-    public override bool CheckRule(DamageSource source)
+    public override bool CheckRule((DamageSource, IAttackHandler) source)
     {
-        if (trigger != source && trigger != DamageSource.Ignore)
+        if (trigger != source.Item1 && trigger != DamageSource.Ignore)
+            return false;
+
+        if (attackSO != null && source.Item2 != null && source.Item2.attackSO.name == attackSO.name)
             return false;
 
         if (ruleFlag == LogicRuleEnum.And)
