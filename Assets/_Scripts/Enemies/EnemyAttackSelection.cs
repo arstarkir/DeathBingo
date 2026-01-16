@@ -21,7 +21,6 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     // create list of random attacks and wait to start attacking
     void Start()
     {
-        SeedManager.instance.GenerateSeed(); // This is here for now, but assuming we want to use rng elsewhere, it should probably be moved eventually so it doesn't end up getting regenerated!
         if(doFirst)
         {
             StartCoroutine(StartDelay(startDelay));

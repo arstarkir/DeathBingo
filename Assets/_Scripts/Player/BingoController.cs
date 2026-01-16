@@ -35,11 +35,26 @@ public class BingoController : Singleton<BingoController>
     public override void Awake()
     {
         base.Awake();
+        Shuffle(activeRules, SeedManager.instance.rng);
         foreach (DamageRuleSO rule in activeRules)
         {
             BingoSlotUI temp = Instantiate(slotPref, slotHolder.transform).GetComponent<BingoSlotUI>();
             temp.SetDamageRule(rule);
             curSlots.Add(temp);
+        }
+    }
+
+    // put bingo squares in random order and cap at 16
+    void Shuffle<DamageRuleSO>(List<DamageRuleSO> list, System.Random rng)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = rng.Next(i + 1);
+            (list[i], list[j]) = (list[j], list[i]);
+        }
+        if (list.Count > 16)
+        {
+            list.RemoveRange(16, list.Count - 16);
         }
     }
 

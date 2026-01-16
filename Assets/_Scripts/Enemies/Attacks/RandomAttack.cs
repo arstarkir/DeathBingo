@@ -27,7 +27,6 @@ public class RandomAttack : MonoBehaviour, IAttackHandler
             yield return new WaitForSeconds(s);
             curRandomAttacks.Add(Instantiate(attackSO.toSpawn, transform));
             curRandomAttacks.Last().transform.position = new Vector3(RngRange(b.min.x, b.max.x), 0.1f, RngRange(b.min.z, b.max.z));
-            //curRandomAttacks.Last().GetComponents<IAttackHandler>().ToList().ForEach(attackHandler => attackHandler.attackSO = attackSO);
         }
     }
 

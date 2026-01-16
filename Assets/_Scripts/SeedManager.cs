@@ -13,6 +13,12 @@ public class SeedManager : Singleton<SeedManager>
     public int atStartSetSeed = 0;
     [SerializeField] TMP_Text seedText;
 
+    void Awake()
+    {
+        base.Awake();
+        GenerateSeed();
+    }
+
     // get a new random seed (from 0 to max int)
     public void GenerateSeed()
     {
