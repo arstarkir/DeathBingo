@@ -11,23 +11,25 @@ public class BingoController : Singleton<BingoController>
     public List<DamageRuleSO> activeRules = new List<DamageRuleSO>();
     List<DamageRuleSO> finishedRules = new List<DamageRuleSO>();
     List<BingoSlotUI> curSlots = new List<BingoSlotUI>();   
-    int[][] validBingos = // list of valid bingo lines for 4x4
+    int[][] validBingos = // list of valid bingo lines for 5x5
     {
         // rows
-        new int[] { 0, 1, 2, 3 },
-        new int[] { 4, 5, 6, 7 },
-        new int[] { 8, 9, 10, 11 },
-        new int[] { 12, 13, 14, 15 },
+        new int[] { 0, 1, 2, 3, 4 },
+        new int[] { 5, 6, 7, 8, 9 },
+        new int[] { 10, 11, 12, 13, 14 },
+        new int[] { 15, 16, 17, 18, 19 },
+        new int[] { 20, 21, 22, 23, 24 },
 
         // columns
-        new int[] { 0, 4, 8, 12 },
-        new int[] { 1, 5, 9, 13 },
-        new int[] { 2, 6, 10, 14 },
-        new int[] { 3, 7, 11, 15 },
+        new int[] { 0, 5, 10, 15, 20 },
+        new int[] { 1, 6, 11, 16, 21 },
+        new int[] { 2, 7, 12, 17, 22 },
+        new int[] { 3, 8, 13, 18, 23 },
+        new int[] { 4, 9, 14, 19, 24 },
 
         // diagonals
-        new int[] { 0, 5, 10, 15 },
-        new int[] { 3, 6, 9, 12 }   
+        new int[] { 0, 6, 12, 18, 24 },
+        new int[] { 4, 8, 12, 16, 20 }
     };
 
     List<int> bingoIDList = new List<int>(); // list of ID of Bingos achieved (.Count to see how many Bingos a player has)
@@ -44,7 +46,7 @@ public class BingoController : Singleton<BingoController>
         }
     }
 
-    // put bingo squares in random order and cap at 16
+    // put bingo squares in random order and cap at 25
     void Shuffle<DamageRuleSO>(List<DamageRuleSO> list, System.Random rng)
     {
         for (int i = list.Count - 1; i > 0; i--)
@@ -52,9 +54,9 @@ public class BingoController : Singleton<BingoController>
             int j = rng.Next(i + 1);
             (list[i], list[j]) = (list[j], list[i]);
         }
-        if (list.Count > 16)
+        if (list.Count > 25)
         {
-            list.RemoveRange(16, list.Count - 16);
+            list.RemoveRange(25, list.Count - 25);
         }
     }
 
