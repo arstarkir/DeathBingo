@@ -81,8 +81,11 @@ public class BingoController : Singleton<BingoController>
 
         foreach (DamageRuleSO rule in finishedRules)
         {
-            active.Find(slot => slot.rule == rule).FinishRule();
-            activeRules.Remove(rule);
+            foreach (BingoSlotUI slot in active.Where(s => s.rule == rule))
+            {
+                slot.FinishRule();
+            }
+            activeRules.RemoveAll(r => r == rule);
         }
         finishedRules.Clear();
         CheckForBingo();
