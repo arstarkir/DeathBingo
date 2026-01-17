@@ -1,4 +1,3 @@
-using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +17,7 @@ public class Health : Singleton<Health>
 
     [Tooltip("Player will be damaged only once in that time frame. But other damages will go to the rules")]
     public float damagePoolTime = 1;
+    [HideInInspector] public int livesLostInRun = 0;
 
     public override void Awake() 
     {
@@ -30,6 +30,7 @@ public class Health : Singleton<Health>
         if (damagePoolTimer == null)
         {
             health += changeAmount;
+            livesLostInRun -= changeAmount;
             OnHealthChange();
             damagePoolTimer = StartCoroutine(DamageDealtPool(damagePoolTime));
         }

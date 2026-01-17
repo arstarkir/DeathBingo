@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RuleListSO
   rules:
   - {fileID: 11400000, guid: a8642a2b590222d4981144f93c5ab8b1, type: 2}
-  - {fileID: 11400000, guid: a97d8377f84d7d440bf0642653646974, type: 2}
   - {fileID: 11400000, guid: 9b9ee3f0f0bdf80469b95262444d9944, type: 2}
   - {fileID: 11400000, guid: fcdcd2a49ecae2f45a360227af0dcfeb, type: 2}
   - {fileID: 11400000, guid: d3834128de0288a4384e6d21e705829d, type: 2}

@@ -15,7 +15,7 @@ public class RuleSO : Data
         if (trigger != source.Item1 && trigger != DamageSource.Ignore)
             return false;
 
-        if (attackSO != null && (source.Item2 == null || source.Item2.attackSO.attackPref.name != attackSO.attackPref.name))
+        if (attackSO != null && (source.Item2 == null || source.Item2.attackSO.dataName != attackSO.dataName))
             return false;
 
         return true;

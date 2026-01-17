@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class PlayerProgressTracker : Singleton<PlayerProgressTracker>
 {
@@ -10,8 +9,11 @@ public class PlayerProgressTracker : Singleton<PlayerProgressTracker>
     [HideInInspector] public EffectListSO effectsList;
     [HideInInspector] public RuleListSO ruleList;
     [HideInInspector] public AttackListSO attackList;
+    [HideInInspector] public int newEffectsDone = 0;
+    [HideInInspector] public int newAttacksDone = 0;
+    [HideInInspector] public int newRuelsDone = 0;
 
-    private void Awake()
+    public override void Awake()
     {
         base.Awake();
 
@@ -19,18 +21,23 @@ public class PlayerProgressTracker : Singleton<PlayerProgressTracker>
         ruleList = Resources.Load<RuleListSO>("SO/RuleList");
         attackList = Resources.Load<AttackListSO>("SO/AttackList");
 
-        PlayerSaveSystem.TryLoad(out ProgressData data);
-        curProgressData = data;
+        PlayerSaveSystem.Delete();
 
-        foreach (EffectSO item in effectsList.effects)
-            if (!curProgressData.effectProgress.ContainsKey(item.dataName))
-                curProgressData.effectProgress.Add(item.dataName, false);
-        foreach (RuleSO item in ruleList.rules)
-            if (!curProgressData.ruleProgress.ContainsKey(item.dataName))
-                curProgressData.ruleProgress.Add(item.dataName, false);
-        foreach (AttackSO item in attackList.attacks)
-            if (!curProgressData.attackProgress.ContainsKey(item.dataName))
-                curProgressData.attackProgress.Add(item.dataName, false);
+        if(!PlayerSaveSystem.TryLoad(out ProgressData data))
+        {
+            curProgressData = data;
+
+            foreach (EffectSO item in effectsList.effects)
+                if (!curProgressData.effectProgress.ContainsKey(item.dataName))
+                    curProgressData.effectProgress.Add(item.dataName, false);
+            foreach (RuleSO item in ruleList.rules)
+                if (!curProgressData.ruleProgress.ContainsKey(item.dataName))
+                    curProgressData.ruleProgress.Add(item.dataName, false);
+            foreach (AttackSO item in attackList.attacks)
+                if (!curProgressData.attackProgress.ContainsKey(item.dataName))
+                    curProgressData.attackProgress.Add(item.dataName, false);
+        }
+        curProgressData = data;
 
         PlayerSaveSystem.Save(curProgressData);
     }
@@ -38,11 +45,33 @@ public class PlayerProgressTracker : Singleton<PlayerProgressTracker>
     public void UpdateProgressData(string name, bool val, DataType dataType)
     {
         if(dataType == DataType.Effect)
+        {
+            if (curProgressData.effectProgress[name] == false && val)
+                newEffectsDone++;
             curProgressData.effectProgress[name] = val;
+        }
         if (dataType == DataType.Rule)
+        {
+            if (curProgressData.ruleProgress[name] == false && val)
+                newRuelsDone++;
             curProgressData.ruleProgress[name] = val;
+        }
         if (dataType == DataType.Attack)
+        {
+            if (curProgressData.attackProgress[name] == false && val)
+                newAttacksDone++;
             curProgressData.attackProgress[name] = val;
+        }
+    }
+
+    public string GetPercent(Dictionary<string, bool> dict)
+    {
+        int done = 0;
+        foreach (var kvp in dict)
+            if (kvp.Value)
+                done++;
+
+        return Mathf.RoundToInt((float)done / dict.Count * 100f) + "%";
     }
 
     public void OnDisable()
@@ -134,7 +163,7 @@ public static class PlayerSaveSystem
         return true;
     }
 
-    public static void Delete(string name)
+    public static void Delete()
     {
         if (File.Exists(SavePath))
             File.Delete(SavePath);

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TimerController : Singleton<TimerController>
 {
-    [SerializeField] float time = 120;
+    [SerializeField] float time = 0;
     [SerializeField] float fastTimerAnimationStartTime = 50; // Cahnge to a better name
     [SerializeField] TMP_Text timer;
 
@@ -15,7 +15,7 @@ public class TimerController : Singleton<TimerController>
 
     void FixedUpdate()
     {
-        time -= Time.fixedDeltaTime;
+        time += Time.fixedDeltaTime;
         UpdateTimer();
     }
 
@@ -33,12 +33,12 @@ public class TimerController : Singleton<TimerController>
             timer.text = GetTime();
             timer.GetComponent<TextEffect>().Refresh();
         }
-        if (timerTag != fastTimerTag && time < fastTimerAnimationStartTime)
-        {
-            timerTag = fastTimerTag;
-            timer.text = GetTime();
-            timer.GetComponent<TextEffect>().Refresh();
-        }
+        //if (timerTag != fastTimerTag && time < fastTimerAnimationStartTime)
+        //{
+        //    timerTag = fastTimerTag;
+        //    timer.text = GetTime();
+        //    timer.GetComponent<TextEffect>().Refresh();
+        //}
 
         timer.text = GetTime();
     }

@@ -84,6 +84,9 @@ MonoBehaviour:
   effectsList: {fileID: 0}
   ruleList: {fileID: 0}
   attackList: {fileID: 0}
+  newEffectsDone: 0
+  newAttacksDone: 0
+  newRuelsDone: 0
 --- !u!1 &7610479233636674052
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +276,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3469982207973564230, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 5508356217990948112}
+    - target: {fileID: 4815884803059879902, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4815884803059879902, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
       propertyPath: damagePoolTime
       value: 3
@@ -280,6 +291,18 @@ PrefabInstance:
     - target: {fileID: 5405227267545705261, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614582137758895609, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614582137758895609, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: fastTimerAnimationStartTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397918807943028812, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6853700522202594097, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
       propertyPath: speed
@@ -314,6 +337,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 349184908399433104, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
   m_PrefabInstance: {fileID: 1493054918453757276}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5508356217990948112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6397918807943028812, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+  m_PrefabInstance: {fileID: 1493054918453757276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &8255784411234435746 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7361720352075941886, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
@@ -335,21 +363,29 @@ PrefabInstance:
       propertyPath: seedText
       value: 
       objectReference: {fileID: 758939077171273180}
+    - target: {fileID: 6969478264861667065, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
+      propertyPath: atStartSetSeed
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 8012000286113503428, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: m_Name
       value: Field
       objectReference: {fileID: 0}
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: doFirst
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: attackHolder
       value: 
       objectReference: {fileID: 182317483159243961}
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
+      propertyPath: sequenceLength
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: attacks.Array.size
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: 'attacks.Array.data[0]'
@@ -370,23 +406,23 @@ PrefabInstance:
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: 'attacks.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: e43372f9e8a73df43a89e11095cfee4f, type: 2}
+      objectReference: {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: 'attacks.Array.data[5]'
       value: 
-      objectReference: {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
+      objectReference: {fileID: 11400000, guid: 7e43c7f336bbb6a40bdd2c35b690d9ba, type: 2}
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: 'attacks.Array.data[6]'
       value: 
-      objectReference: {fileID: 11400000, guid: 7e43c7f336bbb6a40bdd2c35b690d9ba, type: 2}
+      objectReference: {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: 'attacks.Array.data[7]'
       value: 
-      objectReference: {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
+      objectReference: {fileID: 11400000, guid: 29689803147f07145a5e6575dc8329dd, type: 2}
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: 'attacks.Array.data[8]'
       value: 
-      objectReference: {fileID: 11400000, guid: 29689803147f07145a5e6575dc8329dd, type: 2}
+      objectReference: {fileID: 11400000, guid: c3c6ab732dfb6a8428c20e6fbe8d815e, type: 2}
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: 'attacks.Array.data[9]'
       value: 
@@ -453,6 +489,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3349728519323424642}
     m_Modifications:
+    - target: {fileID: 3648213169787365467, guid: 3f295c89f6caa7b4c8f2b2d046ddd0de, type: 3}
+      propertyPath: m_CellSize.x
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648213169787365467, guid: 3f295c89f6caa7b4c8f2b2d046ddd0de, type: 3}
+      propertyPath: m_CellSize.y
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055129400269396444, guid: 3f295c89f6caa7b4c8f2b2d046ddd0de, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 940
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055129400269396444, guid: 3f295c89f6caa7b4c8f2b2d046ddd0de, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 940
+      objectReference: {fileID: 0}
     - target: {fileID: 7423850385388643487, guid: 3f295c89f6caa7b4c8f2b2d046ddd0de, type: 3}
       propertyPath: m_Camera
       value: 
@@ -543,7 +595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9177324406890474437, guid: 3f295c89f6caa7b4c8f2b2d046ddd0de, type: 3}
       propertyPath: activeRules.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9177324406890474437, guid: 3f295c89f6caa7b4c8f2b2d046ddd0de, type: 3}
       propertyPath: 'activeRules.Array.data[4]'

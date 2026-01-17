@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class BingoController : Singleton<BingoController>
 {
@@ -33,6 +32,8 @@ public class BingoController : Singleton<BingoController>
     };
 
     List<int> bingoIDList = new List<int>(); // list of ID of Bingos achieved (.Count to see how many Bingos a player has)
+
+    [HideInInspector] public int maxRuleCombo = 0;
 
     public void Start()
     {
@@ -75,7 +76,11 @@ public class BingoController : Singleton<BingoController>
         }
 
         if (finishedRules.Count > 0)
+        {
+            if(finishedRules.Count > maxRuleCombo)
+                maxRuleCombo = finishedRules.Count;
             FinishRules();
+        }
     }
 
     public void FinishRules()
@@ -131,5 +136,6 @@ public class BingoController : Singleton<BingoController>
     {
         bingoIDList.Add(bingoId);
         Debug.Log("BINGO!");
+        EndScreenUI.instance.WinScreen();
     }
 }
