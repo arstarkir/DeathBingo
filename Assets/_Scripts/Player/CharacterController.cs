@@ -55,7 +55,7 @@ public class CharacterController : Singleton<CharacterController>
         GroundCheck();
         rb.AddForce(0, playerGravity, 0, ForceMode.Acceleration);
         Vector3 pos = rb.position;
-        Vector3 minBounds = new Vector3(-10,-1,-10);
+        Vector3 minBounds = new Vector3(-10,0,-10);
         Vector3 maxBounds = new Vector3(10, 100, 10);
         pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
         pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
