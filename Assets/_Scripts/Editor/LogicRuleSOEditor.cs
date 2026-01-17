@@ -6,14 +6,11 @@ public class LogicRuleSOEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        if (target == null)
-            return;
+        if (target == null) return;
         serializedObject.UpdateIfRequiredOrScript();
-
         LogicRuleSO rule = (LogicRuleSO)target;
+        if (rule == null) return;
 
-        if (rule == null)
-            return;
         EditorGUI.BeginChangeCheck();
         Undo.RecordObject(rule, "Edit LogicRuleSO");
 
