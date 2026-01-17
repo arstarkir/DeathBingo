@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,16 @@ public class RandomAttack : MonoBehaviour, IAttackHandler
         {
             yield return new WaitForSeconds(s);
             curRandomAttacks.Add(Instantiate(attackSO.toSpawn, transform));
+
             curRandomAttacks.Last().transform.position = new Vector3(RngRange(b.min.x, b.max.x), 0.1f, RngRange(b.min.z, b.max.z));
+
+            if (attackSO.attackStyles.HasFlag(AttackStyles.RotationRandom))
+            {
+                if (attackSO.onlyRightAngles)
+                    curRandomAttacks.Last().transform.rotation = Quaternion.Euler(0, Convert.ToInt32(RngRange(0, 4)) * 90, 0);
+                else
+                    curRandomAttacks.Last().transform.rotation = Quaternion.Euler(0, RngRange(0, 360), 0);
+            }
         }
     }
 

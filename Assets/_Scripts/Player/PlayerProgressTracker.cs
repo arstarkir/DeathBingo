@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PlayerProgressTracker : Singleton<PlayerProgressTracker>
 {
@@ -20,8 +21,6 @@ public class PlayerProgressTracker : Singleton<PlayerProgressTracker>
         effectsList = Resources.Load<EffectListSO>("SO/EffectList");
         ruleList = Resources.Load<RuleListSO>("SO/RuleList");
         attackList = Resources.Load<AttackListSO>("SO/AttackList");
-
-        PlayerSaveSystem.Delete();
 
         if(!PlayerSaveSystem.TryLoad(out ProgressData data))
         {
@@ -44,20 +43,29 @@ public class PlayerProgressTracker : Singleton<PlayerProgressTracker>
 
     public void UpdateProgressData(string name, bool val, DataType dataType)
     {
-        if(dataType == DataType.Effect)
+        if (dataType == DataType.Effect)
         {
+            if (!curProgressData.effectProgress.ContainsKey(name))
+                curProgressData.effectProgress.Add(name, val);
+
             if (curProgressData.effectProgress[name] == false && val)
                 newEffectsDone++;
             curProgressData.effectProgress[name] = val;
         }
         if (dataType == DataType.Rule)
         {
+            if (!curProgressData.ruleProgress.ContainsKey(name))
+                curProgressData.ruleProgress.Add(name, val);
+
             if (curProgressData.ruleProgress[name] == false && val)
                 newRuelsDone++;
             curProgressData.ruleProgress[name] = val;
         }
         if (dataType == DataType.Attack)
         {
+            if (!curProgressData.attackProgress.ContainsKey(name))
+                curProgressData.attackProgress.Add(name, val);
+
             if (curProgressData.attackProgress[name] == false && val)
                 newAttacksDone++;
             curProgressData.attackProgress[name] = val;

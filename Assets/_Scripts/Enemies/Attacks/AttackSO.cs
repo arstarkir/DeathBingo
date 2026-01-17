@@ -26,6 +26,9 @@ public class AttackSO : Data
     public float attackAmount = 3;
     public float delay = 0.2f;
 
+    //For Rotation Random
+    public bool onlyRightAngles = true;
+
     //For ToPlayer
     public float playerPosDelay = 0.2f;
 
@@ -44,6 +47,8 @@ public class AttackSO : Data
             temp.AddComponent<TimedAttack>();
         if (attackStyles.HasFlag(AttackStyles.ToPlayer))
             temp.AddComponent<ToPlayerAttack>();
+        if (attackStyles.HasFlag(AttackStyles.RotationRandom))
+            temp.AddComponent<RotationRandomizedAttack>();
 
         temp.GetComponents<IAttackHandler>().ToList().ForEach(attackHandler => attackHandler.attackSO = this);
     }
@@ -72,5 +77,6 @@ public enum AttackStyles
     Timed = 1 << 1,
     Randomed = 1 << 2,
     ToPlayer = 1 << 3,
-    All = Animation | Timed | Randomed | ToPlayer,
+    RotationRandom = 1 << 4,
+    All = Animation | Timed | Randomed | RotationRandom | ToPlayer,
 }

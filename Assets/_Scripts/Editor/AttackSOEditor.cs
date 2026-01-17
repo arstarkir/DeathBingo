@@ -6,7 +6,16 @@ public class AttackSOEditor : Editor
 {
     public override void OnInspectorGUI()
     {
+        if (target == null)
+            return;
+        serializedObject.UpdateIfRequiredOrScript();
+
         AttackSO attack = (AttackSO)target;
+        if (attack == null)
+            return;
+        EditorGUI.BeginChangeCheck();
+        Undo.RecordObject(attack, "Edit AttackSO");
+
         attack.dataName = EditorGUILayout.TextField("Attack Name", attack.dataName);
 
         // stuff that should always be visible
@@ -29,10 +38,15 @@ public class AttackSOEditor : Editor
         {
             attack.playerPosDelay = EditorGUILayout.FloatField("Player Pos Delay", attack.playerPosDelay);
         }
+        if(attack.attackStyles.HasFlag(AttackStyles.RotationRandom))
+        {
+            attack.onlyRightAngles = EditorGUILayout.Toggle("Only Right Angles", attack.onlyRightAngles);
+        }
 
         if (GUI.changed)
         {
             EditorUtility.SetDirty(attack);
+            AssetDatabase.SaveAssets();
         }
     }
 }

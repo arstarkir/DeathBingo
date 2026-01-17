@@ -6,7 +6,17 @@ public class LogicRuleSOEditor : Editor
 {
     public override void OnInspectorGUI()
     {
+        if (target == null)
+            return;
+        serializedObject.UpdateIfRequiredOrScript();
+
         LogicRuleSO rule = (LogicRuleSO)target;
+
+        if (rule == null)
+            return;
+        EditorGUI.BeginChangeCheck();
+        Undo.RecordObject(rule, "Edit LogicRuleSO");
+
         rule.dataName = EditorGUILayout.TextField("Rule Name", rule.dataName);
         rule.dataDescription = EditorGUILayout.TextField("Rule Hover Text", rule.dataDescription);
 
@@ -17,6 +27,10 @@ public class LogicRuleSOEditor : Editor
         {
             rule.andAmount = EditorGUILayout.IntField("And Amount", rule.andAmount);
         }
-        serializedObject.ApplyModifiedProperties(); // save list stuff
+
+        if (EditorGUI.EndChangeCheck())
+            EditorUtility.SetDirty(rule);
+
+        serializedObject.ApplyModifiedProperties();
     }
 }
