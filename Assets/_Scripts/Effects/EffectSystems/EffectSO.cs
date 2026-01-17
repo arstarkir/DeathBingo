@@ -27,7 +27,10 @@ public class EffectSO : Data
 
     public virtual void OnEffectStart()
     {
-        dataType = DataType.Effect; 
+        dataType = DataType.Effect;
+        wasDone = true;
+        PlayerProgressTracker.instance.UpdateProgressData(dataName, wasDone, dataType);
+
         if (effectVFX != null)
             curVFX = Instantiate(effectVFX, CharacterController.instance.transform);
         // Update UI and Sounds HERE

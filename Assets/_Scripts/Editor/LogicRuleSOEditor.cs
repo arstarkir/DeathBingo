@@ -7,6 +7,9 @@ public class LogicRuleSOEditor : Editor
     public override void OnInspectorGUI()
     {
         LogicRuleSO rule = (LogicRuleSO)target;
+        rule.dataName = EditorGUILayout.TextField("Rule Name", rule.dataName);
+        rule.dataDescription = EditorGUILayout.TextField("Rule Hover Text", rule.dataDescription);
+
         rule.ruleFlag = (LogicRuleEnum)EditorGUILayout.EnumPopup("Rule Flag", rule.ruleFlag);  // enum picker for rule flag
         EditorGUILayout.PropertyField(serializedObject.FindProperty("rules"), true); // list of rules
 

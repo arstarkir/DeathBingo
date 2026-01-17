@@ -66,7 +66,11 @@ public class BingoController : Singleton<BingoController>
             foreach(RuleSO rule in activeRules)
             {
                 if(rule.CheckRule(info))
+                {
                     finishedRules.Add(rule);
+                    rule.SetWasDone(true);
+                    PlayerProgressTracker.instance.UpdateProgressData(rule.dataName, rule.wasDone, DataType.Rule);
+                }
             }
         }
 

@@ -10,7 +10,6 @@ public class Data : ScriptableObject
     public void SetWasDone(bool val)
     {
         this.wasDone = val;
-
     }
 }
 

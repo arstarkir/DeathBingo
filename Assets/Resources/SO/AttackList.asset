@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6371293977ac7e249b34fe48e86cb03e, type: 3}
+  m_Name: AttackList
+  m_EditorClassIdentifier: Assembly-CSharp::AttackListSO
+  attacks:
+  - {fileID: 11400000, guid: aa639d8af31036e46b31eaa72a109fa7, type: 2}
+  - {fileID: 11400000, guid: e43372f9e8a73df43a89e11095cfee4f, type: 2}
+  - {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
+  - {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}
+  - {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
+  - {fileID: 11400000, guid: 8a89130922b22a94baccddc4d40483c9, type: 2}
+  - {fileID: 11400000, guid: 7e43c7f336bbb6a40bdd2c35b690d9ba, type: 2}
+  - {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
+  - {fileID: 11400000, guid: 29689803147f07145a5e6575dc8329dd, type: 2}
+  - {fileID: 11400000, guid: c3c6ab732dfb6a8428c20e6fbe8d815e, type: 2}
+  - {fileID: 11400000, guid: c6e5820f2f20d2c4cbb966daa78d583f, type: 2}
+  - {fileID: 11400000, guid: 108a1e5050cb21547974fb914dd808d2, type: 2}

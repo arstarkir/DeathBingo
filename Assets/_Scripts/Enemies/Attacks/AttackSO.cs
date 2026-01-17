@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using System.Linq;
 using UnityEngine;
 
@@ -28,10 +29,12 @@ public class AttackSO : Data
     //For ToPlayer
     public float playerPosDelay = 0.2f;
 
-
     public virtual void StartAttack(GameObject attackHolder)
     {
         dataType = DataType.Attack;
+        wasDone = true;
+        PlayerProgressTracker.instance.UpdateProgressData(dataName, wasDone, dataType);
+
         if (temp == null)
             temp = Instantiate(attackPref, attackHolder.transform);
 
