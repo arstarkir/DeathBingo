@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Location", menuName = "Rule/Location")]
 public class LocationRuleSO : DamageRuleSO
 {
-    [Header("Field spans (-10,0,-10) to (10,inf,10)")]
+    [Header("Field spans (-10,1,-10) to (10,inf,10)")]
     public Vector3 MinBounds = new Vector3(-10, 0, -10);
     public Vector3 MaxBounds = new Vector3(10, 10, 10);
     public override bool CheckRule((DamageSource, IAttackHandler) source)
