@@ -1939,18 +1939,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9091ea56a37fe418e3bcf8a723e746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterController
-  speed: 5
+  speed: 7.5
   sprintSpeed: 7.5
   jumpVelocity: 22
   playerGravity: -55
   groundDistance: 1.1
-  rollSpeed: 20
+  rollSpeed: 25
   rollDuration: 0.15
   rollCooldown: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   inputVec: {x: 0, y: 0}
+  rb: {fileID: 0}
   isInteractable: 1
   influenceVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &3975958671126723628
@@ -2717,13 +2718,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97297fdb976c254418fa4f9671eeb7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  health: 3
+  health: 5
   hpPref: {fileID: 2919924181480005558, guid: 33461f14a86cffa418a6d9302a25b394, type: 3}
   hpHolder: {fileID: 7182164296061869201}
   respawnTimer: 3
   playerCollider: {fileID: 3920898419923573394}
   invincibilityTime: 3
-  damagePoolTime: 1
+  damagePoolTime: 3
   livesLostInRun: 0
 --- !u!114 &5614582137758895609
 MonoBehaviour:
@@ -2737,8 +2738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624c832d22652ed45888d0c3b040b292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerController
-  time: 65
-  fastTimerAnimationStartTime: 55
+  time: 0
+  fastTimerAnimationStartTime: 0
   timer: {fileID: 6385421612141319760}
   calmTimerTag: <link=CalmTimer>
   fastTimerTag: <link=FastTimerGitter+FastTimer+FastTimerScale>
@@ -2908,7 +2909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3805465176938618787
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3032,6 +3033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb21ad7e53d57f149b8863b08930f3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WinScreenUI
+  winScreen: {fileID: 6397918807943028812}
   completionTime: {fileID: 4597464630970732264}
   lifeLost: {fileID: 6097552760802860498}
   maxRuleCombo: {fileID: 5067756204269545080}

@@ -276,45 +276,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3469982207973564230, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
-      propertyPath: winScreen
-      value: 
-      objectReference: {fileID: 5508356217990948112}
-    - target: {fileID: 4815884803059879902, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
-      propertyPath: health
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4815884803059879902, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
-      propertyPath: damagePoolTime
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5405227267545705261, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5614582137758895609, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
-      propertyPath: time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5614582137758895609, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
-      propertyPath: fastTimerAnimationStartTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6397918807943028812, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6853700522202594097, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
-      propertyPath: speed
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6853700522202594097, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
-      propertyPath: rollSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6879171126362646927, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -335,11 +299,6 @@ MonoBehaviour:
 --- !u!4 &1180198581362315468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 349184908399433104, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
-  m_PrefabInstance: {fileID: 1493054918453757276}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5508356217990948112 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6397918807943028812, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
   m_PrefabInstance: {fileID: 1493054918453757276}
   m_PrefabAsset: {fileID: 0}
 --- !u!20 &8255784411234435746 stripped
