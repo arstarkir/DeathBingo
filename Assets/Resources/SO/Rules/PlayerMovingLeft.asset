@@ -20,4 +20,5 @@ MonoBehaviour:
   attackSO: {fileID: 0}
   moveVector: {x: -1, y: 0, z: 0}
   axis: 1
-  logic: 1
+  logic: 2
+  tolerance: 0
