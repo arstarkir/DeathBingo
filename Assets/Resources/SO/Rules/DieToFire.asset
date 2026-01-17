@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2d859996e67b2a4897cacab030626fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8db72fec2658a8b40b92f7cbab317666, type: 3}
   m_Name: DieToFire
   m_EditorClassIdentifier: Assembly-CSharp::DamageRuleSO
-  ruleName: Die To Fire
-  hoverDescription: You have to die to Fire
+  dataName: Die To Fire
+  dataDescription: Die To Fire
+  wasDone: 0
+  dataType: 0
   trigger: 3
+  attackSO: {fileID: 0}

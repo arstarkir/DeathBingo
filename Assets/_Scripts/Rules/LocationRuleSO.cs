@@ -1,17 +1,14 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Location", menuName = "Rule/Location")]
-public class LocationRuleSO : DamageRuleSO
+public class LocationRuleSO : RuleSO
 {
     [Header("Field spans (-10,1,-10) to (10,inf,10)")]
     public Vector3 MinBounds = new Vector3(-10, 0, -10);
     public Vector3 MaxBounds = new Vector3(10, 10, 10);
     public override bool CheckRule((DamageSource, IAttackHandler) source)
     {
-        if (trigger != source.Item1 && trigger != DamageSource.Ignore)
-            return false;
-
-        if (attackSO != null && (source.Item2 == null || source.Item2.attackSO.attackPref.name != attackSO.attackPref.name))
+        if (!CoreRuleCheck(source))
             return false;
 
         Vector3 playerPosition = CharacterController.instance.GetComponent<Collider>().bounds.center;

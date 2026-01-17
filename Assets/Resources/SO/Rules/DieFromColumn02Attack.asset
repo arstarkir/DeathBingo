@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2d859996e67b2a4897cacab030626fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8db72fec2658a8b40b92f7cbab317666, type: 3}
   m_Name: DieFromColumn02Attack
   m_EditorClassIdentifier: Assembly-CSharp::DamageRuleSO
-  ruleName: Die From ColumnSpin
-  hoverDescription: Die From Column02Attack
+  dataName: Die From Column02 Attack
+  dataDescription: Die From Column02 Attack
+  wasDone: 0
+  dataType: 0
   trigger: 0
   attackSO: {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}

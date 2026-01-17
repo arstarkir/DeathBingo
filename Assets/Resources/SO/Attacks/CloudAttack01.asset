@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
   m_Name: CloudAttack01
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
+  dataName: Cloud Attack 01
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
   attackPref: {fileID: 2756631408812021891, guid: b320489b6c68aed42bae24d3902000cd, type: 3}
   attackType: 1
   temp: {fileID: 0}
@@ -20,3 +24,4 @@ MonoBehaviour:
   toSpawn: {fileID: 6227547596297077131, guid: 08266ae04de919d4494cbcdc944432c1, type: 3}
   attackAmount: 5
   delay: 2
+  playerPosDelay: 0.2

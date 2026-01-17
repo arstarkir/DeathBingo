@@ -8,8 +8,8 @@ public class BingoController : Singleton<BingoController>
     public GameObject slotPref;
     public GameObject slotHolder;
 
-    public List<DamageRuleSO> activeRules = new List<DamageRuleSO>();
-    List<DamageRuleSO> finishedRules = new List<DamageRuleSO>();
+    public List<RuleSO> activeRules = new List<RuleSO>();
+    List<RuleSO> finishedRules = new List<RuleSO>();
     List<BingoSlotUI> curSlots = new List<BingoSlotUI>();   
     int[][] validBingos = // list of valid bingo lines for 5x5
     {
@@ -34,11 +34,10 @@ public class BingoController : Singleton<BingoController>
 
     List<int> bingoIDList = new List<int>(); // list of ID of Bingos achieved (.Count to see how many Bingos a player has)
 
-    public override void Awake()
+    public void Start()
     {
-        base.Awake();
         Shuffle(activeRules, SeedManager.instance.rng);
-        foreach (DamageRuleSO rule in activeRules)
+        foreach (RuleSO rule in activeRules)
         {
             BingoSlotUI temp = Instantiate(slotPref, slotHolder.transform).GetComponent<BingoSlotUI>();
             temp.SetDamageRule(rule);
@@ -64,7 +63,7 @@ public class BingoController : Singleton<BingoController>
     {
         foreach ((DamageSource, IAttackHandler) info in damageInfo) // this will be a max of 3 so it should be fine
         {
-            foreach(DamageRuleSO rule in activeRules)
+            foreach(RuleSO rule in activeRules)
             {
                 if(rule.CheckRule(info))
                     finishedRules.Add(rule);
@@ -79,7 +78,7 @@ public class BingoController : Singleton<BingoController>
     {
         List<BingoSlotUI> active = curSlots.Where(slot => !slot.finished).ToList();
 
-        foreach (DamageRuleSO rule in finishedRules)
+        foreach (RuleSO rule in finishedRules)
         {
             foreach (BingoSlotUI slot in active.Where(s => s.rule == rule))
             {

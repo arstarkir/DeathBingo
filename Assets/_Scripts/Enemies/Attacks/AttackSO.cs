@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Attack", menuName = "Attack")]
-public class AttackSO : ScriptableObject
+public class AttackSO : Data
 {
     public enum AttackType // enum for kind of attack, determines what it can overlap with
     {
@@ -28,9 +28,11 @@ public class AttackSO : ScriptableObject
     //For ToPlayer
     public float playerPosDelay = 0.2f;
 
+
     public virtual void StartAttack(GameObject attackHolder)
     {
-        if(temp == null)
+        dataType = DataType.Attack;
+        if (temp == null)
             temp = Instantiate(attackPref, attackHolder.transform);
 
         if(attackStyles.HasFlag(AttackStyles.Randomed))

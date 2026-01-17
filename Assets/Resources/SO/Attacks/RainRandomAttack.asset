@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
   m_Name: RainRandomAttack
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
+  dataName: Rain Random Attack
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
   attackPref: {fileID: 8024367301645378359, guid: 97aad5f52794dd841aa12fb7a1d70fe4, type: 3}
   attackType: 1
   temp: {fileID: 0}
@@ -20,3 +24,4 @@ MonoBehaviour:
   toSpawn: {fileID: 1143974782556763838, guid: f40383e0b6acc704cb5dfad0b405f722, type: 3}
   attackAmount: 2
   delay: 1
+  playerPosDelay: 0.2

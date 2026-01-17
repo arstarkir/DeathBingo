@@ -4,15 +4,15 @@ using UnityEngine.UI;
 
 public class BingoSlotUI : MonoBehaviour
 {
-    public DamageRuleSO rule;
+    public RuleSO rule;
     [SerializeField] TMP_Text text;
     [SerializeField] Toggle toggle;
     [HideInInspector] public bool finished = false;
 
-    public void SetDamageRule(DamageRuleSO damageRule)
+    public void SetDamageRule(RuleSO damageRule)
     {
         this.rule = damageRule;
-        text.text = damageRule.ruleName;
+        text.text = damageRule.dataName;
         finished = false;
         toggle.isOn = finished;
     }

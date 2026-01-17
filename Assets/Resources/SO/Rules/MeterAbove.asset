@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb723116077fb254ea1515cf0a856990, type: 3}
   m_Name: MeterAbove
   m_EditorClassIdentifier: Assembly-CSharp::LocationRuleSO
-  ruleName: Die 1+ Meter above the Ground
-  hoverDescription: Die 1+ Meter above the Ground
+  dataName: Die 2 Meter Above Map
+  dataDescription: Die 2 Meter Above Map
+  wasDone: 0
+  dataType: 0
   trigger: 0
   attackSO: {fileID: 0}
   MinBounds: {x: -10, y: 2, z: -10}

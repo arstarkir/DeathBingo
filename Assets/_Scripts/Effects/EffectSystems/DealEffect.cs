@@ -51,7 +51,7 @@ public class DealEffect : MonoBehaviour
             ((InfluenceEffectSO)handler.effectSO).curObj = this.gameObject;
 
         // This HAS to be changed (it's late rn)
-        if (effect.effectName.Contains("Stun") && EffectsManager.instance.
+        if (effect.dataName.Contains("Stun") && EffectsManager.instance.
             IsActiveEffectOnEntity(EffectsManager.instance.effectsList.effects[0], entity))
             Health.instance.ChangeHealth(-1, DamageSource.Lightning, transform.root.GetComponentsInChildren<IAttackHandler>().First());
 

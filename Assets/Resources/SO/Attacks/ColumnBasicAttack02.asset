@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
   m_Name: ColumnBasicAttack02
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
+  dataName: Column Basic Attack 02
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
   attackPref: {fileID: 7788882881612801072, guid: 660f8ee8b519ffe4dbecd8af0e9d40e9, type: 3}
   attackType: 0
   temp: {fileID: 0}

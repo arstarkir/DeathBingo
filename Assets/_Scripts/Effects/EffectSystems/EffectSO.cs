@@ -9,10 +9,8 @@ public enum EffectUse
 }
 
 [CreateAssetMenu(fileName = "GenericEffect", menuName = "Effects/GenericEffect")]
-public class EffectSO : ScriptableObject
+public class EffectSO : Data
 {
-    public string effectName;
-    public string effectDescription;
     public Sprite sprite;
     public EffectUse effectUse = EffectUse.Standard;
     public float effectDurationTime = Mathf.Infinity;
@@ -29,6 +27,7 @@ public class EffectSO : ScriptableObject
 
     public virtual void OnEffectStart()
     {
+        dataType = DataType.Effect; 
         if (effectVFX != null)
             curVFX = Instantiate(effectVFX, CharacterController.instance.transform);
         // Update UI and Sounds HERE

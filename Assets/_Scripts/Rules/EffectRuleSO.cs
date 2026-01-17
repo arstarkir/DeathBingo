@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EffectRule", menuName = "Rule/EffectRule")]
-public class EffectRuleSO : DamageRuleSO
+public class EffectRuleSO : RuleSO
 {
     public EffectSO effect;
 
@@ -10,10 +10,7 @@ public class EffectRuleSO : DamageRuleSO
 
     public override bool CheckRule((DamageSource, IAttackHandler) source)
     {
-        if (trigger != source.Item1 && trigger != DamageSource.Ignore)
-            return false;
-
-        if (attackSO != null && (source.Item2 == null || source.Item2.attackSO.attackPref.name != attackSO.attackPref.name))
+        if (!CoreRuleCheck(source))
             return false;
 
         Entity entity = Health.instance.GetComponent<Entity>();

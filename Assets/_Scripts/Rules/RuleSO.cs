@@ -1,18 +1,17 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DamageRule", menuName = "Rule/DamageRule")]
-public class DamageRuleSO : ScriptableObject
+public class RuleSO : Data
 {
-    public string ruleName;
-    public string hoverDescription;
-
     [Header("Leave as Ignore if it's not important")]
     public DamageSource trigger;
     [Header("Leave it empty if attack is not important")]
     public AttackSO attackSO;
 
-    public virtual bool CheckRule((DamageSource,IAttackHandler) source)
+    public bool CoreRuleCheck((DamageSource, IAttackHandler) source)
     {
+        dataType = DataType.Rule;
+
         if (trigger != source.Item1 && trigger != DamageSource.Ignore)
             return false;
 
@@ -20,5 +19,10 @@ public class DamageRuleSO : ScriptableObject
             return false;
 
         return true;
+    }
+
+    public virtual bool CheckRule((DamageSource,IAttackHandler) source)
+    {
+        return CoreRuleCheck(source);
     }
 }

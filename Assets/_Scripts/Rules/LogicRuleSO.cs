@@ -4,18 +4,15 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ComboRule", menuName = "Rule/ComboRule")]
-public class LogicRuleSO : DamageRuleSO
+public class LogicRuleSO : RuleSO
 {
     public LogicRuleEnum ruleFlag;
-    public List<DamageRuleSO> rules = new List<DamageRuleSO>();
+    public List<RuleSO> rules = new List<RuleSO>();
     public int andAmount = 5;
 
     public override bool CheckRule((DamageSource, IAttackHandler) source)
     {
-        if (trigger != source.Item1 && trigger != DamageSource.Ignore)
-            return false;
-
-        if (attackSO != null && (source.Item2 == null || source.Item2.attackSO.attackPref.name != attackSO.attackPref.name))
+        if (!CoreRuleCheck(source))
             return false;
 
         if (ruleFlag == LogicRuleEnum.And)

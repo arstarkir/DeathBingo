@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914d0073b2d32a94ba0fff2c53582d80, type: 3}
   m_Name: StunEffect
   m_EditorClassIdentifier: Assembly-CSharp::StunEffectSO
-  effectName: Stun
-  effectDescription: Stun
+  dataName: Stun Effect
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
   sprite: {fileID: -1571012651542167539, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
   effectUse: 0
   effectDurationTime: 3
   isTimeStacked: 0
+  isResetStacked: 0
   thisEntity: {fileID: 0}
   effectVFX: {fileID: 2814003115909412302, guid: a1516794c64807840a65645bb0aed576, type: 3}
   curVFX: {fileID: 0}

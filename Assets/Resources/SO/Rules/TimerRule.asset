@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644b5516c7da8634183fbccb65d09a0e, type: 3}
   m_Name: TimerRule
   m_EditorClassIdentifier: Assembly-CSharp::TimerRuleSO
-  ruleName: Timer Must Have 1
-  hoverDescription: Timer must have 1 in the current time on screen
+  dataName: Die With 1 On The Timer
+  dataDescription: Die With 1 On The Timer
+  wasDone: 0
+  dataType: 0
   trigger: 0
+  attackSO: {fileID: 0}
   mustContain: 1

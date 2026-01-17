@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1b76fc109686b4d8c968bdc7581d72, type: 3}
   m_Name: WindInfluence
   m_EditorClassIdentifier: Assembly-CSharp::InfluenceEffectSO
-  effectName: Wind
-  effectDescription: Wind
+  dataName: Wind Influence
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
   sprite: {fileID: 0}
   effectUse: 0
   effectDurationTime: Infinity

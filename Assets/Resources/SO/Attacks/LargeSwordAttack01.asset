@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
   m_Name: LargeSwordAttack01
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
+  dataName: Large Sword Attack 01
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
   attackPref: {fileID: 7724423961060388451, guid: 3a879b33ce078ae47850ad027c67b87f, type: 3}
   attackType: 0
   temp: {fileID: 0}
@@ -20,3 +24,4 @@ MonoBehaviour:
   toSpawn: {fileID: 0}
   attackAmount: 1
   delay: 0.2
+  playerPosDelay: 0.2

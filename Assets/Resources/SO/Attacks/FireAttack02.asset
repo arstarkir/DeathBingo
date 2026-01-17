@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
   m_Name: FireAttack02
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
+  dataName: Fire Attack 02
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
   attackPref: {fileID: 1150689547978239207, guid: db5e6e0e7ca3fa94ca3f13a1213f802c, type: 3}
   attackType: 0
   temp: {fileID: 0}

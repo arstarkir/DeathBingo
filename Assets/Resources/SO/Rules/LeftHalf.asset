@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb723116077fb254ea1515cf0a856990, type: 3}
   m_Name: LeftHalf
   m_EditorClassIdentifier: Assembly-CSharp::LocationRuleSO
-  ruleName: Die on Left Half of Screen
-  hoverDescription: Die on Left Half of Screen
+  dataName: Die On Left Half
+  dataDescription: Die On Left Half
+  wasDone: 0
+  dataType: 0
   trigger: 0
   attackSO: {fileID: 0}
   MinBounds: {x: -10, y: -100, z: -10}

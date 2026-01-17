@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957b6a1e0bcdc184ca72316d53fff726, type: 3}
   m_Name: PlayerMovingLeft
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovingRuleSO
-  ruleName: Player Moving Left
-  hoverDescription: Player Moving Left
+  dataName: Die While Player Moving Left
+  dataDescription: Die While Player Moving Left
+  wasDone: 0
+  dataType: 0
   trigger: 0
+  attackSO: {fileID: 0}
   moveVector: {x: -1, y: 0}

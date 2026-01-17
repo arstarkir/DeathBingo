@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ad43561471a4a46b5be1db95aab43b, type: 3}
   m_Name: WetEffect
   m_EditorClassIdentifier: Assembly-CSharp::EffectSO
-  effectName: Wet
-  effectDescription: You're wet
+  dataName: Wet Effect
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
   sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   effectUse: 0
   effectDurationTime: 15
   isTimeStacked: 0
+  isResetStacked: 0
   thisEntity: {fileID: 0}
   effectVFX: {fileID: 1000010302070858, guid: 73cb69523bb24384698c4cdbf48c3403, type: 3}
   curVFX: {fileID: 0}

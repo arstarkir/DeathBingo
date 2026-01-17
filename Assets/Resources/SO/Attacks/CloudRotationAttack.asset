@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
   m_Name: CloudRotationAttack
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
+  dataName: Cloud Rotation Attack
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
   attackPref: {fileID: 7788882881612801072, guid: 8d113fff496a1bd4e9e53750c16e25e0, type: 3}
   attackType: 0
   temp: {fileID: 0}
@@ -20,3 +24,4 @@ MonoBehaviour:
   toSpawn: {fileID: 0}
   attackAmount: 3
   delay: 0.2
+  playerPosDelay: 0.2

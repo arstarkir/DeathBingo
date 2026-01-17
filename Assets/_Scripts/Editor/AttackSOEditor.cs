@@ -7,6 +7,7 @@ public class AttackSOEditor : Editor
     public override void OnInspectorGUI()
     {
         AttackSO attack = (AttackSO)target;
+        attack.dataName = EditorGUILayout.TextField("Attack Name", attack.dataName);
 
         // stuff that should always be visible
         attack.attackPref = (GameObject)EditorGUILayout.ObjectField("Attack Prefab", attack.attackPref, typeof(GameObject), false); // attack prefab

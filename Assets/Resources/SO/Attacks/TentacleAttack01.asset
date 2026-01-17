@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
   m_Name: TentacleAttack01
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
-  attackPref: {fileID: 0}
-  attackType: 0
+  dataName: Tentacle Attack 01
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
+  attackPref: {fileID: 76065904647067563, guid: 56458f2fd8772044988c3032d2f17768, type: 3}
+  attackType: 1
   temp: {fileID: 0}
-  attackStyles: 0
-  duration: 5
+  attackStyles: 2
+  duration: 15
   toSpawn: {fileID: 0}
   attackAmount: 3
   delay: 0.2
