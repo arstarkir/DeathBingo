@@ -24,7 +24,7 @@ MonoBehaviour:
   thisEntity: {fileID: 0}
   effectVFX: {fileID: 0}
   curVFX: {fileID: 0}
-  strength: 2
+  strength: 2000
   dir: {x: 0, y: 0, z: 0}
   fromObject: 1
   curObj: {fileID: 0}
