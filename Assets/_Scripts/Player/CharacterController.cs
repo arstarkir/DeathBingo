@@ -21,7 +21,7 @@ public class CharacterController : Singleton<CharacterController>
 
     [HideInInspector] public Vector2 inputVec;
     bool isSprinting = false;
-    Rigidbody rb;
+    [HideInInspector] public Rigidbody rb;
 
     public bool isInteractable = true;
     [HideInInspector] public Vector3 influenceVelocity;

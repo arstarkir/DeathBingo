@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 957b6a1e0bcdc184ca72316d53fff726, type: 3}
-  m_Name: PlayerMovingLeft
+  m_Name: PlayerMovingVertically
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovingRuleSO
-  dataName: Die While Player Moving Left
-  dataDescription: Die While Player Moving Left
+  dataName: Die While Player Moving Vertically
+  dataDescription: Die While Player Moving Verticaly
   wasDone: 1
   dataType: 0
   trigger: 0
   attackSO: {fileID: 0}
-  moveVector: {x: -1, y: 0, z: 0}
-  axis: 1
+  moveVector: {x: 0, y: 0, z: 0}
+  axis: 2
   logic: 1
+  tolerance: 0.1

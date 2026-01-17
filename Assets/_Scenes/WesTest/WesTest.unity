@@ -324,12 +324,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: activeRules.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: 'activeRules.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: ff1d19703e6cdc446b0ff1c8eebf1b14, type: 2}
+      objectReference: {fileID: 11400000, guid: ae27f3d8d0a08b44ea8d2b485de7c732, type: 2}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'activeRules.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b2a69fb4be53ff14282c3e0bbc5f1405, type: 2}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'activeRules.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 759eab77a65e8cf4aa4db7715abb60f3, type: 2}
     - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: doFirst
       value: 0
@@ -341,7 +349,7 @@ PrefabInstance:
     - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: 'attacks.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
+      objectReference: {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
     - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: 'attacks.Array.data[1]'
       value: 
