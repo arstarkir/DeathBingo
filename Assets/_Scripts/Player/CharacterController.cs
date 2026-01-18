@@ -24,19 +24,11 @@ public class CharacterController : Singleton<CharacterController>
     [HideInInspector] public Rigidbody rb;
 
     public bool isInteractable = true;
-    [HideInInspector] public Vector3 influenceVelocity;
+    public Vector3 influenceVelocity;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
-
-    private void Update()
-    {
-        if (!isInteractable)
-            return;
-
-        PlayerMove();
     }
 
     void PlayerMove()
@@ -46,20 +38,21 @@ public class CharacterController : Singleton<CharacterController>
         {
             moveVel = new Vector3(rollDir.x * rollSpeed, 0, rollDir.z * rollSpeed);
         }
-        rb.linearVelocity = moveVel + influenceVelocity + new Vector3(0,rb.linearVelocity[1],0);
+
+        rb.linearVelocity = new Vector3(moveVel.x + influenceVelocity.x, rb.linearVelocity.y, moveVel.z + influenceVelocity.z);
         influenceVelocity = Vector3.zero;
     }
 
     private void FixedUpdate()
     {
+        if (!isInteractable) return;
         GroundCheck();
+        PlayerMove();
         rb.AddForce(0, playerGravity, 0, ForceMode.Acceleration);
         Vector3 pos = rb.position;
-        Vector3 minBounds = new Vector3(-10,0,-10);
-        Vector3 maxBounds = new Vector3(10, 100, 10);
-        pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
-        pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
-        pos.z = Mathf.Clamp(pos.z, minBounds.z, maxBounds.z);
+        pos.x = Mathf.Clamp(pos.x, -10, 10);
+        pos.y = Mathf.Clamp(pos.y, 0, 100);
+        pos.z = Mathf.Clamp(pos.z, -10, 10);
         rb.position = pos;
     }
 

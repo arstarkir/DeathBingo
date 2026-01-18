@@ -14,9 +14,9 @@ public class InfluenceEffectSO : EffectSO
     public override void TriggerEffect(float deltaTime)
     {
         if (fromObject)
-            cc.influenceVelocity += (curObj.transform.position - cc.transform.position).normalized * strength * deltaTime;
+            cc.influenceVelocity += (curObj.transform.position - cc.transform.position).normalized * strength;
         if (!fromObject)
-            cc.influenceVelocity += dir.normalized * strength * deltaTime;
+            cc.influenceVelocity += dir.normalized * strength;
     }
 
     public override void OnEffectStart()
