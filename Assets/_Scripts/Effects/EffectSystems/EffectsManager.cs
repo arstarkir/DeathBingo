@@ -201,6 +201,25 @@ public class EffectsManager : Singleton<EffectsManager>
         return amount;
     }
 
+    public float GetLongestRemainingEffectOnEntity(EffectSO effect, Entity entity)
+    {
+        float longest = -1f;
+
+        foreach (EffectTimer timer in activeTimers)
+        {
+            if (!timer.IsThisEffectTimer(effect, entity))
+                continue;
+
+            float left = timer.duration - timer.curTime;
+
+            if (left > longest)
+                longest = left;
+        }
+
+        return longest;
+    }
+
+
     /// <summary>
     /// Removes the effect handler from the entity
     /// </summary>
