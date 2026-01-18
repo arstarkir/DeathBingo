@@ -891,9 +891,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1029395569}
+        m_TargetAssemblyTypeName: LightningHandler, Assembly-CSharp
+        m_MethodName: StartLightningJustDelay
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.01
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 537828371}
         m_TargetAssemblyTypeName: EndScreenUI, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneWithSmallDelay
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -901,18 +913,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: ArseniiTest
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1029395568}
-        m_TargetAssemblyTypeName: EndScreenUI, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &537828369
@@ -1453,11 +1453,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 892523778}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &1029395568 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9024178787575428942, guid: 4cf34f2d3dd7e8749a088453b5d796e1, type: 3}
+--- !u!114 &1029395569 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1379616748916596667, guid: 4cf34f2d3dd7e8749a088453b5d796e1, type: 3}
   m_PrefabInstance: {fileID: 1433888409}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32dc1c89733bafd4cb6fbc96aed6952f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightningHandler
 --- !u!1 &1169322007
 GameObject:
   m_ObjectHideFlags: 0
@@ -7373,7 +7379,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1

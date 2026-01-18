@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
-  m_Name: CloudRotationAttack
+  m_Name: WindAttack02
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
-  dataName: Cloud Rotation Attack
+  dataName: Wind Attack 01
   dataDescription: 
   wasDone: 0
   dataType: 0
-  attackPref: {fileID: 7788882881612801072, guid: 8d113fff496a1bd4e9e53750c16e25e0, type: 3}
+  attackPref: {fileID: 3050152969483118893, guid: a9915f6c1f4349644bd529fd94241b88, type: 3}
   attackType: 1
   temp: {fileID: 0}
-  attackStyles: 1
+  attackStyles: 22
   duration: 5
-  toSpawn: {fileID: 0}
-  attackAmount: 3
-  delay: 0.2
+  toSpawn: {fileID: 3050152969483118893, guid: a9915f6c1f4349644bd529fd94241b88, type: 3}
+  attackAmount: 1
+  delay: 0
   onlyRightAngles: 1
   playerPosDelay: 0.2
