@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d03a53644649d424eb4d33e21c3c76ad, type: 3}
-  m_Name: FireWhenAllured
+  m_Name: LightningWhileAllured
   m_EditorClassIdentifier: Assembly-CSharp::EffectRuleSO
-  dataName: Fire When Allured
-  dataDescription: Fire When Allured
+  dataName: Lightning While Allured
+  dataDescription: Lightning While Allured
   wasDone: 0
   dataType: 0
-  trigger: 3
+  trigger: 4
   attackSO: {fileID: 0}
   effect: {fileID: 11400000, guid: 0730fe28386bd89408119132ad421145, type: 2}
   effectAmount: -1
