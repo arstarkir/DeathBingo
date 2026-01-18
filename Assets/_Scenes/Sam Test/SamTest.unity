@@ -378,9 +378,33 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'activeRules.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d34e00dcf96fb044da64e49611f6ed43, type: 2}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'activeRules.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 364ff5ac32ec66145a05c04737a0d35d, type: 2}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'activeRules.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 00fbeba86dbec154cae7f82601b38d45, type: 2}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'activeRules.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c82df8d364c27041bdcee5b0bc1967c, type: 2}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'activeRules.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e64c7936237146449a052eb0d65a17a5, type: 2}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'activeRules.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c1ebc7cfaa649a240b20755f9c7a976e, type: 2}
     - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: doFirst
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: attacks.Array.size
