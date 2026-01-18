@@ -24,7 +24,7 @@ public class CharacterController : Singleton<CharacterController>
     [HideInInspector] public Rigidbody rb;
 
     public bool isInteractable = true;
-    public Vector3 influenceVelocity;
+    [HideInInspector] public Vector3 influenceVelocity;
 
     private void Start()
     {

@@ -27,4 +27,6 @@ MonoBehaviour:
   strength: 3
   dir: {x: 1, y: 0, z: 0}
   fromObject: 0
+  gradual: 1
+  gradualTime: 1
   curObj: {fileID: 0}

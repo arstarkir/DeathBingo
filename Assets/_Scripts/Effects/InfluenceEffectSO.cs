@@ -8,15 +8,26 @@ public class InfluenceEffectSO : EffectSO
 
     [Header("From obj center will rewright the dir")]
     public bool fromObject = false;
+    [Header("Gradual will make influence start at zero and builds to given strength")]
+    public bool gradual = false;
+    public float gradualTime = 1f;
+    float gradualProgress = 0f;
     [HideInInspector] public GameObject curObj;
     CharacterController cc;
 
     public override void TriggerEffect(float deltaTime)
     {
+        float appliedStrength = strength;
+        if (gradual)
+        {
+            gradualProgress += deltaTime;
+            float t = Mathf.Clamp(gradualProgress / gradualTime, 0, 1);
+            appliedStrength *= t;
+        }
         if (fromObject)
-            cc.influenceVelocity += (curObj.transform.position - cc.transform.position).normalized * strength;
+            cc.influenceVelocity += (curObj.transform.position - cc.transform.position).normalized * appliedStrength;
         if (!fromObject)
-            cc.influenceVelocity += dir.normalized * strength;
+            cc.influenceVelocity += dir.normalized * appliedStrength;
     }
 
     public override void OnEffectStart()
