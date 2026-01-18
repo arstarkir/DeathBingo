@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03a53644649d424eb4d33e21c3c76ad, type: 3}
+  m_Name: ColumnWhileGrappled
+  m_EditorClassIdentifier: Assembly-CSharp::EffectRuleSO
+  dataName: Crushed While Grappled
+  dataDescription: Crushed While Grappled
+  wasDone: 0
+  dataType: 0
+  trigger: 2
+  attackSO: {fileID: 0}
+  effect: {fileID: 11400000, guid: 9c75f05947313254ea343703231740b5, type: 2}
+  effectAmount: -1
+  isAccumulatedTime: 0
+  overDuration: 25
