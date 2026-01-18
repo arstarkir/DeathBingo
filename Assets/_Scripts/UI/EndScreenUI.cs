@@ -1,4 +1,6 @@
+using System.Collections;
 using TMPro;
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,6 +40,17 @@ public class EndScreenUI : Singleton<EndScreenUI>
 
     public void LoadScene(string sceneName)
     {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void LoadSceneWithSmallDelay(string sceneName)
+    {
+        StartCoroutine(LoadSceneThingy(sceneName));
+    }
+
+    IEnumerator LoadSceneThingy(string sceneName)
+    {
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
     }
 }

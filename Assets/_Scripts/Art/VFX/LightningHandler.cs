@@ -15,6 +15,20 @@ public class LightningHandler : MonoBehaviour
         StartLightning(5);
     }
 
+    public void StartLightningJustDelay(float delay)
+    {
+        foreach (ParticleSystem particle in particles)
+        {
+            ParticleSystem.MainModule main = particle.main;
+            main.startDelay = delay;
+        }
+
+        ParticleSystem.MainModule warningMain = warningLights.main;
+        warningMain.duration = delay;
+        lightningVFX.SetActive(true);
+        StartCoroutine(EnableDmgTrigger(delay, 0.2f));
+    }
+
     public void StartLightning(float delay, float dmgTimeWindow = 0.2f)
     {
         foreach (ParticleSystem particle in particles)
