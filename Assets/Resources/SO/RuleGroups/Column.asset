@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 00fbeba86dbec154cae7f82601b38d45, type: 2}
   - {fileID: 11400000, guid: 3c82df8d364c27041bdcee5b0bc1967c, type: 2}
   - {fileID: 11400000, guid: e362c02a1710a634fa29ee05ffd188c6, type: 2}
-  maxSelected: 1
+  maxSelected: 3

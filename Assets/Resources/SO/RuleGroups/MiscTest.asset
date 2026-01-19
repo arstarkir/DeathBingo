@@ -13,8 +13,29 @@ MonoBehaviour:
   m_Name: MiscTest
   m_EditorClassIdentifier: Assembly-CSharp::RuleGroupSO
   rules:
+  - {fileID: 11400000, guid: fcdcd2a49ecae2f45a360227af0dcfeb, type: 2}
   - {fileID: 11400000, guid: d3834128de0288a4384e6d21e705829d, type: 2}
-  - {fileID: 11400000, guid: 1c7f9d232e4b67b418a14928e535a1f7, type: 2}
-  - {fileID: 11400000, guid: bb08455454647f443bc961bdbbe92d22, type: 2}
-  - {fileID: 11400000, guid: eac19cd6282f5cc4e839cee97112121b, type: 2}
-  maxSelected: 1
+  - {fileID: 11400000, guid: 0fcd62177508afc47aae8a77498b2d8b, type: 2}
+  - {fileID: 11400000, guid: 56405b1027af6654b8144d1bf29e85d7, type: 2}
+  - {fileID: 11400000, guid: 05572c78195a73f448f680ec5cafb09e, type: 2}
+  - {fileID: 11400000, guid: c684ba953416bc14cb5e407e939e35af, type: 2}
+  - {fileID: 11400000, guid: dcec375fc604a0e41ba2c6cb96bf49d8, type: 2}
+  - {fileID: 11400000, guid: 7e296df320817e947b12a2ef1593c1fd, type: 2}
+  - {fileID: 11400000, guid: ae27f3d8d0a08b44ea8d2b485de7c732, type: 2}
+  - {fileID: 11400000, guid: ff1d19703e6cdc446b0ff1c8eebf1b14, type: 2}
+  - {fileID: 11400000, guid: 9b9ee3f0f0bdf80469b95262444d9944, type: 2}
+  - {fileID: 11400000, guid: ef92f3a0529790a42baf1f3dcea58bd0, type: 2}
+  - {fileID: 11400000, guid: e64c7936237146449a052eb0d65a17a5, type: 2}
+  - {fileID: 11400000, guid: d11e327d30a97d146bc66182b1eb388b, type: 2}
+  - {fileID: 11400000, guid: c02c0a753eb178a4397a87f4761b8bd0, type: 2}
+  - {fileID: 11400000, guid: 759eab77a65e8cf4aa4db7715abb60f3, type: 2}
+  - {fileID: 11400000, guid: 04b1bbd045310d34b88144390184ed01, type: 2}
+  - {fileID: 11400000, guid: 95abec90ead0dd24893de8dfd5a5bb86, type: 2}
+  - {fileID: 11400000, guid: ebae084328da46e4c9e37aedeb7896c4, type: 2}
+  - {fileID: 11400000, guid: e7e8f417c58dbe44c9cffc1b356f9ede, type: 2}
+  - {fileID: 11400000, guid: f23420b3158f3d748abfcdd4dab7cf67, type: 2}
+  - {fileID: 11400000, guid: a35dc03f93c8289478a9656528dbfee4, type: 2}
+  - {fileID: 11400000, guid: b41205fc8efa3ec41904e337ad12d008, type: 2}
+  - {fileID: 11400000, guid: 9b9ee3f0f0bdf80469b95262444d9944, type: 2}
+  - {fileID: 11400000, guid: d3834128de0288a4384e6d21e705829d, type: 2}
+  maxSelected: 25

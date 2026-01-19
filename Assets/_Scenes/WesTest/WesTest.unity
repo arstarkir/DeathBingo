@@ -252,9 +252,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      propertyPath: activeRules.Array.size
-      value: 7
+      propertyPath: ruleGroups.Array.size
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: activeRules.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'ruleGroups.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 20266c661ecbca34e98270a2a6cd62e1, type: 2}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'ruleGroups.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 555a50f5d1d55a34f8093c2a9879740d, type: 2}
+    - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'ruleGroups.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 00918d11a51b79f4e8d1c003a059e891, type: 2}
     - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: 'activeRules.Array.data[6]'
       value: 
