@@ -7,6 +7,7 @@ public class BingoController : Singleton<BingoController>
     public GameObject slotPref;
     public GameObject slotHolder;
 
+    public List<RuleGroupSO> ruleGroups = new List<RuleGroupSO>();
     public List<RuleSO> activeRules = new List<RuleSO>();
     List<RuleSO> finishedRules = new List<RuleSO>();
     List<BingoSlotUI> curSlots = new List<BingoSlotUI>();   
@@ -37,12 +38,45 @@ public class BingoController : Singleton<BingoController>
 
     public void Start()
     {
+        MakeRuleList();
         Shuffle(activeRules, SeedManager.instance.rng);
         foreach (RuleSO rule in activeRules)
         {
             BingoSlotUI temp = Instantiate(slotPref, slotHolder.transform).GetComponent<BingoSlotUI>();
             temp.SetDamageRule(rule);
             curSlots.Add(temp);
+        }
+    }
+
+    // create a list of rules from the rule groups
+    void MakeRuleList()
+    {
+        activeRules.Clear();
+        Dictionary<RuleGroupSO, int> groupCounts = ruleGroups.ToDictionary(g => g, g => 0); // keep track of how many rules have been pulled from each
+        HashSet<RuleSO> usedRules = new HashSet<RuleSO>();
+        while (activeRules.Count < 25)
+        {
+            var validGroups = ruleGroups.Where(g => groupCounts[g] < g.maxSelected).ToList(); // nonmaxed groups
+            if (validGroups.Count == 0) // if all are maxed reset all of them and allowed already used rules
+            {
+                foreach (var key in groupCounts.Keys.ToList())
+                {
+                    groupCounts[key] = 0;
+                }
+                usedRules.Clear();
+                validGroups = new List<RuleGroupSO>(ruleGroups);
+            }
+            RuleGroupSO group = validGroups[SeedManager.instance.rng.Next(validGroups.Count)];
+            var validRules = group.rules.Where(r => !usedRules.Contains(r)).ToList();
+            if (validRules.Count == 0)
+            {
+                groupCounts[group] = group.maxSelected;
+                continue; // if every rule has already been used the group is passed on
+            }
+            RuleSO rule = validRules[SeedManager.instance.rng.Next(validRules.Count)];
+            activeRules.Add(rule);
+            usedRules.Add(rule);
+            groupCounts[group]++;
         }
     }
 
