@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
-  m_Name: Attack
+  m_Name: WaterRisingAttack01
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
-  dataName: 
+  dataName: WaterRisingAttack01
   dataDescription: 
   wasDone: 0
   dataType: 0
-  attackPref: {fileID: 0}
+  attackPref: {fileID: 4482702032411823301, guid: 52a6e4c8f8e1e714787e188c21e29cad, type: 3}
   attackType: 0
   temp: {fileID: 0}
-  attackStyles: 0
-  duration: 5
-  toSpawn: {fileID: 0}
-  attackAmount: 3
+  attackStyles: 5
+  duration: 15
+  toSpawn: {fileID: 7373596054638780918, guid: 9caa4bd3e06c81a479b3f66aa531e454, type: 3}
+  attackAmount: 5
   delay: 0.2
   onlyRightAngles: 0
-  playerPosDelay: 0.2
+  playerPosDelay: 1

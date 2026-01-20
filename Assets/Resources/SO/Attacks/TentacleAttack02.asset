@@ -20,7 +20,7 @@ MonoBehaviour:
   attackType: 0
   temp: {fileID: 0}
   attackStyles: 22
-  duration: 15
+  duration: 13
   toSpawn: {fileID: 3976628148734747122, guid: b2ea21cc6ca5ea442b7899d1329ca7a7, type: 3}
   attackAmount: 5
   delay: 1
