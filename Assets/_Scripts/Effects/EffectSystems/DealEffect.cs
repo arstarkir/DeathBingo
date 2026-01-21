@@ -55,6 +55,42 @@ public class DealEffect : MonoBehaviour
             IsActiveEffectOnEntity(EffectsManager.instance.effectsList.effects[0], entity))
             Health.instance.ChangeHealth(-1, DamageSource.Lightning, transform.root.GetComponentsInChildren<IAttackHandler>().First());
 
+        // well if that gets changed, this probably should too... but it's still late!
+        if (effect.dataName.Contains("Wet"))
+        {
+            EffectSO fire = EffectsManager.instance.effectsList.effects.FirstOrDefault(e => e.dataName.Contains("Fire"));
+            if (fire != null)
+            {
+                EffectsManager.instance.RemoveAllEffectOfKindFromEntity(fire, entity);
+                foreach (EffectTimer timer in EffectsManager.instance.activeTimers.ToList())
+                {
+                    if (timer.IsThisEffectTimer(fire, entity) && timer.effectHendler != null)
+                    {
+                        if (timer.effectHendler.effectSO.curVFX != null)
+                            Destroy(timer.effectHendler.effectSO.curVFX);
+                        EffectsManager.instance.activeTimers.Remove(timer);
+                    }
+                }
+            }
+        }
+        if (effect.dataName.Contains("Fire"))
+        {
+            EffectSO wet = EffectsManager.instance.effectsList.effects.FirstOrDefault(e => e.dataName.Contains("Wet"));
+            if (wet != null)
+            {
+                EffectsManager.instance.RemoveAllEffectOfKindFromEntity(wet, entity);
+                foreach (EffectTimer timer in EffectsManager.instance.activeTimers.ToList())
+                {
+                    if (timer.IsThisEffectTimer(wet, entity) && timer.effectHendler != null)
+                    {
+                        if (timer.effectHendler.effectSO.curVFX != null)
+                            Destroy(timer.effectHendler.effectSO.curVFX);
+                        EffectsManager.instance.activeTimers.Remove(timer);
+                    }
+                }
+            }
+        }
+
         if (destroyOnDealDmg)
             Destroy(gameObject);
     }

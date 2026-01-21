@@ -185,7 +185,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &7862759741846321971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,8 +217,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BingoController
   slotPref: {fileID: 4497313078055743341, guid: ce71e360f76969946ac36e845ce25728, type: 3}
   slotHolder: {fileID: 3542653453337057790}
+  ruleGroups: []
   activeRules:
   - {fileID: 11400000, guid: fcdcd2a49ecae2f45a360227af0dcfeb, type: 2}
   - {fileID: 11400000, guid: b41205fc8efa3ec41904e337ad12d008, type: 2}
   - {fileID: 11400000, guid: 9b9ee3f0f0bdf80469b95262444d9944, type: 2}
   - {fileID: 11400000, guid: a8642a2b590222d4981144f93c5ab8b1, type: 2}
+  maxRuleCombo: 0
