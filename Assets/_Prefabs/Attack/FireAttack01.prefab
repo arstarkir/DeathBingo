@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3539472682182523588}
   - component: {fileID: 1791811056075597166}
   - component: {fileID: 4217518261503908109}
-  - component: {fileID: 348990986388861714}
+  - component: {fileID: 7169113027928522997}
   m_Layer: 0
   m_Name: FireCube (2)
   m_TagString: Untagged
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &348990986388861714
+--- !u!114 &7169113027928522997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,11 +122,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 610852971543937280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 090f41a74f10b98459b12379831cded5, type: 3}
+  m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DealDamage
+  m_EditorClassIdentifier: Assembly-CSharp::DealEffect
+  effect: {fileID: 11400000, guid: b66b11d1d9f250c4884a8ae590d6592e, type: 2}
   destroyOnDealDmg: 1
-  damageSource: 3
+  tryRemoveOnExit: 0
 --- !u!1 &1150689547978239207
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +211,7 @@ GameObject:
   - component: {fileID: 2171155598876220356}
   - component: {fileID: 8895747716694893422}
   - component: {fileID: 4384190095186995660}
-  - component: {fileID: 1773368838231054846}
+  - component: {fileID: 3925485740395853824}
   m_Layer: 0
   m_Name: FireCube (1)
   m_TagString: Untagged
@@ -311,7 +312,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1773368838231054846
+--- !u!114 &3925485740395853824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -320,11 +321,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1837071457799934027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 090f41a74f10b98459b12379831cded5, type: 3}
+  m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DealDamage
+  m_EditorClassIdentifier: Assembly-CSharp::DealEffect
+  effect: {fileID: 11400000, guid: b66b11d1d9f250c4884a8ae590d6592e, type: 2}
   destroyOnDealDmg: 1
-  damageSource: 3
+  tryRemoveOnExit: 0
 --- !u!1 &8795888082580441701
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +339,7 @@ GameObject:
   - component: {fileID: 6542797550459623722}
   - component: {fileID: 6038249052527193348}
   - component: {fileID: 5671823689184617773}
-  - component: {fileID: 926669932022377782}
+  - component: {fileID: 2546497485008266863}
   m_Layer: 0
   m_Name: FireCube (3)
   m_TagString: Untagged
@@ -438,7 +440,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &926669932022377782
+--- !u!114 &2546497485008266863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,11 +449,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8795888082580441701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 090f41a74f10b98459b12379831cded5, type: 3}
+  m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DealDamage
+  m_EditorClassIdentifier: Assembly-CSharp::DealEffect
+  effect: {fileID: 11400000, guid: b66b11d1d9f250c4884a8ae590d6592e, type: 2}
   destroyOnDealDmg: 1
-  damageSource: 3
+  tryRemoveOnExit: 0
 --- !u!1001 &213871140090856774
 PrefabInstance:
   m_ObjectHideFlags: 0

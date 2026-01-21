@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 2477633270988517772, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3349728519323424642, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -253,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: ruleGroups.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: activeRules.Array.size
@@ -262,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: 'ruleGroups.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 20266c661ecbca34e98270a2a6cd62e1, type: 2}
+      objectReference: {fileID: 11400000, guid: f5ae9a51be2bb4246a2ffc3e664cad6c, type: 2}
     - target: {fileID: 7441147249662547308, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: 'ruleGroups.Array.data[1]'
       value: 
@@ -285,16 +289,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: attacks.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: 'attacks.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 1fb31adf9c413cd429fea8b23bd239de, type: 2}
+      objectReference: {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
     - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: 'attacks.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: b4a17113287e83745a2f97c09dd31e6e, type: 2}
+      objectReference: {fileID: 11400000, guid: c3c6ab732dfb6a8428c20e6fbe8d815e, type: 2}
     - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: 'attacks.Array.data[2]'
       value: 
@@ -331,6 +335,18 @@ PrefabInstance:
       propertyPath: 'attacks.Array.data[10]'
       value: 
       objectReference: {fileID: 11400000, guid: c3c6ab732dfb6a8428c20e6fbe8d815e, type: 2}
+    - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: instructions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'instructions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d48911d211a766c46bee0296d927ef14, type: 2}
+    - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: 'instructions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f95f0074b7ea6b4d8f5bde64d5cfcfd, type: 2}
     - target: {fileID: 7464537227749101645, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: randomizedAttacks.Array.size
       value: 0
