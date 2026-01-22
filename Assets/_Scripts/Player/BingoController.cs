@@ -84,10 +84,10 @@ public class BingoController : Singleton<BingoController>
         new int[] { 0, 3 },
         new int[] { 2, 1 }
     };
-    int[][] validBingos1 = { new int[] { 0 } }; // this should be obvious by now
+    int[][] validBingos1 = { new int[] { 0 } }; // valid bingo 1x1
 
 
-    List<int> bingoIDList = new List<int>(); // list of ID of Bingos achieved (.Count to see how many Bingos a player has)
+    List<int> bingoIDList = new List<int>(); // list of ID of Bingos achieved (Currently broken, WIP)
 
     [HideInInspector] public int maxRuleCombo = 0;
 
@@ -129,13 +129,13 @@ public class BingoController : Singleton<BingoController>
             grid.cellSize = new Vector2(availableWidth / newSize, availableHeight / newSize);
         }
 
-        List<RuleSO> newRules = ConvertBoard(boardSize, newSize, oldRules);
+        List<RuleSO> newRules = ConvertBoard(boardSize, newSize, oldRules); // put old rules onto new board
         boardSize = newSize;
 
         Dictionary<RuleGroupSO, int> groupCounts = newGroups.ToDictionary(g => g, g => 0); // generate the rest of the rules
         HashSet<RuleSO> usedRules = new HashSet<RuleSO>(oldRules);
 
-        for (int i = 0; i < newSize * newSize; i++)
+        for (int i = 0; i < newSize * newSize; i++) // most of this is copied over from the old rulegroup function
         {
             if (newRules[i] != null) continue;
 
@@ -173,7 +173,7 @@ public class BingoController : Singleton<BingoController>
             activeRules.Add(rule);
             BingoSlotUI temp = Instantiate(slotPref, slotHolder.transform).GetComponent<BingoSlotUI>();
             temp.SetDamageRule(rule);
-            if (finishedRulesSet.Contains(rule))
+            if (finishedRulesSet.Contains(rule)) // marking old completed rules as completed
             {
                 temp.FinishRule();
                 activeRules.Remove(rule);
@@ -245,7 +245,7 @@ public class BingoController : Singleton<BingoController>
 
         for (int bingoId = 0; bingoId < validBingos.Length; bingoId++)
         {
-            if (bingoIDList.Contains(bingoId)) continue;
+            //if (bingoIDList.Contains(bingoId)) continue;     Bingo counting and ids are scuffed right now, something to come back to.
             bool isBingo = true;
             foreach (int slot in validBingos[bingoId])
             {

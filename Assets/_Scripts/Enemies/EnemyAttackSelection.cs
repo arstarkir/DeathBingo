@@ -21,11 +21,11 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     }
 
     // delay before a wave
-
     private IEnumerator StartDelay(float delay)
     {
-        BingoController.instance.SetBoardSize(waves[curWaveId].boardSize, waves[curWaveId].ruleGroups);
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(delay);
+        int boardSize = Mathf.Clamp(curWaveId + 1, 1, 5);
+        BingoController.instance.SetBoardSize(boardSize, waves[curWaveId].ruleGroups);
         StartCoroutine(RunWave(waves[curWaveId]));
     }
 
@@ -37,7 +37,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
         {
             yield return StartCoroutine(RunSequence(wave.introSequence));
         }
-        while (isWaveRunning) // random attacks UPDATE TO USE RNG
+        while (isWaveRunning) // random attacks
         {
             if (wave.attackSequences.Count == 0) break;
             int index = SeedManager.instance.rng.Next(0, wave.attackSequences.Count);
