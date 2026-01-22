@@ -4,69 +4,92 @@ using UnityEngine;
 
 public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
 {
-    public float startDelay = 5; // amount of time to wait before starting spawning
-    public float attackDelay = 3; // time between attacks (arbitrary for now)
     [SerializeField] GameObject attackHolder; // object in scene that has the enemies/attacks
     public bool isInAttack = false; // true if any attack is out
+    [SerializeField] private bool isWaveRunning = false; // true if wave in progress
 
-    public List<AttackSO> attacks = new List<AttackSO>(); // list of attacks that can be used
-    public List<AttackInstructions> instructions = new List<AttackInstructions>(); // list of instructions applied when choosing attacks
-    public int sequenceLength = 5; // how many attacks to spawn
-
-    [SerializeField] private List<AttackSO> randomizedAttacks; // list of randomized attacks
+    public List<WaveSO> waves = new List<WaveSO>(); // list of waves
+    [SerializeField] int curWaveId; // id of current wave
     AttackSO curAttack; // current attack
-    [SerializeField] int curAttackId; // id of current attack
-    [SerializeField] bool doFirst = false;
 
     // create list of random attacks and wait to start attacking
     void Start()
     {
-        if(doFirst)
-        {
-            StartCoroutine(StartDelay(startDelay));
-            return;
-        }
-        randomizedAttacks = SeedManager.instance.RandomizeAttacks(attacks, sequenceLength, instructions);
-
         isInAttack = false;
-        StartCoroutine(StartDelay(startDelay));
+        curWaveId = 0;
+        StartCoroutine(StartDelay(waves[0].downtime));
     }
 
-    // waiting for start time to finish
-    IEnumerator StartDelay(float time)
+    // delay before a wave
+
+    private IEnumerator StartDelay(float delay)
     {
-        yield return new WaitForSeconds(time);
-        StartCoroutine(Spawning());
+        BingoController.instance.SetBoardSize(waves[curWaveId].boardSize, waves[curWaveId].ruleGroups);
+        yield return new WaitForSeconds(0);
+        StartCoroutine(RunWave(waves[curWaveId]));
     }
 
-    // spawning an attack
-    IEnumerator Spawning()
+    // wave running
+    private IEnumerator RunWave(WaveSO wave)
     {
-        if(doFirst)
+        isWaveRunning = true;
+        if (wave.introSequence.attacks.Count > 0) // intro attacks
         {
-            curAttack = Instantiate(attacks[curAttackId]);
-            curAttack.StartAttack(attackHolder);
-            yield return new();
+            yield return StartCoroutine(RunSequence(wave.introSequence));
         }
-
-        while (curAttackId < randomizedAttacks.Count)
+        while (isWaveRunning) // random attacks UPDATE TO USE RNG
         {
-            if (randomizedAttacks[curAttackId].attackType == AttackSO.AttackType.Primary)
+            if (wave.attackSequences.Count == 0) break;
+            int index = SeedManager.instance.rng.Next(0, wave.attackSequences.Count);
+            AttackSequenceSO randomSequence = wave.attackSequences[index];
+            yield return StartCoroutine(RunSequence(randomSequence));
+        }
+        curWaveId++;
+        if (curWaveId < waves.Count) // next wave
+        {
+            StartCoroutine(StartDelay(waves[curWaveId].downtime));
+        }
+        else
+        {
+            Debug.Log("Game Won!");
+            EndScreenUI.instance.WinScreen();
+        }
+    }
+
+    // attack sequence running
+    private IEnumerator RunSequence(AttackSequenceSO sequence)
+    {
+        foreach (var block in sequence.attacks)
+        {
+            if (!isWaveRunning)
             {
-                if (isInAttack)
+                break;
+            }
+            if (block.waitTime < 0) // wait time -1
+            {
+                if (block.attack.attackType == AttackSO.AttackType.Primary) // primary will wait until the previous is done if wait time is -1
                 {
-                    yield return new WaitUntil(() => !isInAttack);
+                    if (isInAttack)
+                        yield return new WaitUntil(() => !isInAttack);
+                    isInAttack = true;
                 }
-                isInAttack = true;
             }
-            else if (curAttackId > 0)
+            else // manually set wait time
             {
-                yield return new WaitForSeconds(attackDelay);
+                yield return new WaitForSeconds(block.waitTime); // if wait time was specified wait that amount no matter what
             }
-            curAttack = Instantiate(randomizedAttacks[curAttackId]);
-            curAttack.StartAttack(attackHolder);
-            curAttackId++;
+            if (!isWaveRunning)
+            {
+                break;
+            }
+            curAttack = Instantiate(block.attack);
+            curAttack.StartAttack(attackHolder);    
         }
-        this.enabled = false;
+    }
+
+    // end wave function
+    public void EndWave()
+    {
+        isWaveRunning = false;
     }
 }
