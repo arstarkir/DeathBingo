@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Test4
   m_EditorClassIdentifier: Assembly-CSharp::RuleGroupSO
   rules:
-  - {fileID: 11400000, guid: 05572c78195a73f448f680ec5cafb09e, type: 2}
+  - {fileID: 11400000, guid: 56405b1027af6654b8144d1bf29e85d7, type: 2}
   maxSelected: 25

@@ -15,8 +15,6 @@ MonoBehaviour:
   introSequence: {fileID: 11400000, guid: 3aaf1eb4f09a87f42ae27094244d98ef, type: 2}
   attackSequences:
   - {fileID: 11400000, guid: 3aaf1eb4f09a87f42ae27094244d98ef, type: 2}
-  - {fileID: 11400000, guid: 3aaf1eb4f09a87f42ae27094244d98ef, type: 2}
   ruleGroups:
   - {fileID: 11400000, guid: 383e09f2a96030c4fbd3051368b19072, type: 2}
-  boardSize: 1
   downtime: 3

@@ -11,6 +11,6 @@ public class AttackSequenceSO : ScriptableObject
         public float waitTime = -1;
     }
 
-    [Header("If waitTime is set to -1, Primary attacks will play their full duration before the next primary will play.\nUnless specified in prior attack, Modifiers will always play immediately.\nWaitTime is how long it will take for the *current* attack to start!")]
+    [Header("If waitTime is set to -1, Primary attacks will play once all previous primary attacks are complete.\nUnless specified in prior attack, Modifiers will always play immediately.\nWaitTime is how long it will take for the *current* attack to start!")]
     public List<AttackBlock> attacks = new List<AttackBlock>(); // list of attackblocks
 }

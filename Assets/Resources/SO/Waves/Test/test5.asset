@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f30d03d75c3f349a257d479a92ac15, type: 3}
   m_Name: test5
   m_EditorClassIdentifier: Assembly-CSharp::WaveSO
-  introSequence: {fileID: 11400000, guid: 032e91993ca9bdb4d8892da669d19b62, type: 2}
+  introSequence: {fileID: 11400000, guid: 49acfb5b84b7c494b9c4e88922f38004, type: 2}
   attackSequences:
-  - {fileID: 11400000, guid: 032e91993ca9bdb4d8892da669d19b62, type: 2}
   - {fileID: 11400000, guid: 032e91993ca9bdb4d8892da669d19b62, type: 2}
   ruleGroups:
   - {fileID: 11400000, guid: ceb8c9c2b0df9dd48a230a957a151ac1, type: 2}
-  boardSize: 5
   downtime: 3

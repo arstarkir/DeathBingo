@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Test4
   m_EditorClassIdentifier: Assembly-CSharp::AttackSequenceSO
   attacks:
-  - attack: {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
-    waitTime: 2
   - attack: {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
     waitTime: -1
+  - attack: {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
+    waitTime: 2

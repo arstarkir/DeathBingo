@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
 {
     [SerializeField] GameObject attackHolder; // object in scene that has the enemies/attacks
-    public bool isInAttack = false; // true if any attack is out
+    public bool isInPrimaryAttack = false; // true if any primary attack is out
     [SerializeField] private bool isWaveRunning = false; // true if wave in progress
 
     public List<WaveSO> waves = new List<WaveSO>(); // list of waves
@@ -15,7 +15,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     // create list of random attacks and wait to start attacking
     void Start()
     {
-        isInAttack = false;
+        isInPrimaryAttack = false;
         curWaveId = 0;
         StartCoroutine(StartDelay(waves[0].downtime));
     }
@@ -23,9 +23,11 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     // delay before a wave
     private IEnumerator StartDelay(float delay)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitUntil(() => attackHolder.transform.childCount == 0);
+        isInPrimaryAttack = false;
         int boardSize = Mathf.Clamp(curWaveId + 1, 1, 5);
         BingoController.instance.SetBoardSize(boardSize, waves[curWaveId].ruleGroups);
+        yield return new WaitForSeconds(delay);
         StartCoroutine(RunWave(waves[curWaveId]));
     }
 
@@ -67,11 +69,11 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
             }
             if (block.waitTime < 0) // wait time -1
             {
-                if (block.attack.attackType == AttackSO.AttackType.Primary) // primary will wait until the previous is done if wait time is -1
+                if (block.attack.attackType == AttackSO.AttackType.Primary) // if set to -1, this primary attack will play once all previous primary attacks are done
                 {
-                    if (isInAttack)
-                        yield return new WaitUntil(() => !isInAttack);
-                    isInAttack = true;
+                    if (isInPrimaryAttack)
+                        yield return new WaitUntil(() => !isInPrimaryAttack);
+                    isInPrimaryAttack = true;
                 }
             }
             else // manually set wait time

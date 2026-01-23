@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackSequenceSO
   attacks:
   - attack: {fileID: 11400000, guid: c3c6ab732dfb6a8428c20e6fbe8d815e, type: 2}
-    waitTime: -1
+    waitTime: 2
   - attack: {fileID: 11400000, guid: 108a1e5050cb21547974fb914dd808d2, type: 2}
-    waitTime: -1
+    waitTime: 2

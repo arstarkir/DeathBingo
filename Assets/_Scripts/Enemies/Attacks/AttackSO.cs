@@ -8,7 +8,7 @@ public class AttackSO : Data
 {
     public enum AttackType // enum for kind of attack, determines what it can overlap with
     {
-        Primary, // can't be interrupted by another primary
+        Primary, // can't be interrupted by another primary if full duration is set to play
         Modifier,
     }
 
@@ -61,7 +61,7 @@ public class AttackSO : Data
         {
             if (EnemyAttackSelection.instance != null)
             {
-                EnemyAttackSelection.instance.isInAttack = false;
+                EnemyAttackSelection.instance.isInPrimaryAttack = false;
                 return;
             }
             TestEnemyAttackSequencing.instance.isInAttack = false;
