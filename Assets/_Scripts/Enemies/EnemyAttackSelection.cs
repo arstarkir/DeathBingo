@@ -12,6 +12,8 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     [SerializeField] int curWaveId; // id of current wave
     AttackSO curAttack; // current attack
 
+    public bool AbruptWaveTransition = true; // if true, attacks will be instantly ended when Bingo is earned
+
     // create list of random attacks and wait to start attacking
     void Start()
     {
@@ -23,7 +25,17 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     // delay before a wave
     private IEnumerator StartDelay(float delay)
     {
-        yield return new WaitUntil(() => attackHolder.transform.childCount == 0);
+        if (AbruptWaveTransition)
+        {
+            foreach (Transform child in attackHolder.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        else
+        {
+            yield return new WaitUntil(() => attackHolder.transform.childCount == 0);
+        }
         isInPrimaryAttack = false;
         int boardSize = Mathf.Clamp(curWaveId + 1, 1, 5);
         BingoController.instance.SetBoardSize(boardSize, waves[curWaveId].ruleGroups);
@@ -53,6 +65,11 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
         }
         else
         {
+            foreach (Transform child in attackHolder.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            isInPrimaryAttack = false;
             Debug.Log("Game Won!");
             EndScreenUI.instance.WinScreen();
         }
@@ -72,7 +89,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
                 if (block.attack.attackType == AttackSO.AttackType.Primary) // if set to -1, this primary attack will play once all previous primary attacks are done
                 {
                     if (isInPrimaryAttack)
-                        yield return new WaitUntil(() => !isInPrimaryAttack);
+                        yield return new WaitUntil(() => !isInPrimaryAttack || !isWaveRunning);
                     isInPrimaryAttack = true;
                 }
             }
