@@ -87,7 +87,7 @@ public class BingoController : Singleton<BingoController>
     int[][] validBingos1 = { new int[] { 0 } }; // valid bingo 1x1
 
 
-    List<int> bingoIDList = new List<int>(); // list of ID of Bingos achieved (Currently broken, WIP)
+    public List<string> bingoIDList = new List<string>(); // list of ID of Bingos achieved (Currently broken, WIP)
 
     [HideInInspector] public int maxRuleCombo = 0;
 
@@ -245,7 +245,7 @@ public class BingoController : Singleton<BingoController>
 
         for (int bingoId = 0; bingoId < validBingos.Length; bingoId++)
         {
-            //if (bingoIDList.Contains(bingoId)) continue;     Bingo counting and ids are scuffed right now, something to come back to.
+            if (bingoIDList.Contains(bingoId + "board" + boardSize)) continue;
             bool isBingo = true;
             foreach (int slot in validBingos[bingoId])
             {
@@ -266,7 +266,7 @@ public class BingoController : Singleton<BingoController>
     // called when a new bingo is earned.  Made it a seperate function since I assume there are a lot of things we might want to trigger when this happens
     void GetBingo(int bingoId)
     {
-        bingoIDList.Add(bingoId);
+        bingoIDList.Add(bingoId + "board" + boardSize);
         Debug.Log("BINGO!");
         EnemyAttackSelection.instance.EndWave();
     }
