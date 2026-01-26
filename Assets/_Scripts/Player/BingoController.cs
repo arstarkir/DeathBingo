@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BingoController : Singleton<BingoController>
 {
     public int boardSize; // dimension of bingo board, 1-5
+
+    public bool randomizeRuleRelocation; // if true, rules will be placed in random spots when the board expands
 
     public GameObject slotPref;
     public GameObject slotHolder;
@@ -263,6 +266,37 @@ public class BingoController : Singleton<BingoController>
         Debug.Log("You have " + bingoIDList.Count + " Bingos.");
     }
 
+    // this is nearly identical to the bingo function, but it doesn't reward Bingos, just checks for them to prevent Bingos being randomly generated
+    public bool PreventBingo()
+    {
+        HashSet<int> finishedSlots = new HashSet<int>();
+        for (int i = 0; i < curSlots.Count; i++)  // list of id of squares earned
+        {
+            if (curSlots[i].finished)
+            {
+                finishedSlots.Add(i);
+            }
+        }
+        for (int bingoId = 0; bingoId < validBingos.Length; bingoId++)
+        {
+            if (bingoIDList.Contains(bingoId + "board" + boardSize)) continue;
+            bool isBingo = true;
+            foreach (int slot in validBingos[bingoId])
+            {
+                if (!finishedSlots.Contains(slot))
+                {
+                    isBingo = false;
+                    break;
+                }
+            }
+            if (isBingo)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // called when a new bingo is earned.  Made it a seperate function since I assume there are a lot of things we might want to trigger when this happens
     void GetBingo(int bingoId)
     {
@@ -278,6 +312,22 @@ public class BingoController : Singleton<BingoController>
         if (oldRules == null || oldRules.Count == 0)
         {
             return newRules;
+        }
+        if (randomizeRuleRelocation)
+        {
+            List<int> usedIds = new List<int>();
+            foreach (RuleSO rule in oldRules)
+            {
+                int newId = 0;
+                newId = SeedManager.instance.rng.Next(newSize * newSize);
+                newRules[newId] = rule;
+                while (PreventBingo() && !usedIds.Contains(newId))
+                {
+                    newId = SeedManager.instance.rng.Next(newSize * newSize);
+                    newRules[newId] = rule;
+                }
+                usedIds.Add(newId);
+            }
         }
         else if (oldSize < 2 && newSize == 2) // converting a 1x1 to a 2x2
         {
