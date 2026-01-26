@@ -7,5 +7,6 @@ public class FireEffectSO : EffectSO
     {
         base.OnEffectEnd();
         Health.instance.ChangeHealth(-1,DamageSource.Fire,null);
+        EffectsManager.instance.RemoveAllEffectOfKindFromEntity(this, thisEntity);
     }
 }

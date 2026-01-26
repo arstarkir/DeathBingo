@@ -22,5 +22,5 @@ MonoBehaviour:
   isTimeStacked: 0
   isResetStacked: 0
   thisEntity: {fileID: 0}
-  effectVFX: {fileID: 2814003115909412302, guid: a1516794c64807840a65645bb0aed576, type: 3}
+  effectVFX: {fileID: 2814003115909412302, guid: f8bbd589ceba73141a9877080952f4b7, type: 3}
   curVFX: {fileID: 0}

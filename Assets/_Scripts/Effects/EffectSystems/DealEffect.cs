@@ -45,6 +45,12 @@ public class DealEffect : MonoBehaviour
 
     public void GiveEffect()
     {
+        if (effect.dataName.Contains("Fire")) // fire should not stack
+        {
+            if (EffectsManager.instance.IsActiveEffectOnEntity(effect, entity))
+                return;
+        }
+
         EffectHandler handler = EffectsManager.instance.AddEffectToEntityForTime(effect, entity, effect.effectDurationTime, gameObject);
 
         if (handler.effectSO is InfluenceEffectSO)
