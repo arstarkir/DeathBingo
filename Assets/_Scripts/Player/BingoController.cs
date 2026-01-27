@@ -10,6 +10,7 @@ public class BingoController : Singleton<BingoController>
     public int boardSize; // dimension of bingo board, 1-5
 
     public bool randomizeRuleRelocation; // if true, rules will be placed in random spots when the board expands
+    public bool showPreview = true; // if true, shows preview of next board size
 
     public GameObject slotPref;
     public GameObject slotHolder;
@@ -17,8 +18,10 @@ public class BingoController : Singleton<BingoController>
     public List<RuleSO> activeRules = new List<RuleSO>();
     List<RuleSO> finishedRules = new List<RuleSO>();
     List<BingoSlotUI> curSlots = new List<BingoSlotUI>();
+    List<bool> actualSlotFinished = new List<bool>(); // keeps track of finished slots on board
 
     int[][] validBingos; // current active bingo lines
+    #region Valid Bingo lists
     int[][] validBingos5 = // list of valid bingo lines for 5x5
     {
         // rows
@@ -88,9 +91,10 @@ public class BingoController : Singleton<BingoController>
         new int[] { 2, 1 }
     };
     int[][] validBingos1 = { new int[] { 0 } }; // valid bingo 1x1
+    #endregion
 
 
-    public List<string> bingoIDList = new List<string>(); // list of ID of Bingos achieved (Currently broken, WIP)
+    public List<string> bingoIDList = new List<string>(); // list of ID of Bingos achieved
 
     [HideInInspector] public int maxRuleCombo = 0;
 
@@ -105,38 +109,105 @@ public class BingoController : Singleton<BingoController>
         activeRules.Clear();
     }
 
+    // basically take in # of slot on board including preview slots, get back # it actually represents in that board (-1 if it isn't in it)
+    // ex: my actual bingo board is 2x2, but the preview slots make it a 3x3.  Send in what # a slot is in a 3x3 and get back what it actually is in the 2x2.
+    // this is only relevant if you have preview on
+    int GetRealSlotNum(int visualIndex, int currentSize, int previewSize)
+    {
+        if (currentSize == 1 && previewSize == 2) // 1x1 goes in top left
+        {
+            return visualIndex == 0 ? 0 : -1;
+        }
+        else if (currentSize == 2 && previewSize == 3) // 2x2 goes in bottom right
+        {
+            switch (visualIndex)
+            {
+                case 4: return 0;
+                case 5: return 1;
+                case 7: return 2;
+                case 8: return 3;
+                default: return -1;
+            }
+        }
+        else if (currentSize == 3 && previewSize == 4) // 3x3 goes in bottom left
+        {
+            switch (visualIndex)
+            {
+                case 5: return 0;
+                case 6: return 1;
+                case 7: return 2;
+                case 9: return 3;
+                case 10: return 4;
+                case 11: return 5;
+                case 13: return 6;
+                case 14: return 7;
+                case 15: return 8;
+                default: return -1;
+            }
+        }
+        else if (currentSize == 4 && previewSize == 5) // 4x4 goes in top left
+        {
+            switch (visualIndex)
+            {
+                case 0: return 0;
+                case 1: return 1;
+                case 2: return 2;
+                case 3: return 3;
+                case 5: return 4;
+                case 6: return 5;
+                case 7: return 6;
+                case 8: return 7;
+                case 10: return 8;
+                case 11: return 9;
+                case 12: return 10;
+                case 13: return 11;
+                case 15: return 12;
+                case 16: return 13;
+                case 17: return 14;
+                case 18: return 15;
+                default: return -1;
+            }
+        }
+        else if (currentSize == 5 && previewSize == 5) // 5x5 doesn't need shuffling THANK GOD
+        {
+            return visualIndex < 25 ? visualIndex : -1;
+        }
+        return -1;
+    }
+
     // set size of bingo board
     public void SetBoardSize(int newSize, List<RuleGroupSO> newGroups)
     {
         newSize = Mathf.Clamp(newSize, 1, 5);
-        List<RuleSO> oldRules = curSlots.Select(s => s.rule).ToList();
-        HashSet<RuleSO> finishedRulesSet = new HashSet<RuleSO>(curSlots.Where(s => s.finished).Select(s => s.rule));
+        List<RuleSO> oldRules = curSlots.Where(s => !s.preview && s.rule != null).Select(s => s.rule).ToList();
+        HashSet<RuleSO> finishedRulesSet = new HashSet<RuleSO>(curSlots.Where(s => s.finished && !s.preview).Select(s => s.rule));
 
-        foreach (var slot in curSlots)
+        foreach (var slot in curSlots) // wipe everything
         {
             if (slot != null) Destroy(slot.gameObject);
         }
         curSlots.Clear();
         activeRules.Clear();
 
+        int displaySize = showPreview ? Mathf.Min(newSize + 1, 5) : newSize; // if preview is on, increase visual size by 1
         GridLayoutGroup grid = slotHolder.GetComponent<GridLayoutGroup>(); // resize bingo board grid
         if (grid != null)
         {
-            float totalSpacingX = grid.spacing.x * (newSize - 1);
-            float totalSpacingY = grid.spacing.y * (newSize - 1);
+            float totalSpacingX = grid.spacing.x * (displaySize - 1);
+            float totalSpacingY = grid.spacing.y * (displaySize - 1);
             RectTransform rt = slotHolder.GetComponent<RectTransform>();
             float availableWidth = rt.rect.width - grid.padding.left - grid.padding.right - totalSpacingX;
             float availableHeight = rt.rect.height - grid.padding.top - grid.padding.bottom - totalSpacingY;
             grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-            grid.constraintCount = newSize;
-            grid.cellSize = new Vector2(availableWidth / newSize, availableHeight / newSize);
+            grid.constraintCount = displaySize;
+            grid.cellSize = new Vector2(availableWidth / displaySize, availableHeight / displaySize);
         }
 
         List<RuleSO> newRules = ConvertBoard(boardSize, newSize, oldRules); // put old rules onto new board
         boardSize = newSize;
 
         Dictionary<RuleGroupSO, int> groupCounts = newGroups.ToDictionary(g => g, g => 0); // generate the rest of the rules
-        HashSet<RuleSO> usedRules = new HashSet<RuleSO>(oldRules);
+        HashSet<RuleSO> usedRules = new HashSet<RuleSO>(oldRules.Where(r => r != null));
 
         for (int i = 0; i < newSize * newSize; i++) // most of this is copied over from the old rulegroup function
         {
@@ -171,15 +242,27 @@ public class BingoController : Singleton<BingoController>
             }
         }
 
-        foreach (RuleSO rule in newRules)
+        actualSlotFinished = Enumerable.Repeat(false, newSize * newSize).ToList(); // set all slots to not finished
+
+        for (int i = 0; i < displaySize * displaySize; i++) // looping through current bingo board to mark things as finished, unfinished, or preview slots
         {
-            activeRules.Add(rule);
             BingoSlotUI temp = Instantiate(slotPref, slotHolder.transform).GetComponent<BingoSlotUI>();
-            temp.SetDamageRule(rule);
-            if (finishedRulesSet.Contains(rule)) // marking old completed rules as completed
+            int logicalSlot = showPreview ? GetRealSlotNum(i, newSize, displaySize) : i; // if preview is on, you have to convert visual slot id to the actual one
+            if (logicalSlot >= 0 && logicalSlot < newRules.Count && newRules[logicalSlot] != null)
             {
-                temp.FinishRule();
-                activeRules.Remove(rule);
+                RuleSO rule = newRules[logicalSlot];
+                activeRules.Add(rule);
+                temp.SetDamageRule(rule);
+                if (finishedRulesSet.Contains(rule)) // marking old completed rules as completed
+                {
+                    temp.FinishRule();
+                    activeRules.Remove(rule);
+                    actualSlotFinished[logicalSlot] = true;
+                }
+            }
+            else
+            {
+                temp.SetAsPreview();
             }
             curSlots.Add(temp);
         }
@@ -220,13 +303,25 @@ public class BingoController : Singleton<BingoController>
 
     public void FinishRules()
     {
-        List<BingoSlotUI> active = curSlots.Where(slot => !slot.finished).ToList();
+        List<BingoSlotUI> active = curSlots.Where(slot => !slot.finished && slot.rule != null).ToList();
 
         foreach (RuleSO rule in finishedRules)
         {
-            foreach (BingoSlotUI slot in active.Where(s => s.rule == rule))
+            int actualIndex = 0;
+            for (int i = 0; i < curSlots.Count; i++)
             {
-                slot.FinishRule();
+                if (!curSlots[i].preview && curSlots[i].rule != null)
+                {
+                    if (curSlots[i].rule == rule)
+                    {
+                        curSlots[i].FinishRule();
+                        if (actualIndex < actualSlotFinished.Count)
+                        {
+                            actualSlotFinished[actualIndex] = true;
+                        }
+                    }
+                    actualIndex++;
+                }
             }
             activeRules.RemoveAll(r => r == rule);
         }
@@ -238,9 +333,9 @@ public class BingoController : Singleton<BingoController>
     public void CheckForBingo()
     {
         HashSet<int> finishedSlots = new HashSet<int>();
-        for (int i = 0; i < curSlots.Count; i++)  // list of id of squares earned
+        for (int i = 0; i < actualSlotFinished.Count; i++) // list of id of squares earned
         {
-            if (curSlots[i].finished)
+            if (actualSlotFinished[i])
             {
                 finishedSlots.Add(i);
             }
@@ -267,21 +362,21 @@ public class BingoController : Singleton<BingoController>
     }
 
     // this is nearly identical to the bingo function, but it doesn't reward Bingos, just checks for them to prevent Bingos being randomly generated
-    public bool PreventBingo()
+    public bool PreventBingo(List<bool> slotFinished, int[][] bingos, int targetBoardSize)
     {
         HashSet<int> finishedSlots = new HashSet<int>();
-        for (int i = 0; i < curSlots.Count; i++)  // list of id of squares earned
+        for (int i = 0; i < slotFinished.Count; i++)
         {
-            if (curSlots[i].finished)
+            if (slotFinished[i])
             {
                 finishedSlots.Add(i);
             }
         }
-        for (int bingoId = 0; bingoId < validBingos.Length; bingoId++)
+        for (int bingoId = 0; bingoId < bingos.Length; bingoId++)
         {
-            if (bingoIDList.Contains(bingoId + "board" + boardSize)) continue;
+            if (bingoIDList.Contains(bingoId + "board" + targetBoardSize)) continue;
             bool isBingo = true;
-            foreach (int slot in validBingos[bingoId])
+            foreach (int slot in bingos[bingoId])
             {
                 if (!finishedSlots.Contains(slot))
                 {
@@ -313,19 +408,43 @@ public class BingoController : Singleton<BingoController>
         {
             return newRules;
         }
-        if (randomizeRuleRelocation)
+        if (randomizeRuleRelocation) // if it's random the only constraint is not making a bingo by accident
         {
-            List<int> usedIds = new List<int>();
-            foreach (RuleSO rule in oldRules)
+            int[][] tempValidBingos = null;
+            switch (newSize)
             {
-                int newId = 0;
-                newId = SeedManager.instance.rng.Next(newSize * newSize);
-                newRules[newId] = rule;
-                while (PreventBingo() && !usedIds.Contains(newId))
+                case 1: tempValidBingos = validBingos1; break;
+                case 2: tempValidBingos = validBingos2; break;
+                case 3: tempValidBingos = validBingos3; break;
+                case 4: tempValidBingos = validBingos4; break;
+                case 5: tempValidBingos = validBingos5; break;
+            }
+            List<bool> tempSlotFinished = Enumerable.Repeat(false, newSize * newSize).ToList();
+            List<int> usedIds = new List<int>();
+            HashSet<RuleSO> finishedOldRules = new HashSet<RuleSO>(curSlots.Where(s => s.finished && !s.preview && s.rule != null).Select(s => s.rule));
+            foreach (RuleSO rule in oldRules) // place each rule into the new board
+            {
+                bool valid = false;
+                int newId = -1;
+                while (!valid)
                 {
                     newId = SeedManager.instance.rng.Next(newSize * newSize);
-                    newRules[newId] = rule;
+                    if (usedIds.Contains(newId))
+                    {
+                        continue;
+                    }
+                    if (finishedOldRules.Contains(rule))
+                    {
+                        tempSlotFinished[newId] = true;
+                        if (PreventBingo(tempSlotFinished, tempValidBingos, newSize)) // if a finished rule placement makes a bingo it's a bad placement bozo
+                        {
+                            tempSlotFinished[newId] = false;
+                            continue;
+                        }
+                    }
+                    valid = true;
                 }
+                newRules[newId] = rule;
                 usedIds.Add(newId);
             }
         }
