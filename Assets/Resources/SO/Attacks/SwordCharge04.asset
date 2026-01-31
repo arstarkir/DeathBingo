@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
+  m_Name: SwordCharge04
+  m_EditorClassIdentifier: Assembly-CSharp::AttackSO
+  dataName: Sword Charge 04
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
+  attackPref: {fileID: 2756631408812021891, guid: ee615b9c672c28d4ab28cf3ddfc6697f, type: 3}
+  attackType: 0
+  temp: {fileID: 0}
+  attackStyles: 6
+  duration: 6
+  toSpawn: {fileID: 2850594444603159485, guid: 5b4c50226359d3444a7676377cdda547, type: 3}
+  attackAmount: 5
+  delay: 0.85
+  onlyRightAngles: 1
+  playerPosDelay: 0.2
