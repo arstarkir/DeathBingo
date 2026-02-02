@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d112c2e6b56b03e4293c97d1a655717e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -549,6 +549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c61a1ec261aa8b468e5283f35c859dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeedManager
+  atStartSetSeed: 0
+  seedText: {fileID: 0}
 --- !u!114 &578303698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,23 +563,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bb079a7ec08bc47b89401593de8662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackSelection
-  startDelay: 5
-  attackDelay: 3
   attackHolder: {fileID: 328428734}
-  isInAttack: 0
-  attacks:
-  - {fileID: 11400000, guid: 7e43c7f336bbb6a40bdd2c35b690d9ba, type: 2}
-  - {fileID: 11400000, guid: 108a1e5050cb21547974fb914dd808d2, type: 2}
-  - {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
-  - {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
-  - {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
-  - {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}
-  - {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
-  instructions: []
-  sequenceLength: 10
-  randomizedAttacks: []
-  curAttackId: 0
-  doFirst: 1
+  isInPrimaryAttack: 0
+  isWaveRunning: 0
+  waves: []
+  curWaveId: 0
+  AbruptWaveTransition: 1
 --- !u!1 &730954277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,6 +1175,22 @@ PrefabInstance:
     - target: {fileID: 349184908399433104, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599611534262478144, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70284754
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599611534262478144, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.07680442
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599611534262478144, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.07663685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599611534262478144, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7030173
       objectReference: {fileID: 0}
     - target: {fileID: 5405227267545705261, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
       propertyPath: m_Name
