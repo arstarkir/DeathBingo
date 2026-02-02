@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DealDamage
   destroyOnDealDmg: 0
-  damageSource: 2
+  damageSource: 6
 --- !u!65 &7609320242884014167
 BoxCollider:
   m_ObjectHideFlags: 0

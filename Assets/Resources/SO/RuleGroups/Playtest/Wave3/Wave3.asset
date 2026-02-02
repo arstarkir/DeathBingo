@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b30e45115342544da1ac22a0a46526a, type: 3}
+  m_Name: Wave3
+  m_EditorClassIdentifier: Assembly-CSharp::RuleGroupSO
+  rules:
+  - {fileID: 11400000, guid: ff1d19703e6cdc446b0ff1c8eebf1b14, type: 2}
+  - {fileID: 11400000, guid: 7e296df320817e947b12a2ef1593c1fd, type: 2}
+  - {fileID: 11400000, guid: 759eab77a65e8cf4aa4db7715abb60f3, type: 2}
+  - {fileID: 11400000, guid: e362c02a1710a634fa29ee05ffd188c6, type: 2}
+  - {fileID: 11400000, guid: 364ff5ac32ec66145a05c04737a0d35d, type: 2}
+  maxSelected: 25
