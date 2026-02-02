@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b30e45115342544da1ac22a0a46526a, type: 3}
+  m_Name: Wave5
+  m_EditorClassIdentifier: Assembly-CSharp::RuleGroupSO
+  rules:
+  - {fileID: 11400000, guid: 521db290ff71bd9489b039d8d60fe389, type: 2}
+  - {fileID: 11400000, guid: 2dc85c0e8d08437479cd9b858e45d666, type: 2}
+  - {fileID: 11400000, guid: 51ac8d280a1126244acf11ee25d3bd56, type: 2}
+  - {fileID: 11400000, guid: b6ecc188452b0b146bc92580d60baf2e, type: 2}
+  - {fileID: 11400000, guid: 65e6477e6be96de4ebf5721c999ed421, type: 2}
+  - {fileID: 11400000, guid: b6ecc188452b0b146bc92580d60baf2e, type: 2}
+  - {fileID: 11400000, guid: e0e444eb920a4b44cae6b4e3cd62442b, type: 2}
+  - {fileID: 11400000, guid: fd9b2ef70a448084e8b3555404a1431e, type: 2}
+  - {fileID: 11400000, guid: 1924259a86a0e604c80f151394f9b195, type: 2}
+  maxSelected: 25

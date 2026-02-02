@@ -16,5 +16,5 @@ MonoBehaviour:
   dataDescription: Die To Column
   wasDone: 0
   dataType: 0
-  trigger: 0
+  trigger: 2
   attackSO: {fileID: 0}

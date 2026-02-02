@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f30d03d75c3f349a257d479a92ac15, type: 3}
+  m_Name: Wave1
+  m_EditorClassIdentifier: Assembly-CSharp::WaveSO
+  introSequence: {fileID: 11400000, guid: c711735f8ee0b9944b2ec16cb171b472, type: 2}
+  attackSequences:
+  - {fileID: 11400000, guid: b466cd1b84ebc7e409e7f40b7ddcca8c, type: 2}
+  - {fileID: 11400000, guid: cedde96393155e0419cbbcf9c352ef95, type: 2}
+  - {fileID: 11400000, guid: 438f9749f1bf24a4db2c5ee055279c9a, type: 2}
+  - {fileID: 11400000, guid: 4b84ab050d094fa42a49a840c1234478, type: 2}
+  ruleGroups:
+  - {fileID: 11400000, guid: 4061a03931cf63145869ac067c337e75, type: 2}
+  downtime: 3

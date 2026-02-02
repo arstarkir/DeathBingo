@@ -212,6 +212,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4108702314325788431, guid: 6231224834bd360429693747edf96b86, type: 3}
+      propertyPath: damageSource
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4643741417046749405, guid: 6231224834bd360429693747edf96b86, type: 3}
       propertyPath: m_Name
       value: Column

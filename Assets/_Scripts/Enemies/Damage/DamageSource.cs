@@ -5,5 +5,6 @@ public enum DamageSource
     Column,
     Fire,
     Lightning,
-    Other
+    Other,
+    Sword
 }
