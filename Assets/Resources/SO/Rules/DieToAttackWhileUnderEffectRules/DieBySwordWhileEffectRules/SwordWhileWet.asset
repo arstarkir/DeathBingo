@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03a53644649d424eb4d33e21c3c76ad, type: 3}
   m_Name: SwordWhileWet
   m_EditorClassIdentifier: Assembly-CSharp::EffectRuleSO
-  dataName: Die to Sword While on Wet
-  dataDescription: Die to Sword While on Wet
+  dataName: Die to Sword While Wet
+  dataDescription: Die to Sword While Wet
   wasDone: 0
   dataType: 0
   trigger: 6
