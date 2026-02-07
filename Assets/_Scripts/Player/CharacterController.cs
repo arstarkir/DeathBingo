@@ -18,6 +18,7 @@ public class CharacterController : Singleton<CharacterController>
     bool cooldown; // true if in cooldown
     Vector3 rollDir; // direciton of roll (so you can't change direction mid-roll)
     [SerializeField] LayerMask groundLayer; // which layer makes the player grounded
+    public Animator animator;
 
     [HideInInspector] public Vector2 inputVec;
     bool isSprinting = false;
@@ -41,6 +42,12 @@ public class CharacterController : Singleton<CharacterController>
 
         rb.linearVelocity = new Vector3(moveVel.x + influenceVelocity.x, rb.linearVelocity.y, moveVel.z + influenceVelocity.z);
         influenceVelocity = Vector3.zero;
+        if (animator != null)
+        {
+            animator.SetFloat("moveVel", moveVel.magnitude);
+        }
+
+        
     }
 
     private void FixedUpdate()
@@ -54,6 +61,10 @@ public class CharacterController : Singleton<CharacterController>
         pos.y = Mathf.Clamp(pos.y, 0, 100);
         pos.z = Mathf.Clamp(pos.z, -10, 10);
         rb.position = pos;
+        if (animator != null)
+        {
+            animator.SetBool("grounded", grounded);
+        }
     }
 
     // raycast for ground layer down
