@@ -367,6 +367,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1009560318625737392, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2477633270988517772, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -419,6 +423,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelEssentials
       objectReference: {fileID: 0}
+    - target: {fileID: 5450861632322109037, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 601393457412062383}
     - target: {fileID: 5450861632322109037, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: playerVisuals
       value: 
@@ -607,6 +615,10 @@ PrefabInstance:
       propertyPath: 'attacks.Array.data[16]'
       value: 
       objectReference: {fileID: 11400000, guid: eed17f89b277cd54399f620de6af4ae4, type: 2}
+    - target: {fileID: 7525128022611547141, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -271099751311525298, guid: 3dff2858b7a91b54bac1c57fbdbda9fd, type: 3}
     - target: {fileID: 7541653784769929668, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
       propertyPath: m_SizeDelta.x
       value: 750
@@ -627,6 +639,11 @@ PrefabInstance:
 --- !u!1 &601393457412062381 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1009560318625737392, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+  m_PrefabInstance: {fileID: 601393457412062358}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &601393457412062383 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8986964927411741403, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
   m_PrefabInstance: {fileID: 601393457412062358}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
