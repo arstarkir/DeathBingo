@@ -41,7 +41,7 @@ public class EndScreenUI : Singleton<EndScreenUI>
         winScreen.SetActive(true);
 
         mainText.text = "You Lose!";
-        completionTime.text = "NO";
+        completionTime.text = "__";
         lifeLost.text = Health.instance.livesLostInRun.ToString();
         maxRuleCombo.text = BingoController.instance.maxRuleCombo.ToString();
         newRules.text = tracker.newRuelsDone.ToString();

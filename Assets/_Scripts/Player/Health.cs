@@ -104,7 +104,7 @@ public class Health : Singleton<Health>
         yield return new WaitForSeconds(0.2f);
         if (health <= 0)
         {
-            EndScreenUI.instance.WinScreen();
+            EndScreenUI.instance.LoseScreen();
         }
         else
         {

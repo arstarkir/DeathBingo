@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4409579584350305292}
@@ -531,26 +531,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bb079a7ec08bc47b89401593de8662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackSelection
-  startDelay: 1
-  attackDelay: 3
   attackHolder: {fileID: 0}
-  isInAttack: 0
-  attacks:
-  - {fileID: 11400000, guid: a87499138e1cb844d8a025c15339f4a1, type: 2}
-  - {fileID: 11400000, guid: aa639d8af31036e46b31eaa72a109fa7, type: 2}
-  - {fileID: 11400000, guid: e43372f9e8a73df43a89e11095cfee4f, type: 2}
-  - {fileID: 11400000, guid: 02154c28cc8b8b64b9ac9ae66b963590, type: 2}
-  - {fileID: 11400000, guid: 61b719d51efea9941ac890f7325b10e3, type: 2}
-  - {fileID: 11400000, guid: 7e43c7f336bbb6a40bdd2c35b690d9ba, type: 2}
-  - {fileID: 11400000, guid: 2747ba570da93a34bab34ff6c1458665, type: 2}
-  - {fileID: 11400000, guid: 29689803147f07145a5e6575dc8329dd, type: 2}
-  - {fileID: 11400000, guid: c3c6ab732dfb6a8428c20e6fbe8d815e, type: 2}
-  - {fileID: 11400000, guid: 108a1e5050cb21547974fb914dd808d2, type: 2}
-  instructions: []
-  sequenceLength: 15
-  randomizedAttacks: []
-  curAttackId: 0
-  doFirst: 0
+  primaryAttackCount: 0
+  isWaveRunning: 0
+  waves:
+  - {fileID: 11400000, guid: d7692a958f364a64db4c3525b9289191, type: 2}
+  - {fileID: 11400000, guid: 4cef855f62d215e408a74dc0df71e453, type: 2}
+  - {fileID: 11400000, guid: ad7974b010a67304ab45aac3e00f3ced, type: 2}
+  - {fileID: 11400000, guid: 4a786ac9eba1ee6418e7a65a0d57066c, type: 2}
+  - {fileID: 11400000, guid: c3f81f3005ad7e4438e93af93bf9f8c5, type: 2}
+  curWaveId: 0
+  AbruptWaveTransition: 1
 --- !u!114 &6969478264861667065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeedManager
   atStartSetSeed: 0
+  seedText: {fileID: 0}
 --- !u!1 &9033406121149307709
 GameObject:
   m_ObjectHideFlags: 0
