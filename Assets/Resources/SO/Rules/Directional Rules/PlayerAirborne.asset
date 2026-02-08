@@ -9,17 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 957b6a1e0bcdc184ca72316d53fff726, type: 3}
-  m_Name: PlayerMovingVertically
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovingRuleSO
-  dataName: Die While Player Moving Vertically
-  dataDescription: Die While Player Moving Verticaly
-  wasDone: 1
+  m_Script: {fileID: 11500000, guid: 79b247035585d2544acec78e50fab0c4, type: 3}
+  m_Name: PlayerAirborne
+  m_EditorClassIdentifier: Assembly-CSharp::GroundedRuleSO
+  dataName: Die While Airborne
+  dataDescription: Die While Airborne
+  wasDone: 0
   dataType: 0
   trigger: 0
   attackSO: {fileID: 0}
   bingoSprite: {fileID: 21300000, guid: 77b717a91c7cf774f820228b403d70f2, type: 3}
-  moveVector: {x: 0, y: 0, z: 0}
-  axis: 2
-  logic: 1
-  tolerance: 0.1
+  groundedRequirement: 0

@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83290ad5c2c8dad4fb5212f1db96965e, type: 3}
-  m_Name: VerticalWet
+  m_Name: AirborneWet
   m_EditorClassIdentifier: Assembly-CSharp::LogicRuleSO
-  dataName: Die While Moving Vertically And Wet
-  dataDescription: Die While Moving Vertically And Wet
+  dataName: Die While Moving Airborne And Wet
+  dataDescription: Die While Moving Airborne And Wet
   wasDone: 0
   dataType: 0
   trigger: 0
   attackSO: {fileID: 0}
+  bingoSprite: {fileID: 0}
   ruleFlag: 0
   rules:
   - {fileID: 11400000, guid: 0fcd62177508afc47aae8a77498b2d8b, type: 2}
-  - {fileID: 11400000, guid: 759eab77a65e8cf4aa4db7715abb60f3, type: 2}
+  - {fileID: 11400000, guid: fe15fd5c020d04a42895eaca7c46dc22, type: 2}
   andAmount: 5
