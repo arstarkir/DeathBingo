@@ -15,6 +15,7 @@ public class CharacterController : Singleton<CharacterController>
     public float rollDuration = 0.15f; // how long they player should move fast while rolling
     public float rollCooldown = 1f; // how long the player has to wait after a roll
     bool rolling; // true when rolling
+    public bool bleeding = false; // restricts some movement options like dash and move speed
     bool cooldown; // true if in cooldown
     Vector3 rollDir; // direciton of roll (so you can't change direction mid-roll)
     [SerializeField] LayerMask groundLayer; // which layer makes the player grounded
@@ -35,7 +36,15 @@ public class CharacterController : Singleton<CharacterController>
 
     void PlayerMove()
     {
-        Vector3 moveVel = new Vector3(inputVec.x, 0, inputVec.y) * (isSprinting ? sprintSpeed : speed);
+        Vector3 moveVel;
+        if (bleeding)
+        {
+            moveVel = new Vector3(inputVec.x, 0, inputVec.y) * (isSprinting ? sprintSpeed/2 : speed*0.7f);
+        }
+        else
+        {
+            moveVel = new Vector3(inputVec.x, 0, inputVec.y) * (isSprinting ? sprintSpeed : speed);
+        }
         if (rolling)
         {
             moveVel = new Vector3(rollDir.x * rollSpeed, 0, rollDir.z * rollSpeed);
@@ -127,6 +136,7 @@ public class CharacterController : Singleton<CharacterController>
     public void OnJump(InputAction.CallbackContext ctx)
     {
         if (!isInteractable) return;
+        if (bleeding) return;
         if (!(!ctx.performed && ctx.started)) return; // this line makes it so you only jump on button press and not release, funky new unity input stuff
         if (!grounded) return;
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
@@ -136,6 +146,7 @@ public class CharacterController : Singleton<CharacterController>
     public void OnRoll(InputAction.CallbackContext ctx)
     {
         if (!isInteractable) return;
+        if (bleeding) return;
         if (!(!ctx.performed && ctx.started)) return;
         if (!grounded || rolling || cooldown) return;
 
