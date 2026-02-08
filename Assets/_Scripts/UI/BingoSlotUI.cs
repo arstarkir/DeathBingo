@@ -28,12 +28,12 @@ public class BingoSlotUI : MonoBehaviour
         toggle.isOn = finished;
         previewVisual.enabled = false;
 
-        if (damageRule is EffectRuleSO effectRule && effectRule.trigger != DamageSource.Ignore) // if it's an effect rule with specified type (ex: wet + columns) use the type icon
+        if ((damageRule is EffectRuleSO || damageRule is LocationRuleSO) && damageRule.trigger != DamageSource.Ignore) // location/effect rules with specified types need to also show the icon for that type
         {
             singleSlot.enabled = false;
             doubleSlot1.enabled = true;
             doubleSlot2.enabled = true;
-            switch (effectRule.trigger)
+            switch (damageRule.trigger)
             {
                 case DamageSource.Column:
                     doubleSlot1.sprite = columnIcon;
@@ -45,7 +45,7 @@ public class BingoSlotUI : MonoBehaviour
                     doubleSlot1.sprite = swordIcon;
                     break;
             }
-            doubleSlot2.sprite = effectRule.bingoSprite;
+            doubleSlot2.sprite = damageRule.bingoSprite;
             return;
         }
 
