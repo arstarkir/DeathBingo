@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightningHandler : MonoBehaviour
 {
+    [SerializeField] float duration = 5;
     [SerializeField] GameObject lightningVFX;
     [SerializeField] List<ParticleSystem> particles = new List<ParticleSystem>();
     [SerializeField] ParticleSystem warningLights;
@@ -12,7 +13,7 @@ public class LightningHandler : MonoBehaviour
     private void Start()
     {
         lightningVFX.SetActive(false);
-        StartLightning(5);
+        StartLightning(duration);
     }
 
     public void StartLightningJustDelay(float delay)
@@ -49,13 +50,19 @@ public class LightningHandler : MonoBehaviour
         if(trigger != null)
         {
             trigger.GetComponent<Collider>().enabled = true;
-            trigger.GetComponent<DealEffect>().enabled = true;
+            if(TryGetComponent<DealEffect>(out DealEffect dealEffect))
+                dealEffect.enabled = true;
+            if (TryGetComponent<DealDamage>(out DealDamage dealDamage))
+                dealDamage.enabled = true;
         }
         yield return new WaitForSeconds(dmgTimeWindow);
         if (trigger != null)
         {
             trigger.GetComponent<Collider>().enabled = false;
-            trigger.GetComponent<DealEffect>().enabled = false;
+            if (TryGetComponent<DealEffect>(out DealEffect dealEffect))
+                dealEffect.enabled = false;
+            if (TryGetComponent<DealDamage>(out DealDamage dealDamage))
+                dealDamage.enabled = false;
         }
         Destroy(gameObject);
     }

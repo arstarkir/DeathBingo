@@ -15,6 +15,10 @@ MonoBehaviour:
   introSequence: {fileID: 11400000, guid: 53bce7f92cfe43e4d8de53eda420ac35, type: 2}
   attackSequences:
   - {fileID: 11400000, guid: 5c4319cdce3ce654db27a274b463f4af, type: 2}
+  - {fileID: 11400000, guid: 0a36ff9c07243514c89874e347866a10, type: 2}
+  - {fileID: 11400000, guid: 30a34ad24191a3145a995b9dc0f791d4, type: 2}
+  - {fileID: 11400000, guid: 68dd3ee11a8f50946a2eb9bf0a7b3469, type: 2}
   ruleGroups:
-  - {fileID: 11400000, guid: 4061a03931cf63145869ac067c337e75, type: 2}
+  - {fileID: 11400000, guid: 4019fd5b005739d45ae7824dac943bd4, type: 2}
   downtime: 3
+  hp: 5

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class EndScreenUI : Singleton<EndScreenUI>
 {
     public GameObject winScreen;
+    public TMP_Text mainText;
     public TMP_Text completionTime;
     public TMP_Text lifeLost;
     public TMP_Text maxRuleCombo;
@@ -20,7 +21,27 @@ public class EndScreenUI : Singleton<EndScreenUI>
         PlayerProgressTracker tracker = PlayerProgressTracker.instance;
         winScreen.SetActive(true);
 
+        mainText.text = "You Win!";
         completionTime.text = TimerController.instance.GetTime();
+        lifeLost.text = Health.instance.livesLostInRun.ToString();
+        maxRuleCombo.text = BingoController.instance.maxRuleCombo.ToString();
+        newRules.text = tracker.newRuelsDone.ToString();
+        newAttacks.text = tracker.newAttacksDone.ToString();
+        overAllRules.text = tracker.GetPercent(tracker.curProgressData.ruleProgress);
+        overAllAttack.text = tracker.GetPercent(tracker.curProgressData.attackProgress);
+
+        TimerController.instance.enabled = false;
+        EnemyAttackSelection.instance.enabled = false;
+        EffectsManager.instance.enabled = false;
+    }
+
+    public void LoseScreen()
+    {
+        PlayerProgressTracker tracker = PlayerProgressTracker.instance;
+        winScreen.SetActive(true);
+
+        mainText.text = "You Lose!";
+        completionTime.text = "NO";
         lifeLost.text = Health.instance.livesLostInRun.ToString();
         maxRuleCombo.text = BingoController.instance.maxRuleCombo.ToString();
         newRules.text = tracker.newRuelsDone.ToString();
