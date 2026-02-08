@@ -59,9 +59,9 @@ public class AttackSO : Data
             Destroy(temp);
         if (attackType == AttackType.Primary)
         {
-            if (EnemyAttackSelection.instance != null)
+            if (EnemyAttackSelection.instance.primaryAttackCount > 0)
             {
-                EnemyAttackSelection.instance.isInPrimaryAttack = false;
+                EnemyAttackSelection.instance.primaryAttackCount--;
                 return;
             }
             TestEnemyAttackSequencing.instance.isInAttack = false;
