@@ -61,6 +61,11 @@ public class DealEffect : MonoBehaviour
             IsActiveEffectOnEntity(EffectsManager.instance.effectsList.effects[0], entity))
             Health.instance.ChangeHealth(-1, DamageSource.Lightning, transform.root.GetComponentsInChildren<IAttackHandler>().First());
 
+        // this makes it so stun --> water also kills
+        if (effect.dataName.Contains("Wet") && EffectsManager.instance.
+            IsActiveEffectOnEntity(EffectsManager.instance.effectsList.effects[1], entity))
+            Health.instance.ChangeHealth(-1, DamageSource.Lightning, transform.root.GetComponentsInChildren<IAttackHandler>().First());
+
         // well if that gets changed, this probably should too... but it's still late!
         if (effect.dataName.Contains("Wet"))
         {
