@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
 {
     [SerializeField] GameObject attackHolder; // object in scene that has the enemies/attacks
-    public bool isInPrimaryAttack = false; // true if any primary attack is out
+    public int primaryAttackCount = 0; // how many primary attacks are in progress
     public bool isWaveRunning = false; // true if wave in progress
 
     public List<WaveSO> waves = new List<WaveSO>(); // list of waves
@@ -17,7 +17,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     // create list of random attacks and wait to start attacking
     void Start()
     {
-        isInPrimaryAttack = false;
+        primaryAttackCount = 0;
         curWaveId = 0;
         StartCoroutine(StartDelay(waves[0].downtime));
     }
@@ -36,7 +36,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
         {
             yield return new WaitUntil(() => attackHolder.transform.childCount == 0);
         }
-        isInPrimaryAttack = false;
+        primaryAttackCount = 0;
         Health.instance.SetHealth(waves[curWaveId].hp);
         int boardSize = Mathf.Clamp(curWaveId + 1, 1, 5);
         BingoController.instance.SetBoardSize(boardSize, waves[curWaveId].ruleGroups);
@@ -70,7 +70,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
             {
                 Destroy(child.gameObject);
             }
-            isInPrimaryAttack = false;
+            primaryAttackCount = 0;
             Debug.Log("Game Won!");
             EndScreenUI.instance.WinScreen();
         }
@@ -85,24 +85,24 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
             {
                 break;
             }
-            if (block.waitTime < 0) // wait time -1
-            {
-                if (block.attack.attackType == AttackSO.AttackType.Primary) // if set to -1, this primary attack will play once all previous primary attacks are done
-                {
-                    if (isInPrimaryAttack)
-                        yield return new WaitUntil(() => !isInPrimaryAttack || !isWaveRunning);
-                    isInPrimaryAttack = true;
-                }
-            }
-            else // manually set wait time
+            if (block.waitTime > 0)
             {
                 float t = block.waitTime;
-                while (t > 0f) // wait out attack time or interrupt if wave ends
+                while (t > 0f)
                 {
                     if (!isWaveRunning) yield break;
                     t -= Time.deltaTime;
                     yield return null;
                 }
+            }
+            if (block.attack.attackType == AttackSO.AttackType.Primary)
+            {
+                if (block.waitTime < 0) // wait until no primary attacks are going if set to -1
+                {
+                    if (primaryAttackCount > 0)
+                        yield return new WaitUntil(() => primaryAttackCount == 0 || !isWaveRunning);
+                }
+                primaryAttackCount++;
             }
             if (!isWaveRunning)
             {

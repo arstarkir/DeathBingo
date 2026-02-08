@@ -59,7 +59,7 @@ public class CharacterController : Singleton<CharacterController>
 
     private void FixedUpdate()
     {
-        if (!isInteractable) return;
+        //if (!isInteractable) return;
         GroundCheck();
         PlayerMove();
         rb.AddForce(0, playerGravity, 0, ForceMode.Acceleration);
@@ -111,6 +111,7 @@ public class CharacterController : Singleton<CharacterController>
 
     public void OnJump(InputAction.CallbackContext ctx)
     {
+        if (!isInteractable) return;
         if (!(!ctx.performed && ctx.started)) return; // this line makes it so you only jump on button press and not release, funky new unity input stuff
         if (!grounded) return;
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
@@ -119,6 +120,7 @@ public class CharacterController : Singleton<CharacterController>
 
     public void OnRoll(InputAction.CallbackContext ctx)
     {
+        if (!isInteractable) return;
         if (!(!ctx.performed && ctx.started)) return;
         if (!grounded || rolling || cooldown) return;
 
