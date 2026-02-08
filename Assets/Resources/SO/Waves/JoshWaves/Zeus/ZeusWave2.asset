@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f30d03d75c3f349a257d479a92ac15, type: 3}
   m_Name: ZeusWave2
   m_EditorClassIdentifier: Assembly-CSharp::WaveSO
-  introSequence: {fileID: 11400000, guid: 94e541c73e40475458babb2cc8c9dabd, type: 2}
+  introSequence: {fileID: 11400000, guid: d9b77d8ddc37d9940a4b646209a5c898, type: 2}
   attackSequences:
+  - {fileID: 11400000, guid: 94e541c73e40475458babb2cc8c9dabd, type: 2}
+  - {fileID: 11400000, guid: d9b77d8ddc37d9940a4b646209a5c898, type: 2}
   - {fileID: 11400000, guid: 8f9651971a911584491cdca51bb5b99e, type: 2}
+  - {fileID: 11400000, guid: 4a38874553d4ebd499f128871855dca5, type: 2}
+  - {fileID: 11400000, guid: 021eab23e7f4ce64c85c13036289957b, type: 2}
   ruleGroups:
   - {fileID: 11400000, guid: b3daafecde0b32445a5810b193e3dc4a, type: 2}
   downtime: 3

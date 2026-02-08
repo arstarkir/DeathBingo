@@ -6,5 +6,6 @@ public enum DamageSource
     Fire,
     Lightning,
     Other,
-    Sword
+    Sword,
+    BlueLightning
 }

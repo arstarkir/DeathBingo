@@ -8,7 +8,7 @@ public class CharacterController : Singleton<CharacterController>
     public float sprintSpeed = 7.5f;
     public float jumpVelocity = 8f; // default jump speed
     public float playerGravity = -8f; // default gravity speed (only for player, also unitys gravity is turned off)
-    bool grounded; // true if touching the ground
+    public bool grounded; // true if touching the ground
     [SerializeField] float groundDistance = 1.1f; // grace distance for grounded state (how close you have to be to be "grounded")
     // ground distance is high because I'm factoring in player height
     public float rollSpeed = 20f; // speed during a dodge roll

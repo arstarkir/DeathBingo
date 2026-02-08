@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
+  m_Name: LargeBlueLightning 2
+  m_EditorClassIdentifier: Assembly-CSharp::AttackSO
+  dataName: Lightning Random Attack 02
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
+  attackPref: {fileID: 9218929475415879512, guid: 89af0b57f0dc9d242a06f70876a1a316, type: 3}
+  attackType: 0
+  temp: {fileID: 0}
+  attackStyles: 6
+  duration: 10
+  toSpawn: {fileID: 9024178787575428942, guid: 6151d190e2ae2a3438e9cc3f790c2795, type: 3}
+  attackAmount: 1
+  delay: 0
+  onlyRightAngles: 1
+  playerPosDelay: 0.2
