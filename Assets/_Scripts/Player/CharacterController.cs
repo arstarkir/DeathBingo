@@ -19,6 +19,7 @@ public class CharacterController : Singleton<CharacterController>
     Vector3 rollDir; // direciton of roll (so you can't change direction mid-roll)
     [SerializeField] LayerMask groundLayer; // which layer makes the player grounded
     public Animator animator;
+    [SerializeField] Transform playerModel; // player model to rotate
 
     [HideInInspector] public Vector2 inputVec;
     bool isSprinting = false;
@@ -47,7 +48,13 @@ public class CharacterController : Singleton<CharacterController>
             animator.SetFloat("moveVel", moveVel.magnitude);
         }
 
-        
+        Vector3 flatMove = new Vector3(moveVel.x, 0, moveVel.z);
+        if (flatMove.sqrMagnitude > 0.001f) // just rotating the playermodel, since we haven't been rotating playercollider and I worry it could easily break something
+        {
+            Quaternion targetRot = Quaternion.LookRotation(flatMove, Vector3.up);
+            playerModel.rotation = Quaternion.Slerp(playerModel.rotation,targetRot,10f * Time.fixedDeltaTime);
+        }
+
     }
 
     private void FixedUpdate()
