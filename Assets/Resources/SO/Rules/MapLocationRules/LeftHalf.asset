@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LocationRuleSO
   dataName: Die On Left Half
   dataDescription: Die On Left Half
-  wasDone: 0
+  wasDone: 1
   dataType: 0
   trigger: 0
   attackSO: {fileID: 0}
   bingoSprite: {fileID: 21300000, guid: a59c6f9c68747444bafd2b8aa7d05878, type: 3}
-  MinBounds: {x: -10, y: -100, z: -10}
-  MaxBounds: {x: 0, y: 100, z: 10}
+  MinBounds: {x: -20, y: -100, z: -100}
+  MaxBounds: {x: 0, y: 100, z: 100}
