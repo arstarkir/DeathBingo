@@ -85,7 +85,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
             {
                 break;
             }
-            if (block.waitTime > 0)
+            if (block.waitTime >= 0)
             {
                 float t = block.waitTime;
                 while (t > 0f)
