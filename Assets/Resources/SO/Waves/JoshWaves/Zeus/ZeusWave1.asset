@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f30d03d75c3f349a257d479a92ac15, type: 3}
+  m_Name: ZeusWave1
+  m_EditorClassIdentifier: Assembly-CSharp::WaveSO
+  introSequence: {fileID: 11400000, guid: 53bce7f92cfe43e4d8de53eda420ac35, type: 2}
+  attackSequences:
+  - {fileID: 11400000, guid: 5c4319cdce3ce654db27a274b463f4af, type: 2}
+  ruleGroups:
+  - {fileID: 11400000, guid: 4061a03931cf63145869ac067c337e75, type: 2}
+  downtime: 3
