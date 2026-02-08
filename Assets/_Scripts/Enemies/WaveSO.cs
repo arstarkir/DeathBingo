@@ -13,4 +13,7 @@ public class WaveSO : ScriptableObject
 
     [Header("Downtime (If first wave, this is starting time!")]
     public float downtime = 1f; // how many seconds to wait before starting wave
+
+    [Header("How much HP should be given to the player at the start of this wave")]
+    public int hp = 5;
 }

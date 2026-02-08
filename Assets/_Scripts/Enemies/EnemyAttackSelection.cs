@@ -6,7 +6,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
 {
     [SerializeField] GameObject attackHolder; // object in scene that has the enemies/attacks
     public bool isInPrimaryAttack = false; // true if any primary attack is out
-    [SerializeField] private bool isWaveRunning = false; // true if wave in progress
+    public bool isWaveRunning = false; // true if wave in progress
 
     public List<WaveSO> waves = new List<WaveSO>(); // list of waves
     [SerializeField] int curWaveId; // id of current wave
@@ -37,6 +37,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
             yield return new WaitUntil(() => attackHolder.transform.childCount == 0);
         }
         isInPrimaryAttack = false;
+        Health.instance.SetHealth(waves[curWaveId].hp);
         int boardSize = Mathf.Clamp(curWaveId + 1, 1, 5);
         BingoController.instance.SetBoardSize(boardSize, waves[curWaveId].ruleGroups);
         yield return new WaitForSeconds(delay);
@@ -95,7 +96,13 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
             }
             else // manually set wait time
             {
-                yield return new WaitForSeconds(block.waitTime); // if wait time was specified wait that amount no matter what
+                float t = block.waitTime;
+                while (t > 0f) // wait out attack time or interrupt if wave ends
+                {
+                    if (!isWaveRunning) yield break;
+                    t -= Time.deltaTime;
+                    yield return null;
+                }
             }
             if (!isWaveRunning)
             {

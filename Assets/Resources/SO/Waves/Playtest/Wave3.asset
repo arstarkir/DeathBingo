@@ -19,3 +19,4 @@ MonoBehaviour:
   ruleGroups:
   - {fileID: 11400000, guid: 95229ae7158b72f43950c3dd9487e63e, type: 2}
   downtime: 3
+  hp: 5

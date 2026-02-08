@@ -25,6 +25,13 @@ public class Health : Singleton<Health>
         OnHealthChange();
     }
 
+    // used to set HP to new value on wave end
+    public void SetHealth(int newHealth)
+    {
+        health = newHealth;
+        OnHealthChange();
+    }
+
     public int ChangeHealth(int changeAmount, DamageSource damageSource, IAttackHandler handler = null)
     {
         if (damagePoolTimer == null)
@@ -32,6 +39,10 @@ public class Health : Singleton<Health>
             health += changeAmount;
             livesLostInRun -= changeAmount;
             OnHealthChange();
+            if (changeAmount < 0)
+            {
+                Die();
+            }
             damagePoolTimer = StartCoroutine(DamageDealtPool(damagePoolTime));
         }
         damageInfoPool.Add((damageSource, handler));
@@ -48,10 +59,6 @@ public class Health : Singleton<Health>
 
         for (int i = 0; i < health; i++)
             curHealth.Add(Instantiate(hpPref, hpHolder.transform));
-        if (health <= 0)
-        {
-            Die();
-        }
     }
 
     IEnumerator DamageDealtPool(float duration)
@@ -68,7 +75,14 @@ public class Health : Singleton<Health>
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         playerCollider.SetActive(false);
-        StartCoroutine(Respawn());
+        if (health <= 0 && (EnemyAttackSelection.instance.isWaveRunning))
+        {
+            StartCoroutine(GameOver());
+        }
+        else
+        {
+            StartCoroutine(Respawn());
+        }
     }
 
     // routine for waiting to respawn and respawning
@@ -77,8 +91,21 @@ public class Health : Singleton<Health>
         yield return new WaitForSeconds(respawnTimer);
         playerCollider.SetActive(true);
         playerCollider.transform.position = Vector3.zero;
-        health = 3;
-        OnHealthChange();
         damagePoolTimer = StartCoroutine(DamageDealtPool(invincibilityTime));
+    }
+
+    // pull up the fail screen when you get a gameover.  Short delay so that, if you die and trigger wave end, you can keep playing with the added HP
+    IEnumerator GameOver()
+    {
+        playerCollider.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
+        if (health <= 0)
+        {
+            EndScreenUI.instance.WinScreen();
+        }
+        else
+        {
+            StartCoroutine(Respawn());
+        }
     }
 }
