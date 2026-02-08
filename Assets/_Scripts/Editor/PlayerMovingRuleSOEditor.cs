@@ -38,5 +38,6 @@ public class PlayerMovingRuleSOEditor : Editor
             EditorUtility.SetDirty(rule);
             AssetDatabase.SaveAssets();
         }
+        serializedObject.ApplyModifiedProperties();
     }
 }

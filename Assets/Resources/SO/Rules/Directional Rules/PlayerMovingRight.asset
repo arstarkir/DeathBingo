@@ -18,6 +18,7 @@ MonoBehaviour:
   dataType: 0
   trigger: 0
   attackSO: {fileID: 0}
+  bingoSprite: {fileID: 21300000, guid: 7a03074afd18f9043b6e5cbdf87d3ec2, type: 3}
   moveVector: {x: 1, y: 0, z: 0}
   axis: 1
   logic: 3

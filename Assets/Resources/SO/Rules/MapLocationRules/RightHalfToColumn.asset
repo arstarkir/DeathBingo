@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LocationRuleSO
   dataName: Die On Right Half To Column
   dataDescription: Die On Right Half To Column
-  wasDone: 0
+  wasDone: 1
   dataType: 0
   trigger: 2
   attackSO: {fileID: 0}
+  bingoSprite: {fileID: 21300000, guid: 034a698dbf49e8747932a2c322f17365, type: 3}
   MinBounds: {x: 0, y: -100, z: 0}
   MaxBounds: {x: 10, y: 100, z: 10}

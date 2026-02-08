@@ -8,6 +8,8 @@ public class RuleSO : Data
     [Header("Leave it empty if attack is not important")]
     public AttackSO attackSO;
 
+    public Sprite bingoSprite; // what sprite to show on the bingo board for this rule
+
     public bool CoreRuleCheck((DamageSource, IAttackHandler) source)
     {
         dataType = DataType.Rule;

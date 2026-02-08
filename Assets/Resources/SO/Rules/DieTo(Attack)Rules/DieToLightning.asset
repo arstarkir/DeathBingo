@@ -18,3 +18,4 @@ MonoBehaviour:
   dataType: 0
   trigger: 4
   attackSO: {fileID: 0}
+  bingoSprite: {fileID: 21300000, guid: 59bfe9fc7009d60489629df3984ebf81, type: 3}

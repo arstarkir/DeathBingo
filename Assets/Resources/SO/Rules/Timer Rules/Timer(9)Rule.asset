@@ -18,4 +18,5 @@ MonoBehaviour:
   dataType: 0
   trigger: 0
   attackSO: {fileID: 0}
+  bingoSprite: {fileID: 21300000, guid: 14668d8b423346645b002b065764b56c, type: 3}
   mustContain: 9

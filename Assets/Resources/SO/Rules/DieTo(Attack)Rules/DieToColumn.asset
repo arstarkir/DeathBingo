@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageRuleSO
   dataName: Die To Column
   dataDescription: Die To Column
-  wasDone: 0
+  wasDone: 1
   dataType: 0
   trigger: 2
   attackSO: {fileID: 0}
+  bingoSprite: {fileID: 21300000, guid: aa8cd263e5b2d3349958ec9061f77709, type: 3}
