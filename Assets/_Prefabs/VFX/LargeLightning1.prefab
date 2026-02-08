@@ -49192,6 +49192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc1c89733bafd4cb6fbc96aed6952f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightningHandler
+  duration: 3
   lightningVFX: {fileID: 2773225360960441411}
   particles:
   - {fileID: 3139920127641499997}

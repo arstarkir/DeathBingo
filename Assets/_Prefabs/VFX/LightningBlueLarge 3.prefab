@@ -4840,7 +4840,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cac90467ae371f4409cee04733776b6b, type: 2}
+  - {fileID: 2100000, guid: cea30f8e7c51b744aa3e201fa150a5f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9734,7 +9734,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2986cc06d5db3e84ab58eeb32af801f5, type: 2}
+  - {fileID: 2100000, guid: a2dfee9bd4faca246aa50e98301bc23f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14688,7 +14688,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.68867916, g: 1, b: 0.9687685, a: 1}
   m_Intensity: 1
   m_Range: 1
   m_SpotAngle: 30
@@ -14995,7 +14995,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.6135118, b: 0, a: 1}
+      maxColor: {r: 0, g: 1, b: 0.9173145, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -19889,7 +19889,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.95853627, b: 0, a: 1}
+        key0: {r: 0, g: 0.85160065, b: 1, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 1, g: 1, b: 1, a: 0}
@@ -34327,7 +34327,7 @@ GameObject:
   - component: {fileID: 3700278341036795993}
   - component: {fileID: 9141089327963319895}
   - component: {fileID: 1070460504793741450}
-  - component: {fileID: 3959084902852297151}
+  - component: {fileID: 941600197477716097}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -34383,7 +34383,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8363fa1208ee6fe4bb9e86e996c280a9, type: 2}
+  - {fileID: 2100000, guid: 4a2fe30c5d04be74786a1e0ab7cce3af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34424,11 +34424,11 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3959084902852297151
+--- !u!114 &941600197477716097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34437,12 +34437,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6765522627531128447}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 090f41a74f10b98459b12379831cded5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GiveEffectTest
-  effect: {fileID: 11400000, guid: 254f5686822e9a541b9fc9d2ed726161, type: 2}
-  destroyOnDealDmg: 1
-  tryRemoveOnExit: 0
+  m_EditorClassIdentifier: Assembly-CSharp::DealDamage
+  destroyOnDealDmg: 0
+  damageSource: 7
 --- !u!1 &6929666751193209912
 GameObject:
   m_ObjectHideFlags: 0
@@ -49158,7 +49157,7 @@ GameObject:
   - component: {fileID: 484907226780782125}
   - component: {fileID: 1379616748916596667}
   m_Layer: 0
-  m_Name: LargeLightning3
+  m_Name: LightningBlueLarge 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49192,7 +49191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc1c89733bafd4cb6fbc96aed6952f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightningHandler
-  duration: 3
+  duration: 1.5
   lightningVFX: {fileID: 2773225360960441411}
   particles:
   - {fileID: 3139920127641499997}
