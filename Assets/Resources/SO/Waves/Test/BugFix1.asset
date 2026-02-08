@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f30d03d75c3f349a257d479a92ac15, type: 3}
   m_Name: BugFix1
   m_EditorClassIdentifier: Assembly-CSharp::WaveSO
-  introSequence: {fileID: 11400000, guid: 3aaf1eb4f09a87f42ae27094244d98ef, type: 2}
+  introSequence: {fileID: 11400000, guid: 4016f68a0c2190543b18afb0eea32807, type: 2}
   attackSequences:
-  - {fileID: 11400000, guid: 3aaf1eb4f09a87f42ae27094244d98ef, type: 2}
+  - {fileID: 11400000, guid: 4016f68a0c2190543b18afb0eea32807, type: 2}
+  - {fileID: 11400000, guid: 703b0447b9ccfec4098d1a4651a028d5, type: 2}
   ruleGroups:
   - {fileID: 11400000, guid: 383e09f2a96030c4fbd3051368b19072, type: 2}
   downtime: 3
+  hp: 5

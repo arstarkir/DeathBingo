@@ -18,7 +18,7 @@ MonoBehaviour:
   dataType: 0
   trigger: 4
   attackSO: {fileID: 0}
-  bingoSprite: {fileID: 21300000, guid: a4999bdb7f51d31419d3763accc6cac1, type: 3}
+  bingoSprite: {fileID: 21300000, guid: 72f7955aae180124c9a6f4110d0dc95c, type: 3}
   effect: {fileID: 11400000, guid: 254f5686822e9a541b9fc9d2ed726161, type: 2}
   effectAmount: -1
   isAccumulatedTime: 0
