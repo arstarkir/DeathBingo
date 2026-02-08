@@ -85,7 +85,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
             {
                 break;
             }
-            if (block.waitTime > 0)
+            if (block.waitTime >= 0)
             {
                 float t = block.waitTime;
                 while (t > 0f)
@@ -95,13 +95,13 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
                     yield return null;
                 }
             }
+            else
+            {
+                if (primaryAttackCount > 0)
+                    yield return new WaitUntil(() => primaryAttackCount == 0 || !isWaveRunning);
+            }
             if (block.attack.attackType == AttackSO.AttackType.Primary)
             {
-                if (block.waitTime < 0) // wait until no primary attacks are going if set to -1
-                {
-                    if (primaryAttackCount > 0)
-                        yield return new WaitUntil(() => primaryAttackCount == 0 || !isWaveRunning);
-                }
                 primaryAttackCount++;
             }
             if (!isWaveRunning)

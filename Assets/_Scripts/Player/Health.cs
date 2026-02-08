@@ -89,10 +89,12 @@ public class Health : Singleton<Health>
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawnTimer);
+        CharacterController.instance.ClearAllEffects();
         playerCollider.SetActive(true);
         playerCollider.transform.position = Vector3.zero;
         damagePoolTimer = StartCoroutine(DamageDealtPool(invincibilityTime));
         CharacterController.instance.isInteractable = true;
+        CharacterController.instance.influenceVelocity = Vector3.zero;
     }
 
     // pull up the fail screen when you get a gameover.  Short delay so that, if you die and trigger wave end, you can keep playing with the added HP
