@@ -11,6 +11,7 @@ public class BingoSlotUI : MonoBehaviour
     [SerializeField] Image singleSlot; // bingo image if single rule
     [SerializeField] Image doubleSlot1; // first bingo image if combo rule
     [SerializeField] Image doubleSlot2; // second bingo image if combo rule
+    [SerializeField] Image orAnd; // or text
 
     [SerializeField] Sprite columnIcon; // these are sprites for the attack types (not specific attacks)
     [SerializeField] Sprite lightningIcon;
@@ -27,6 +28,7 @@ public class BingoSlotUI : MonoBehaviour
         preview = false;
         toggle.isOn = finished;
         previewVisual.enabled = false;
+        orAnd.enabled = false;
 
         if ((damageRule is EffectRuleSO || damageRule is LocationRuleSO) && damageRule.trigger != DamageSource.Ignore) // location/effect rules with specified types need to also show the icon for that type
         {
@@ -66,6 +68,7 @@ public class BingoSlotUI : MonoBehaviour
         if (isLogicRule)
         {
             LogicRuleSO logicRule = (LogicRuleSO)damageRule;
+            orAnd.enabled = logicRule.ruleFlag == LogicRuleEnum.Or;
             if (logicRule.rules.Count == 2) // only 2 supported *for now*
             {
                 if (logicRule.rules[0].bingoSprite != null)
@@ -90,6 +93,7 @@ public class BingoSlotUI : MonoBehaviour
         previewVisual.enabled = true;
         singleSlot.enabled = false;
         doubleSlot1.enabled = false;
+        orAnd.enabled = false;
         doubleSlot2.enabled = false;
     }
 
