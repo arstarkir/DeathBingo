@@ -50,18 +50,18 @@ public class LightningHandler : MonoBehaviour
         if(trigger != null)
         {
             trigger.GetComponent<Collider>().enabled = true;
-            if(TryGetComponent<DealEffect>(out DealEffect dealEffect))
+            if(trigger.TryGetComponent<DealEffect>(out DealEffect dealEffect))
                 dealEffect.enabled = true;
-            if (TryGetComponent<DealDamage>(out DealDamage dealDamage))
+            if (trigger.TryGetComponent<DealDamage>(out DealDamage dealDamage))
                 dealDamage.enabled = true;
         }
         yield return new WaitForSeconds(dmgTimeWindow);
         if (trigger != null)
         {
             trigger.GetComponent<Collider>().enabled = false;
-            if (TryGetComponent<DealEffect>(out DealEffect dealEffect))
+            if (trigger.TryGetComponent<DealEffect>(out DealEffect dealEffect))
                 dealEffect.enabled = false;
-            if (TryGetComponent<DealDamage>(out DealDamage dealDamage))
+            if (trigger.TryGetComponent<DealDamage>(out DealDamage dealDamage))
                 dealDamage.enabled = false;
         }
         Destroy(gameObject);
