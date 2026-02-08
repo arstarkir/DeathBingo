@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfeb7a92a191bbf4ea96dfeedf259aa9, type: 3}
-  m_Name: Testing1
+  m_Name: GrowingLightning
   m_EditorClassIdentifier: Assembly-CSharp::AttackSequenceSO
   attacks:
-  - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
+  - attack: {fileID: 11400000, guid: 72db4f6d736cf8a4b93d1ee2d32c4a52, type: 2}
     waitTime: -1
-  - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
-    waitTime: 5
+  - attack: {fileID: 11400000, guid: 22b17f60db1072245b363883d35ff6db, type: 2}
+    waitTime: 0.5
+  - attack: {fileID: 11400000, guid: bf07220074070fd4699b86d52a7b48b4, type: 2}
+    waitTime: 0.5
