@@ -20,7 +20,7 @@ MonoBehaviour:
   effectUse: 0
   effectDurationTime: 15
   isTimeStacked: 0
-  isResetStacked: 0
+  isResetStacked: 1
   thisEntity: {fileID: 0}
   effectVFX: {fileID: 1000010302070858, guid: 73cb69523bb24384698c4cdbf48c3403, type: 3}
   curVFX: {fileID: 0}

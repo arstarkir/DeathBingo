@@ -99,7 +99,7 @@ public class EffectsManager : Singleton<EffectsManager>
         temp.effectId = effectsList.GetEffectId(effect);
 
         // Create a new effect timer and add it to the active timers list
-        if (!temp.effectSO.isTimeStacked || !IsActiveEffectOnEntity(effect,entity))
+        if (!(temp.effectSO.isTimeStacked || temp.effectSO.isResetStacked) || !IsActiveEffectOnEntity(effect,entity))
         {
             EffectTimer effectTimer = new EffectTimer(time, (action != null ? () => { action.Invoke(); DestroyEffectHendler(temp); } : () => DestroyEffectHendler(temp)), temp);
             timersToAdd.Add(effectTimer);
