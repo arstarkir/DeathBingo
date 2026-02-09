@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ZeusWave3
   m_EditorClassIdentifier: Assembly-CSharp::RuleGroupSO
   rules:
-  - {fileID: 11400000, guid: e8f851bdfc79402489f2181a4cae929d, type: 2}
+  - {fileID: 11400000, guid: f7f76b7322d7b3445a7d39ed9922076e, type: 2}
   - {fileID: 11400000, guid: c2083769ef016214699f69162cad07e1, type: 2}
   - {fileID: 11400000, guid: 3c82df8d364c27041bdcee5b0bc1967c, type: 2}
   - {fileID: 11400000, guid: e362c02a1710a634fa29ee05ffd188c6, type: 2}
