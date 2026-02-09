@@ -157,6 +157,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2707303645313174804, guid: 3ac741c58ee37a941b5408ec58f21743, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8839331476218376810}
+    - targetCorrespondingSourceObject: {fileID: 2707303645313174804, guid: 3ac741c58ee37a941b5408ec58f21743, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1184806897586789080}
   m_SourcePrefab: {fileID: 100100000, guid: 3ac741c58ee37a941b5408ec58f21743, type: 3}
 --- !u!1 &8530988599884142903 stripped
 GameObject:
@@ -282,3 +285,18 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1184806897586789080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530988599884142903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DealEffect
+  effect: {fileID: 11400000, guid: 31f1ca4f609a80d48a67f57a1cd0bd5e, type: 2}
+  destroyOnDealDmg: 0
+  tryRemoveOnExit: 1
