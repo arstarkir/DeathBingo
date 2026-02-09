@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
+  m_Name: CloudCover 3
+  m_EditorClassIdentifier: Assembly-CSharp::AttackSO
+  dataName: CloudCover 3
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
+  attackPref: {fileID: 950757661057304247, guid: a54dae4d483fddc428657540378b984e, type: 3}
+  attackType: 1
+  temp: {fileID: 0}
+  attackStyles: 1
+  duration: 0
+  toSpawn: {fileID: 6227547596297077131, guid: 08266ae04de919d4494cbcdc944432c1, type: 3}
+  attackAmount: 5
+  delay: 2
+  onlyRightAngles: 1
+  playerPosDelay: 0.2

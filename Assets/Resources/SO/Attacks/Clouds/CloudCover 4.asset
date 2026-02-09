@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
-  m_Name: CloudCover1
+  m_Name: CloudCover 4
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
-  dataName: Cloud Attack 01
+  dataName: CloudCover 4
   dataDescription: 
   wasDone: 0
   dataType: 0
-  attackPref: {fileID: 7788697256130168532, guid: dd6773611cb3b844e9ce9ed963189b5a, type: 3}
+  attackPref: {fileID: 381765989086835937, guid: a601ff86931441540bb487a2bf78d67b, type: 3}
   attackType: 1
   temp: {fileID: 0}
   attackStyles: 1

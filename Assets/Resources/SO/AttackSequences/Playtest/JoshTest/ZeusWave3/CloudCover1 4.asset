@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfeb7a92a191bbf4ea96dfeedf259aa9, type: 3}
-  m_Name: ZeusWave2 1
+  m_Name: CloudCover1 4
   m_EditorClassIdentifier: Assembly-CSharp::AttackSequenceSO
   attacks:
-  - attack: {fileID: 11400000, guid: 4d2658c9efdc7a8498df5763ffde535a, type: 2}
+  - attack: {fileID: 11400000, guid: 333e4b078bdb31c46a7b5bb3e8bb94ed, type: 2}
     waitTime: -1
-  - attack: {fileID: 11400000, guid: 29689803147f07145a5e6575dc8329dd, type: 2}
+  - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
     waitTime: 3
   - attack: {fileID: 11400000, guid: 1fb31adf9c413cd429fea8b23bd239de, type: 2}
-    waitTime: 6
+    waitTime: 3.2
   - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
-    waitTime: 4
+    waitTime: -1
