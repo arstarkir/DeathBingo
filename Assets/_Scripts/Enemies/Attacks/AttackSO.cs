@@ -14,6 +14,7 @@ public class AttackSO : Data
 
     public GameObject attackPref;
     public AttackType attackType;
+    public Vector3 spawnLocation; // spawn location set in attack sequence
     [HideInInspector] public GameObject temp;
 
     public AttackStyles attackStyles;
@@ -40,8 +41,11 @@ public class AttackSO : Data
 
         if (temp == null)
             temp = Instantiate(attackPref, attackHolder.transform);
+        Vector3 newTempPos = temp.transform.position;
+        newTempPos += spawnLocation;
+        temp.transform.position = newTempPos;
 
-        if(attackStyles.HasFlag(AttackStyles.Randomed))
+        if (attackStyles.HasFlag(AttackStyles.Randomed))
             temp.AddComponent<RandomAttack>();
         if (attackStyles.HasFlag(AttackStyles.Timed))
             temp.AddComponent<TimedAttack>();

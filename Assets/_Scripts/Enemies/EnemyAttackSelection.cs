@@ -109,6 +109,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
                 break;
             }
             curAttack = Instantiate(block.attack);
+            curAttack.spawnLocation = block.spawnLocation;
             curAttack.StartAttack(attackHolder);    
         }
     }

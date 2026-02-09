@@ -9,6 +9,7 @@ public class AttackSequenceSO : ScriptableObject
     {
         public AttackSO attack;
         public float waitTime = -1;
+        public Vector3 spawnLocation = Vector3.zero;
     }
 
     [Header("If waitTime is set to -1, Primary attacks will play once all previous primary attacks are complete.\nUnless specified in prior attack, Modifiers will always play immediately.\nWaitTime is how long it will take for the *current* attack to start!")]
