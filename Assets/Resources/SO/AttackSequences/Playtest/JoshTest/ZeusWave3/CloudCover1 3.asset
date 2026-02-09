@@ -17,7 +17,11 @@ MonoBehaviour:
     waitTime: -1
   - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
     waitTime: 3
-  - attack: {fileID: 11400000, guid: 1fb31adf9c413cd429fea8b23bd239de, type: 2}
+  - attack: {fileID: 11400000, guid: e83abed01ce27384296c539fd1c819cf, type: 2}
     waitTime: 3.2
   - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
-    waitTime: -1
+    waitTime: 2
+  - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
+    waitTime: 1
+  - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
+    waitTime: 1
