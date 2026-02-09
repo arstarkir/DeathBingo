@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ZeusWave2 1
   m_EditorClassIdentifier: Assembly-CSharp::AttackSequenceSO
   attacks:
-  - attack: {fileID: 11400000, guid: c3c6ab732dfb6a8428c20e6fbe8d815e, type: 2}
+  - attack: {fileID: 11400000, guid: 4d2658c9efdc7a8498df5763ffde535a, type: 2}
     waitTime: -1
   - attack: {fileID: 11400000, guid: 29689803147f07145a5e6575dc8329dd, type: 2}
     waitTime: 3
