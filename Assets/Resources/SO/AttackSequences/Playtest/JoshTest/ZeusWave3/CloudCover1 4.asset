@@ -17,7 +17,7 @@ MonoBehaviour:
     waitTime: -1
   - attack: {fileID: 11400000, guid: 29689803147f07145a5e6575dc8329dd, type: 2}
     waitTime: 3
-  - attack: {fileID: 11400000, guid: 1fb31adf9c413cd429fea8b23bd239de, type: 2}
+  - attack: {fileID: 11400000, guid: 8c94ceabbba36fb4c956b74266493871, type: 2}
     waitTime: 2
   - attack: {fileID: 11400000, guid: 4d2658c9efdc7a8498df5763ffde535a, type: 2}
     waitTime: -1
