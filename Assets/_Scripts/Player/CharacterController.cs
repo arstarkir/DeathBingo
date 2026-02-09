@@ -14,9 +14,9 @@ public class CharacterController : Singleton<CharacterController>
     public float rollSpeed = 20f; // speed during a dodge roll
     public float rollDuration = 0.15f; // how long they player should move fast while rolling
     public float rollCooldown = 1f; // how long the player has to wait after a roll
-    bool rolling; // true when rolling
+    public bool rolling; // true when rolling
     public bool bleeding = false; // restricts some movement options like dash and move speed
-    bool cooldown; // true if in cooldown
+    public bool cooldown; // true if in cooldown
     Vector3 rollDir; // direciton of roll (so you can't change direction mid-roll)
     [SerializeField] LayerMask groundLayer; // which layer makes the player grounded
     public Animator animator;
@@ -94,7 +94,7 @@ public class CharacterController : Singleton<CharacterController>
     {
         rolling = true;
         float timer = rollDuration;
-        while (timer > 0)
+        while (timer > 0 && rolling == true)
         {
             timer -= Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();

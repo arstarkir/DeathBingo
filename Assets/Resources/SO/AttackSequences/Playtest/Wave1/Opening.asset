@@ -15,7 +15,7 @@ MonoBehaviour:
   attacks:
   - attack: {fileID: 11400000, guid: 108a1e5050cb21547974fb914dd808d2, type: 2}
     waitTime: 1
-    spawnLocation: {x: 0, y: 0, z: -9}
+    spawnLocation: {x: 0, y: 0, z: 9}
   - attack: {fileID: 11400000, guid: c3c6ab732dfb6a8428c20e6fbe8d815e, type: 2}
     waitTime: 2
     spawnLocation: {x: 0, y: 0, z: 0}

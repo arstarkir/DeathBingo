@@ -95,6 +95,8 @@ public class Health : Singleton<Health>
         damagePoolTimer = StartCoroutine(DamageDealtPool(invincibilityTime));
         CharacterController.instance.isInteractable = true;
         CharacterController.instance.influenceVelocity = Vector3.zero;
+        CharacterController.instance.rolling = false;
+        CharacterController.instance.cooldown = false;
     }
 
     // pull up the fail screen when you get a gameover.  Short delay so that, if you die and trigger wave end, you can keep playing with the added HP
