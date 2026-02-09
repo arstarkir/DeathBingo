@@ -276,6 +276,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4565093258668715478, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: effectUI
+      value: 
+      objectReference: {fileID: 2919924181480005558, guid: cd5c5274700acf8448281d0656bc2890, type: 3}
+    - target: {fileID: 4565093258668715478, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+      propertyPath: effectHolderUI
+      value: 
+      objectReference: {fileID: 5330296744229405273}
     - target: {fileID: 5405227267545705261, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
       propertyPath: m_Name
       value: Player
@@ -299,6 +307,11 @@ MonoBehaviour:
 --- !u!4 &1180198581362315468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 349184908399433104, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
+  m_PrefabInstance: {fileID: 1493054918453757276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5330296744229405273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6719758962761205509, guid: b39dbafb4bf0c4540a68ab62af6ffd93, type: 3}
   m_PrefabInstance: {fileID: 1493054918453757276}
   m_PrefabAsset: {fileID: 0}
 --- !u!20 &8255784411234435746 stripped
