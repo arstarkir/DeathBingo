@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1b76fc109686b4d8c968bdc7581d72, type: 3}
   m_Name: TornadoRepel
   m_EditorClassIdentifier: Assembly-CSharp::InfluenceEffectSO
-  dataName: Allure Influence
+  dataName: TornadoRepel
   dataDescription: 
   wasDone: 0
   dataType: 0
-  sprite: {fileID: 21300000, guid: e3f596bf2eef4254689a7bf5340a275f, type: 3}
+  sprite: {fileID: 21300000, guid: 6f2e3e1b6e9a5bb4eb3fd38ba8b3f60a, type: 3}
   effectUse: 0
   effectDurationTime: Infinity
   isTimeStacked: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   thisEntity: {fileID: 0}
   effectVFX: {fileID: 0}
   curVFX: {fileID: 0}
-  strength: -0.6
+  strength: -0.5
   dir: {x: 0, y: 0, z: 0}
   fromObject: 1
   gradual: 0
