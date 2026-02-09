@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
+  m_Name: FastLightningRandom01
+  m_EditorClassIdentifier: Assembly-CSharp::AttackSO
+  dataName: Lightning Random Attack 01
+  dataDescription: 
+  wasDone: 0
+  dataType: 0
+  attackPref: {fileID: 9218929475415879512, guid: 1c8a4349de59eca4ca0068dec3fc25ba, type: 3}
+  attackType: 1
+  temp: {fileID: 0}
+  attackStyles: 6
+  duration: 20
+  toSpawn: {fileID: 9024178787575428942, guid: 5a4bbaae8c5100e48ab2c7b66374f5e6, type: 3}
+  attackAmount: 8
+  delay: 0.5
+  onlyRightAngles: 1
+  playerPosDelay: 0.2
