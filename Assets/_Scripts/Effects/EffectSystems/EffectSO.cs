@@ -33,6 +33,8 @@ public class EffectSO : Data
 
         if (effectVFX != null)
             curVFX = Instantiate(effectVFX, CharacterController.instance.transform);
+
+        thisEntity.AddEffectUI(this);
         // Update UI and Sounds HERE
     }
 
@@ -40,6 +42,8 @@ public class EffectSO : Data
     {
         if(curVFX != null)
             Destroy(curVFX);
+
+        thisEntity.RemoveEffectUI(this);
         // Update UI and Sounds HERE
     }
 }

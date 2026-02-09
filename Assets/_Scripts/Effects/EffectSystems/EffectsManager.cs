@@ -34,6 +34,7 @@ public class EffectsManager : Singleton<EffectsManager>
         // Remove all marked timers from the active timers list
         foreach (EffectTimer timer in timersToRemoveCopy)
         {
+            timer.effectHendler.effectSO.OnEffectEnd();
             timer.OnTimerComplete?.Invoke();
             Entity entity = timer.effectHendler ? timer.effectHendler.GetComponent<Entity>() : null;
             if (entity != null)

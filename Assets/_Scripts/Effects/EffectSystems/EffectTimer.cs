@@ -60,10 +60,10 @@ public class EffectTimer
         if (curTime >= duration)
         {
             // End the effect and invoke the completion action
-            if (effectHendler != null)
-                effectHendler.effectSO.OnEffectEnd();
-            else
-                OnTimerComplete?.Invoke();
+            //if (effectHendler != null)
+            //    effectHendler.effectSO.OnEffectEnd();
+            //else
+            //    OnTimerComplete?.Invoke();
             // Timer has completed
             return true; 
         }

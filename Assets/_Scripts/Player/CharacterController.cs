@@ -108,16 +108,7 @@ public class CharacterController : Singleton<CharacterController>
     // deletes all effects and effect vfx (like for respawning)
     public void ClearAllEffects()
     {
-        var handlers = GetComponentsInParent<EffectHandler>();
-        foreach (var handler in handlers)
-        {
-            if (handler.effectSO != null && handler.effectSO.curVFX != null)
-            {
-                Destroy(handler.effectSO.curVFX);
-                handler.effectSO.curVFX = null;
-            }
-            Destroy(handler);
-        }
+        EffectsManager.instance.RemoveAllEffectFromEntity(GetComponentInParent<Entity>());
     }
 
     #region Input System Callbacks

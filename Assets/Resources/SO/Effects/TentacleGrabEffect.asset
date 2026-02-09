@@ -16,7 +16,7 @@ MonoBehaviour:
   dataDescription: 
   wasDone: 0
   dataType: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 98fa7c5d79e919849baa24edb675c637, type: 3}
   effectUse: 0
   effectDurationTime: Infinity
   isTimeStacked: 0
