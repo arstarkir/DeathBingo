@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Wave1
   m_EditorClassIdentifier: Assembly-CSharp::RuleGroupSO
   rules:
-  - {fileID: 11400000, guid: 9b9ee3f0f0bdf80469b95262444d9944, type: 2}
+  - {fileID: 11400000, guid: 0e52e33ad766878459c41bf06ae013d3, type: 2}
   maxSelected: 1
