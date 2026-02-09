@@ -16,7 +16,7 @@ MonoBehaviour:
   dataDescription: 
   wasDone: 0
   dataType: 0
-  attackPref: {fileID: 8024367301645378359, guid: 97aad5f52794dd841aa12fb7a1d70fe4, type: 3}
+  attackPref: {fileID: 8024367301645378359, guid: c2c54b3e6902faf42a7168193594d4d8, type: 3}
   attackType: 1
   temp: {fileID: 0}
   attackStyles: 6
