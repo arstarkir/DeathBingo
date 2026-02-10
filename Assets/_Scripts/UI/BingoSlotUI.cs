@@ -18,6 +18,7 @@ public class BingoSlotUI : MonoBehaviour
     [SerializeField] Sprite swordIcon;
     [SerializeField] Sprite tornadoIcon;
     [SerializeField] Sprite blueLightningIcon;
+    [SerializeField] Sprite darkCloudIcon;
 
     [HideInInspector] public bool finished = false;
     [HideInInspector] public bool preview = false; // if true square is a preview of next bingo board size
@@ -53,6 +54,9 @@ public class BingoSlotUI : MonoBehaviour
                     break;
                 case DamageSource.Tornado:
                     doubleSlot1.sprite = tornadoIcon;
+                    break;
+                case DamageSource.DarkCloud:
+                    doubleSlot1.sprite = darkCloudIcon;
                     break;
             }
             doubleSlot2.sprite = damageRule.bingoSprite;

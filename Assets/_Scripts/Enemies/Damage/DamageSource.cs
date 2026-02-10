@@ -8,5 +8,6 @@ public enum DamageSource
     Other,
     Sword,
     BlueLightning,
-    Tornado
+    Tornado,
+    DarkCloud
 }
