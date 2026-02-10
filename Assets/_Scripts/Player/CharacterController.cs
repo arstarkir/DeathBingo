@@ -1,6 +1,7 @@
+using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 
 public class CharacterController : Singleton<CharacterController>
 {
@@ -93,6 +94,7 @@ public class CharacterController : Singleton<CharacterController>
     IEnumerator Rolling()
     {
         rolling = true;
+        EffectsManager.instance.RemoveAllEffectOfKindFromEntity(EffectsManager.instance.effectsList.effects.FirstOrDefault(e => e.dataName.Contains("Fire")), GetComponentInParent<Entity>());
         float timer = rollDuration;
         while (timer > 0 && rolling == true)
         {
@@ -140,7 +142,6 @@ public class CharacterController : Singleton<CharacterController>
         if (bleeding) return;
         if (!(!ctx.performed && ctx.started)) return;
         if (!grounded || rolling || cooldown) return;
-
         if (inputVec.sqrMagnitude > 0.01f) // if the player is moving dash goes in that direction
         {
             rollDir = new Vector3(inputVec.x, 0, inputVec.y).normalized;
