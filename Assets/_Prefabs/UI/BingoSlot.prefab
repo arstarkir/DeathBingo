@@ -704,6 +704,8 @@ MonoBehaviour:
   columnIcon: {fileID: 21300000, guid: aa8cd263e5b2d3349958ec9061f77709, type: 3}
   lightningIcon: {fileID: 21300000, guid: 94bea9ab8ff1a074f9ceb5b4dbf44982, type: 3}
   swordIcon: {fileID: 21300000, guid: 51ef7f69c274fb546a6b7757b554c00e, type: 3}
+  tornadoIcon: {fileID: 21300000, guid: 6c63fccad6d00204d9f9ddbc12891ac8, type: 3}
+  blueLightningIcon: {fileID: 21300000, guid: f6020a0afdf06fd4f9b9de953343613c, type: 3}
   finished: 0
   preview: 0
 --- !u!222 &7887905731404336256

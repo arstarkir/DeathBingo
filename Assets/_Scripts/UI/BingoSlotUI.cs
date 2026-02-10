@@ -16,6 +16,8 @@ public class BingoSlotUI : MonoBehaviour
     [SerializeField] Sprite columnIcon; // these are sprites for the attack types (not specific attacks)
     [SerializeField] Sprite lightningIcon;
     [SerializeField] Sprite swordIcon;
+    [SerializeField] Sprite tornadoIcon;
+    [SerializeField] Sprite blueLightningIcon;
 
     [HideInInspector] public bool finished = false;
     [HideInInspector] public bool preview = false; // if true square is a preview of next bingo board size
@@ -45,6 +47,12 @@ public class BingoSlotUI : MonoBehaviour
                     break;
                 case DamageSource.Sword:
                     doubleSlot1.sprite = swordIcon;
+                    break;
+                case DamageSource.BlueLightning:
+                    doubleSlot1.sprite = blueLightningIcon;
+                    break;
+                case DamageSource.Tornado:
+                    doubleSlot1.sprite = tornadoIcon;
                     break;
             }
             doubleSlot2.sprite = damageRule.bingoSprite;
