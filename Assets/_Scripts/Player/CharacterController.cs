@@ -94,6 +94,7 @@ public class CharacterController : Singleton<CharacterController>
     IEnumerator Rolling()
     {
         rolling = true;
+        animator.SetBool("rolling", rolling);
         EffectsManager.instance.RemoveAllEffectOfKindFromEntity(EffectsManager.instance.effectsList.effects.FirstOrDefault(e => e.dataName.Contains("Fire")), GetComponentInParent<Entity>());
         float timer = rollDuration;
         while (timer > 0 && rolling == true)
@@ -102,6 +103,7 @@ public class CharacterController : Singleton<CharacterController>
             yield return new WaitForFixedUpdate();
         }
         rolling = false;
+        animator.SetBool("rolling", rolling);
         cooldown = true;
         yield return new WaitForSeconds(rollCooldown);
         cooldown = false;
