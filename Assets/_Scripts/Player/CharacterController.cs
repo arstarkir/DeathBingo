@@ -149,7 +149,7 @@ public class CharacterController : Singleton<CharacterController>
         }
         else // if they aren't, it's just whatever direction they are facing (which I don't actually think changes at all as of writing)
         {
-            rollDir = transform.forward;
+            rollDir = playerModel.forward;
         }
         StartCoroutine(Rolling());
     }
