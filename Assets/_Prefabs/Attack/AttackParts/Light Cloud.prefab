@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5511105524239349040}
   - component: {fileID: 4851064096686882349}
   - component: {fileID: 4247626222792795051}
+  - component: {fileID: 5320402076200188248}
+  - component: {fileID: 2372404565915174412}
   m_Layer: 0
   m_Name: Light Cloud
   m_TagString: Untagged
@@ -4698,3 +4700,41 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &5320402076200188248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129678637464460583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DealEffect
+  effect: {fileID: 11400000, guid: 31f1ca4f609a80d48a67f57a1cd0bd5e, type: 2}
+  destroyOnDealDmg: 0
+  tryRemoveOnExit: 1
+--- !u!136 &2372404565915174412
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129678637464460583}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
