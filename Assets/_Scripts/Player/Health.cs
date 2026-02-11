@@ -19,6 +19,14 @@ public class Health : Singleton<Health>
     public float damagePoolTime = 1;
     [HideInInspector] public int livesLostInRun = 0;
 
+    public AudioSFXTrigger sFXTrigger;
+    public AudioClip onDeath;
+    public AudioClip onAddLife;
+    public AudioClip onRespawn;
+    public AudioClip onWin;
+    public AudioClip onPuase;
+    public AudioClip onLose;
+
     public override void Awake() 
     {
         base.Awake();
@@ -53,6 +61,9 @@ public class Health : Singleton<Health>
 
     public void OnHealthChange()
     {
+        if (curHealth.Count > health)
+            sFXTrigger.StartAudio(onAddLife);
+
         foreach (GameObject healthObj in curHealth)
             Destroy(healthObj);
         curHealth.Clear();
@@ -71,6 +82,7 @@ public class Health : Singleton<Health>
     // hide, reset, and start couroutine for respawn when player dies
     public void Die()
     {
+        sFXTrigger.StartAudio(onDeath);
         Rigidbody rb = playerCollider.GetComponent<Rigidbody>();
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -89,6 +101,7 @@ public class Health : Singleton<Health>
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawnTimer);
+        sFXTrigger.StartAudio(onRespawn);
         CharacterController.instance.ClearAllEffects();
         playerCollider.SetActive(true);
         playerCollider.transform.position = Vector3.zero;
@@ -107,6 +120,7 @@ public class Health : Singleton<Health>
         if (health <= 0)
         {
             EndScreenUI.instance.LoseScreen();
+            sFXTrigger.StartAudio(onLose);
         }
         else
         {

@@ -3319,6 +3319,13 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: StartAudio
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 0eb4b269b5eb4864c8b942c13e5f2a40, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 5
     functionName: EndAttack
     data: 
