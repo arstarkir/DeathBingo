@@ -7617,8 +7617,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 59d13cb15165e544f930c87a02508b91, type: 2}
     - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
+      propertyPath: 'waves.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 141ca10a26812664580ad5d6681cc5b9, type: 2}
+    - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
+      propertyPath: 'waves.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 17401d42ee64f2f4a9807a4414f4a6cb, type: 2}
+    - target: {fileID: 8198498853787370497, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: AbruptWaveTransition
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9043305975823812897, guid: 5dd457897841bd548b53dcd2961b7d5c, type: 3}
       propertyPath: m_LocalPosition.x

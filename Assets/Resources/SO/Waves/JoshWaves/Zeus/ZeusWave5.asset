@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveSO
   introSequence: {fileID: 11400000, guid: 9eb5985483ffaa7419eec19061768a22, type: 2}
   attackSequences:
+  - {fileID: 11400000, guid: 42cb135175a460c42bf2f27d439ab5f1, type: 2}
   - {fileID: 11400000, guid: 9eb5985483ffaa7419eec19061768a22, type: 2}
+  - {fileID: 11400000, guid: f00e62a86b8e44f47a21bae2dcfc8b79, type: 2}
+  - {fileID: 11400000, guid: 9c86a1414771bce4badd1f56689c7a8e, type: 2}
   ruleGroups:
   - {fileID: 11400000, guid: 7a90e123a9d61b042bc76decc8ba1e7d, type: 2}
   downtime: 3

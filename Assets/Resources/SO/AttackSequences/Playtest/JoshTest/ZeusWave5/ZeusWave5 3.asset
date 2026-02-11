@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfeb7a92a191bbf4ea96dfeedf259aa9, type: 3}
+  m_Name: ZeusWave5 3
+  m_EditorClassIdentifier: Assembly-CSharp::AttackSequenceSO
+  attacks:
+  - attack: {fileID: 11400000, guid: b8d74a495f2d2bd4b82cf04406c17573, type: 2}
+    waitTime: -1
+    spawnLocation: {x: 0, y: 0, z: 0}
+  - attack: {fileID: 11400000, guid: aa639d8af31036e46b31eaa72a109fa7, type: 2}
+    waitTime: 0
+    spawnLocation: {x: 0, y: 0, z: 0}
+  - attack: {fileID: 11400000, guid: e83abed01ce27384296c539fd1c819cf, type: 2}
+    waitTime: 2
+    spawnLocation: {x: 0, y: 0, z: 0}
+  - attack: {fileID: 11400000, guid: e2af1ed1320c9384a921c0ac5cb40bbc, type: 2}
+    waitTime: 1
+    spawnLocation: {x: 0, y: 0, z: 0}
+  - attack: {fileID: 11400000, guid: e2af1ed1320c9384a921c0ac5cb40bbc, type: 2}
+    waitTime: 1
+    spawnLocation: {x: 0, y: 0, z: 0}
+  - attack: {fileID: 11400000, guid: 382b5cd35aa5bac49971167078ba2397, type: 2}
+    waitTime: 0
+    spawnLocation: {x: 0, y: 0, z: -5}
+  - attack: {fileID: 11400000, guid: af2010a840f32684e9f6cc039492542a, type: 2}
+    waitTime: 0
+    spawnLocation: {x: 0, y: 0, z: 0}
+  - attack: {fileID: 11400000, guid: 1fb31adf9c413cd429fea8b23bd239de, type: 2}
+    waitTime: 2
+    spawnLocation: {x: 0, y: 0, z: -5}
+  - attack: {fileID: 11400000, guid: 1fb31adf9c413cd429fea8b23bd239de, type: 2}
+    waitTime: 0
+    spawnLocation: {x: 5, y: 0, z: -5}
