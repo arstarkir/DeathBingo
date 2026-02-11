@@ -13,13 +13,12 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     AttackSO curAttack; // current attack
 
     public bool AbruptWaveTransition = true; // if true, attacks will be instantly ended when Bingo is earned
-    CharacterController characterController;
+
     // create list of random attacks and wait to start attacking
     void Start()
     {
         primaryAttackCount = 0;
         curWaveId = 0;
-        characterController = CharacterController.instance;
         StartCoroutine(StartDelay(waves[0].downtime));
     }
 
@@ -42,23 +41,6 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
         int boardSize = Mathf.Clamp(curWaveId + 1, 1, 5);
         BingoController.instance.SetBoardSize(boardSize, waves[curWaveId].ruleGroups);
         yield return new WaitForSeconds(delay);
-
-        float tDelay = delay;
-        while (tDelay > 0f)
-        {
-            if (!isWaveRunning) 
-                yield break;
-
-            if (characterController.isPaused)
-                yield return new WaitUntil(() => !characterController.isPaused || !isWaveRunning);
-
-            tDelay -= Time.deltaTime;
-            yield return null;
-        }
-
-        if (characterController.isPaused)
-            yield return new WaitUntil(() => !characterController.isPaused || !isWaveRunning);
-
         StartCoroutine(RunWave(waves[curWaveId]));
     }
 
@@ -72,9 +54,6 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
         }
         while (isWaveRunning) // random attacks
         {
-            if (characterController.isPaused)
-                yield return new WaitUntil(() => !characterController.isPaused || !isWaveRunning);
-
             if (wave.attackSequences.Count == 0) break;
             int index = SeedManager.instance.rng.Next(0, wave.attackSequences.Count);
             AttackSequenceSO randomSequence = wave.attackSequences[index];
@@ -106,23 +85,12 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
             {
                 break;
             }
-
-            if (characterController.isPaused)
-                yield return new WaitUntil(() => (!characterController.isPaused && isWaveRunning) || primaryAttackCount == 0);
-
-            if (characterController.isPaused && primaryAttackCount == 0)
-                yield return new WaitUntil(() => !characterController.isPaused || !isWaveRunning);
-
             if (block.waitTime >= 0)
             {
                 float t = block.waitTime;
                 while (t > 0f)
                 {
                     if (!isWaveRunning) yield break;
-
-                    if (characterController.isPaused)
-                        yield return new WaitUntil(() => !characterController.isPaused || !isWaveRunning);
-
                     t -= Time.deltaTime;
                     yield return null;
                 }
@@ -131,27 +99,18 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
             {
                 if (primaryAttackCount > 0)
                     yield return new WaitUntil(() => primaryAttackCount == 0 || !isWaveRunning);
-
-                if (characterController.isPaused)
-                    yield return new WaitUntil(() => !characterController.isPaused || !isWaveRunning);
             }
-
             if (block.attack.attackType == AttackSO.AttackType.Primary)
             {
                 primaryAttackCount++;
             }
-
             if (!isWaveRunning)
             {
                 break;
             }
-
-            if (characterController.isPaused)
-                yield return new WaitUntil(() => !characterController.isPaused || !isWaveRunning);
-
             curAttack = Instantiate(block.attack);
             curAttack.spawnLocation = block.spawnLocation;
-            curAttack.StartAttack(attackHolder);    
+            curAttack.StartAttack(attackHolder);
         }
     }
 

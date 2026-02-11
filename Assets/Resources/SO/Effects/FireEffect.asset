@@ -17,6 +17,8 @@ MonoBehaviour:
   wasDone: 0
   dataType: 0
   sprite: {fileID: 21300000, guid: 075eb561dff85db42b22bb08cb93c253, type: 3}
+  onStartSound: {fileID: 8300000, guid: b893daa8fbacdd8408f00c6d0239a202, type: 3}
+  onEndSound: {fileID: 8300000, guid: 31a5fca28a9984e47877ed52400a4da6, type: 3}
   effectUse: 0
   effectDurationTime: 5
   isTimeStacked: 0

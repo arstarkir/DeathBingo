@@ -12,6 +12,8 @@ public enum EffectUse
 public class EffectSO : Data
 {
     public Sprite sprite;
+    public AudioClip onStartSound;
+    public AudioClip onEndSound;
     public EffectUse effectUse = EffectUse.Standard;
     public float effectDurationTime = Mathf.Infinity;
     public bool isTimeStacked;
@@ -35,7 +37,9 @@ public class EffectSO : Data
             curVFX = Instantiate(effectVFX, CharacterController.instance.transform);
 
         thisEntity.AddEffectUI(this);
-        // Update UI and Sounds HERE
+
+        if(onStartSound != null)
+            AudioManager.instance.PlaySFX(onStartSound, true, thisEntity.transform, 2);
     }
 
     public virtual void OnEffectEnd()
@@ -44,6 +48,8 @@ public class EffectSO : Data
             Destroy(curVFX);
 
         thisEntity.RemoveEffectUI(this);
-        // Update UI and Sounds HERE
+
+        if (onEndSound != null)
+            AudioManager.instance.PlaySFX(onEndSound, true, thisEntity.transform, 2);
     }
 }
