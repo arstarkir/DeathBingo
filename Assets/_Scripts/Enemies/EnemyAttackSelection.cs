@@ -11,6 +11,7 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
     public List<WaveSO> waves = new List<WaveSO>(); // list of waves
     [SerializeField] int curWaveId; // id of current wave
     AttackSO curAttack; // current attack
+    int lastSequenceIndex = -1; // index of last attack sequence so they don't repeat immediately
 
     public bool AbruptWaveTransition = true; // if true, attacks will be instantly ended when Bingo is earned
 
@@ -55,10 +56,24 @@ public class EnemyAttackSelection : Singleton<EnemyAttackSelection>
         while (isWaveRunning) // random attacks
         {
             if (wave.attackSequences.Count == 0) break;
-            int index = SeedManager.instance.rng.Next(0, wave.attackSequences.Count);
+            int index;
+            if (wave.attackSequences.Count > 1) // don't repeat attack sequences if possible
+            {
+                do
+                {
+                    index = SeedManager.instance.rng.Next(0, wave.attackSequences.Count);
+                }
+                while (index == lastSequenceIndex);
+            }
+            else
+            {
+                index = 0;
+            }
+            lastSequenceIndex = index;
             AttackSequenceSO randomSequence = wave.attackSequences[index];
             yield return StartCoroutine(RunSequence(randomSequence));
         }
+
         curWaveId++;
         if (curWaveId < waves.Count) // next wave
         {
