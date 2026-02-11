@@ -5,22 +5,25 @@ using UnityEngine.UI;
 public class PauseScreenUI : Singleton<PauseScreenUI>
 {
     public GameObject pauseScreen;
+    public Slider masterSlider;
     public Slider musicSlider;
     public Slider sfxSlider;
 
     public AudioSource musicSource;
-    public AudioSource[] sfxSources;
 
     private void Start()
     {
+        float master = PlayerPrefs.GetFloat("masterVol", 1f);
         float music = PlayerPrefs.GetFloat("musicVol", 1f);
         float sfx = PlayerPrefs.GetFloat("sfxVol", 1f);
 
+        masterSlider.value = master;
         musicSlider.value = music;
         sfxSlider.value = sfx;
 
-        ApplyMusicVolume(music);
-        ApplySfxVolume(sfx);
+        AudioManager.instance.masterVolume = master;
+        musicSource.volume = music * master;
+        AudioManager.instance.sfxVolume = sfx;
 
         pauseScreen.SetActive(false);
     }
@@ -57,32 +60,25 @@ public class PauseScreenUI : Singleton<PauseScreenUI>
         Application.Quit();
     }
 
+    public void OnMasterSliderChanged(float value)
+    {
+        PlayerPrefs.SetFloat("masterVol", value);
+        PlayerPrefs.Save();
+        AudioManager.instance.masterVolume = value;
+        musicSource.volume = PlayerPrefs.GetFloat("musicVol", value) * AudioManager.instance.masterVolume;
+    }
+
     public void OnMusicSliderChanged(float value)
     {
         PlayerPrefs.SetFloat("musicVol", value);
         PlayerPrefs.Save();
-        ApplyMusicVolume(value);
+        musicSource.volume = value * AudioManager.instance.masterVolume;
     }
 
     public void OnSfxSliderChanged(float value)
     {
         PlayerPrefs.SetFloat("sfxVol", value);
         PlayerPrefs.Save();
-        ApplySfxVolume(value);
-    }
-
-    void ApplyMusicVolume(float v)
-    {
-        if (musicSource) 
-            musicSource.volume = v;
-    }
-
-    void ApplySfxVolume(float v)
-    {
-        if (sfxSources == null) 
-            return;
-
-        for (int i = 0; i < sfxSources.Length; i++)
-            sfxSources[i].volume = v;
+        AudioManager.instance.sfxVolume = value;
     }
 }
