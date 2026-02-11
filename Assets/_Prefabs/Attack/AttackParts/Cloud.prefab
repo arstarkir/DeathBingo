@@ -256,7 +256,7 @@ PrefabInstance:
       addedObject: {fileID: 8715362992213445732}
     - targetCorrespondingSourceObject: {fileID: 8530988599884142903, guid: 74314c7bd622884478e0419baa0fcd0b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 696472423640948250}
+      addedObject: {fileID: 9080314999985800731}
   m_SourcePrefab: {fileID: 100100000, guid: 74314c7bd622884478e0419baa0fcd0b, type: 3}
 --- !u!4 &1020735211177486901 stripped
 Transform:
@@ -289,7 +289,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.88, y: 1.46, z: 2.28}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &696472423640948250
+--- !u!114 &9080314999985800731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -298,7 +298,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4766836299786595145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe30cf944550484ea210b801e74e7d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 090f41a74f10b98459b12379831cded5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DealEffect
-  effect: {fileID: 11400000, guid: 254f5686822e9a541b9fc9d2ed726161, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::DealDamage
+  destroyOnDealDmg: 0
+  damageSource: 9

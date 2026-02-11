@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b30e45115342544da1ac22a0a46526a, type: 3}
+  m_Name: ZeusWave5
+  m_EditorClassIdentifier: Assembly-CSharp::RuleGroupSO
+  rules:
+  - {fileID: 11400000, guid: e931f5556f078654b8619d676c5ad0b3, type: 2}
+  - {fileID: 11400000, guid: ad2718b0733b2014aab42e2e0b0545c4, type: 2}
+  - {fileID: 11400000, guid: 62fea0c9cac96dc4ba4c93bd7422bbfd, type: 2}
+  maxSelected: 9
