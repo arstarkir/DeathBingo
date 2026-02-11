@@ -10,30 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfeb7a92a191bbf4ea96dfeedf259aa9, type: 3}
-  m_Name: TornadoLightning
+  m_Name: ZeusWave4 2
   m_EditorClassIdentifier: Assembly-CSharp::AttackSequenceSO
   attacks:
-  - attack: {fileID: 11400000, guid: 6a97e5a202c9cf7409284d03442d1fe0, type: 2}
+  - attack: {fileID: 11400000, guid: e2af1ed1320c9384a921c0ac5cb40bbc, type: 2}
     waitTime: -1
     spawnLocation: {x: 0, y: 0, z: 0}
-  - attack: {fileID: 11400000, guid: a2fdee74b9c394b45b4de5053e733b64, type: 2}
+  - attack: {fileID: 11400000, guid: e2af1ed1320c9384a921c0ac5cb40bbc, type: 2}
     waitTime: 2
     spawnLocation: {x: 0, y: 0, z: 0}
-  - attack: {fileID: 11400000, guid: a2fdee74b9c394b45b4de5053e733b64, type: 2}
+  - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
     waitTime: 1
-    spawnLocation: {x: 0, y: 0, z: 0}
-  - attack: {fileID: 11400000, guid: a2fdee74b9c394b45b4de5053e733b64, type: 2}
-    waitTime: 1
-    spawnLocation: {x: 0, y: 0, z: 0}
-  - attack: {fileID: 11400000, guid: af2010a840f32684e9f6cc039492542a, type: 2}
-    waitTime: 1.5
     spawnLocation: {x: 0, y: 0, z: 0}
   - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
-    waitTime: 0.5
-    spawnLocation: {x: 0, y: 0, z: 0}
-  - attack: {fileID: 11400000, guid: 4d2658c9efdc7a8498df5763ffde535a, type: 2}
-    waitTime: 0.5
-    spawnLocation: {x: 0, y: 0, z: 0}
-  - attack: {fileID: 11400000, guid: a2fdee74b9c394b45b4de5053e733b64, type: 2}
     waitTime: 1
     spawnLocation: {x: 0, y: 0, z: 0}
+  - attack: {fileID: 11400000, guid: a532e1badca870a498680ae581c03632, type: 2}
+    waitTime: 1
+    spawnLocation: {x: 0, y: 0, z: 0}
+  - attack: {fileID: 11400000, guid: 6a97e5a202c9cf7409284d03442d1fe0, type: 2}
+    waitTime: 1
+    spawnLocation: {x: 0, y: 0, z: 0}
+  - attack: {fileID: 11400000, guid: a4f0e613b0b89154abdca8d9ffba5162, type: 2}
+    waitTime: 0.5
+    spawnLocation: {x: 0, y: 0, z: 0}
+  - attack: {fileID: 11400000, guid: 1fb31adf9c413cd429fea8b23bd239de, type: 2}
+    waitTime: 1
+    spawnLocation: {x: -5, y: 0, z: 5}
+  - attack: {fileID: 11400000, guid: 1fb31adf9c413cd429fea8b23bd239de, type: 2}
+    waitTime: 1
+    spawnLocation: {x: -5, y: 0, z: -5}
