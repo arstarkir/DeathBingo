@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e85f07881d6b0f54da36124dc5c16af1, type: 3}
-  m_Name: ColumnSwingAttack
+  m_Name: ColumnSwingAttack (Unused)
   m_EditorClassIdentifier: Assembly-CSharp::AttackSO
   dataName: Column Swing Attack 01
   dataDescription: 
