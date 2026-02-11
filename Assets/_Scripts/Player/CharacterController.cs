@@ -32,6 +32,9 @@ public class CharacterController : Singleton<CharacterController>
 
     public bool isPaused = false;
 
+    public AudioSFXTrigger sFXTrigger;
+    public AudioClip onRoll;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -98,6 +101,7 @@ public class CharacterController : Singleton<CharacterController>
     // rolling state (fast dash move)
     IEnumerator Rolling()
     {
+        sFXTrigger.StartAudio(onRoll);
         rolling = true;
         animator.SetBool("rolling", rolling);
         EffectsManager.instance.RemoveAllEffectOfKindFromEntity(EffectsManager.instance.effectsList.effects.FirstOrDefault(e => e.dataName.Contains("Fire")), GetComponentInParent<Entity>());

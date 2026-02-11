@@ -22,7 +22,7 @@ public class PauseScreenUI : Singleton<PauseScreenUI>
         sfxSlider.value = sfx;
 
         AudioManager.instance.masterVolume = master;
-        musicSource.volume = music * master;
+        musicSource.volume = music * AudioManager.instance.masterVolume;
         AudioManager.instance.sfxVolume = sfx;
 
         pauseScreen.SetActive(false);
@@ -65,7 +65,7 @@ public class PauseScreenUI : Singleton<PauseScreenUI>
         PlayerPrefs.SetFloat("masterVol", value);
         PlayerPrefs.Save();
         AudioManager.instance.masterVolume = value;
-        musicSource.volume = PlayerPrefs.GetFloat("musicVol", value) * AudioManager.instance.masterVolume;
+        musicSource.volume = PlayerPrefs.GetFloat("musicVol") * AudioManager.instance.masterVolume;
     }
 
     public void OnMusicSliderChanged(float value)
