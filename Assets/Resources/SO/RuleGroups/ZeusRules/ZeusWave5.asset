@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: ZeusWave5
   m_EditorClassIdentifier: Assembly-CSharp::RuleGroupSO
   rules:
-  - {fileID: 11400000, guid: 1b3e248cecf600f4eb1e7155fe6ca2fc, type: 2}
-  - {fileID: 11400000, guid: 66d959790bebb214eb6caff3b41f57ae, type: 2}
-  - {fileID: 11400000, guid: b607ecfbe51b1e14e94d7c21ba4639a3, type: 2}
-  - {fileID: 11400000, guid: e9c3db9b5fa04aa4ea8b5eb9b58a042d, type: 2}
-  - {fileID: 11400000, guid: b0e8c4edcb98df7458e15c8a8db5607a, type: 2}
-  - {fileID: 11400000, guid: e9c3db9b5fa04aa4ea8b5eb9b58a042d, type: 2}
+  - {fileID: 11400000, guid: e931f5556f078654b8619d676c5ad0b3, type: 2}
+  - {fileID: 11400000, guid: ad2718b0733b2014aab42e2e0b0545c4, type: 2}
+  - {fileID: 11400000, guid: 62fea0c9cac96dc4ba4c93bd7422bbfd, type: 2}
   maxSelected: 9
