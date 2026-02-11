@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/BossSelectScene.unity
     guid: 28626028ce59ce84ca1a1c2ad1aea2af
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/ArseniiTest/ArseniiTest.unity
-    guid: 96db977834ac476459f195e3ce39e6a5
+    guid: b62d89e3abc77b94281333934b30fcf0
+  - enabled: 1
+    path: Assets/_Scenes/JoshTest/JoshTest.unity
+    guid: b5d590c93dbb04d42ae1cff872d3c8d7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
