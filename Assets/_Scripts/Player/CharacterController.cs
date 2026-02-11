@@ -30,6 +30,8 @@ public class CharacterController : Singleton<CharacterController>
     public bool isInteractable = true;
     [HideInInspector] public Vector3 influenceVelocity;
 
+    public bool isPaused = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -40,7 +42,7 @@ public class CharacterController : Singleton<CharacterController>
         Vector3 moveVel;
         if (bleeding)
         {
-            moveVel = new Vector3(inputVec.x, 0, inputVec.y) * (isSprinting ? sprintSpeed/2 : speed*0.7f);
+            moveVel = new Vector3(inputVec.x, 0, inputVec.y) * (isSprinting ? sprintSpeed / 2 : speed * 0.7f);
         }
         else
         {
@@ -62,13 +64,16 @@ public class CharacterController : Singleton<CharacterController>
         if (flatMove.sqrMagnitude > 0.001f) // just rotating the playermodel, since we haven't been rotating playercollider and I worry it could easily break something
         {
             Quaternion targetRot = Quaternion.LookRotation(flatMove, Vector3.up);
-            playerModel.rotation = Quaternion.Slerp(playerModel.rotation,targetRot,10f * Time.fixedDeltaTime);
+            playerModel.rotation = Quaternion.Slerp(playerModel.rotation, targetRot, 10f * Time.fixedDeltaTime);
         }
 
     }
 
     private void FixedUpdate()
     {
+        if (isPaused)
+            return;
+
         //if (!isInteractable) return;
         GroundCheck();
         PlayerMove();
@@ -118,6 +123,8 @@ public class CharacterController : Singleton<CharacterController>
     #region Input System Callbacks
     public void OnMove(InputAction.CallbackContext ctx)
     {
+        if (isPaused) return;
+
         if (!isInteractable)
             return;
         inputVec = ctx.ReadValue<Vector2>();
@@ -130,6 +137,7 @@ public class CharacterController : Singleton<CharacterController>
 
     public void OnJump(InputAction.CallbackContext ctx)
     {
+        if (isPaused) return;
         if (!isInteractable) return;
         if (bleeding) return;
         if (!(!ctx.performed && ctx.started)) return; // this line makes it so you only jump on button press and not release, funky new unity input stuff
@@ -140,6 +148,7 @@ public class CharacterController : Singleton<CharacterController>
 
     public void OnRoll(InputAction.CallbackContext ctx)
     {
+        if (isPaused) return;
         if (!isInteractable) return;
         if (bleeding) return;
         if (!(!ctx.performed && ctx.started)) return;
@@ -155,5 +164,15 @@ public class CharacterController : Singleton<CharacterController>
         }
         StartCoroutine(Rolling());
     }
+
+    public void OnPause(InputAction.CallbackContext ctx)
+    {
+        isPaused = !isPaused;
+        if(isPaused)
+            PauseScreenUI.instance.OpenPause();
+        else
+            PauseScreenUI.instance.ClosePause();
+    }
+
     #endregion
 }

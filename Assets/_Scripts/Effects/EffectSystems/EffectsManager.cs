@@ -16,7 +16,7 @@ public class EffectsManager : Singleton<EffectsManager>
     private List<EffectTimer> timersToAdd = new List<EffectTimer>();
     // List to store timers that should be removed
     private List<EffectTimer> timersToRemove = new List<EffectTimer>();
-
+    CharacterController characterController;
     [HideInInspector]
     public EffectListSO effectsList;
 
@@ -26,8 +26,16 @@ public class EffectsManager : Singleton<EffectsManager>
         effectsList = Resources.Load<EffectListSO>("SO/EffectList");
     }
 
+    public void Start()
+    {
+        characterController = CharacterController.instance;
+    }
+
     private void Update()
     {
+        if (characterController.isPaused)
+            return;
+
         // To avoid modifications OnEffectEnd or OnTimerComplete
         List<EffectTimer> timersToRemoveCopy = new List<EffectTimer>(timersToRemove);
 
