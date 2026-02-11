@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03a53644649d424eb4d33e21c3c76ad, type: 3}
   m_Name: LightningWhileHidden
   m_EditorClassIdentifier: Assembly-CSharp::EffectRuleSO
-  dataName: BlueLightning While Hidden
-  dataDescription: BlueLightning While Hidden
+  dataName: Lightning While Hidden
+  dataDescription: Lightning While Hidden
   wasDone: 0
   dataType: 0
-  trigger: 7
+  trigger: 4
   attackSO: {fileID: 0}
   bingoSprite: {fileID: 21300000, guid: ab52fd51dd0b2a4458253700ff08d9ac, type: 3}
   effect: {fileID: 11400000, guid: 31f1ca4f609a80d48a67f57a1cd0bd5e, type: 2}
