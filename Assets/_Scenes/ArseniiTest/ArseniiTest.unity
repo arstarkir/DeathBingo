@@ -119,31 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &351067092 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1004890813971631836, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-  m_PrefabInstance: {fileID: 475589065}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &351067093 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 484636634800018534, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-  m_PrefabInstance: {fileID: 475589065}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &351067096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351067092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab10451b457b60408a3852756994b79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioSFXTrigger
-  ifNoAudioGive: {fileID: 0}
-  theObj: {fileID: 351067093}
-  isLooping: 0
 --- !u!1001 &475589065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,56 +171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelEssentials
       objectReference: {fileID: 0}
-    - target: {fileID: 5450861632322109037, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      propertyPath: onRoll
-      value: 
-      objectReference: {fileID: 8300000, guid: 8470a625a6206ae4682ca049b223b51f, type: 3}
-    - target: {fileID: 5450861632322109037, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      propertyPath: sFXTrigger
-      value: 
-      objectReference: {fileID: 596793880}
-    - target: {fileID: 6227651726132906626, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      propertyPath: onWin
-      value: 
-      objectReference: {fileID: 8300000, guid: 1004dcd041c65be42aaa275678f9796c, type: 3}
-    - target: {fileID: 6227651726132906626, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      propertyPath: onLose
-      value: 
-      objectReference: {fileID: 8300000, guid: 82010252114046e4cbc1e0bf5e0fc75d, type: 3}
-    - target: {fileID: 6227651726132906626, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      propertyPath: onDeath
-      value: 
-      objectReference: {fileID: 8300000, guid: 82010252114046e4cbc1e0bf5e0fc75d, type: 3}
-    - target: {fileID: 6227651726132906626, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      propertyPath: onPuase
-      value: 
-      objectReference: {fileID: 8300000, guid: 8470a625a6206ae4682ca049b223b51f, type: 3}
-    - target: {fileID: 6227651726132906626, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      propertyPath: onAddLife
-      value: 
-      objectReference: {fileID: 8300000, guid: 9332ca81e40c78a4e97d71281e6b9361, type: 3}
-    - target: {fileID: 6227651726132906626, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      propertyPath: onRespawn
-      value: 
-      objectReference: {fileID: 8300000, guid: a7c953d239b532a41bd607758f0b11ba, type: 3}
-    - target: {fileID: 6227651726132906626, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      propertyPath: sFXTrigger
-      value: 
-      objectReference: {fileID: 518091650}
-    m_RemovedComponents:
-    - {fileID: 3246772480241279865, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6898208436711272049, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 518091650}
-    - targetCorrespondingSourceObject: {fileID: 2508982040426799054, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 596793880}
-    - targetCorrespondingSourceObject: {fileID: 1004890813971631836, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 351067096}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
 --- !u!1001 &510773426
 PrefabInstance:
@@ -324,56 +253,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f413399fa856bcb41b843226e3b04638, type: 3}
---- !u!1 &518091643 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6898208436711272049, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-  m_PrefabInstance: {fileID: 475589065}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &518091644 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1180198581362315468, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-  m_PrefabInstance: {fileID: 475589065}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &518091650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518091643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab10451b457b60408a3852756994b79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioSFXTrigger
-  ifNoAudioGive: {fileID: 0}
-  theObj: {fileID: 518091644}
-  isLooping: 0
---- !u!1 &596793873 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2508982040426799054, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-  m_PrefabInstance: {fileID: 475589065}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &596793874 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2718561070560696855, guid: 0ed866c429759154e94ffeb1af026b2c, type: 3}
-  m_PrefabInstance: {fileID: 475589065}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &596793880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596793873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab10451b457b60408a3852756994b79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioSFXTrigger
-  ifNoAudioGive: {fileID: 0}
-  theObj: {fileID: 596793874}
-  isLooping: 0
 --- !u!1 &984686420
 GameObject:
   m_ObjectHideFlags: 0
